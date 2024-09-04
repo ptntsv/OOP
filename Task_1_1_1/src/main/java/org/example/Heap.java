@@ -5,12 +5,25 @@ import java.util.Arrays;
 public class Heap {
     private int[] heap;
 
+    /**
+     * Binary heap should maintain an invariant
+     * A[i] <= A[i * 2 + 1] and A[i] <= A[i * 2 + 2]
+     *
+     * @param i Index of heap element
+     * @return Does i-th element in heap keeps an invariant
+     */
     private boolean checkInvariant(int i) {
         if (heap.length / 2 <= i) return true;
         return heap[i] <= heap[2 * i + 1] && (2 * i + 2 >= heap.length || heap[i] <= heap[2 * i + 2]);
     }
 
 
+    /**
+     * Swaps two heap elements
+     *
+     * @param i Index of first element
+     * @param j Index of second element
+     */
     private void swap(int i, int j) {
         int t = heap[i];
         heap[i] = heap[j];
@@ -32,17 +45,15 @@ public class Heap {
         return heap[0];
     }
 
+    /**
+     * Method that turns an array into binary heap.
+     * Loop starts with first 'non-crown' element in reverse order.
+     */
     private void heapify() {
         for (int i = heap.length / 2 - 1; i >= 0; i--) {
             if (!checkInvariant(i)) {
                 siftDown(i);
             }
-        }
-    }
-
-    public void print() {
-        for (int i = 0; i < heap.length; i++) {
-            System.out.println(heap[i]);
         }
     }
 
@@ -54,6 +65,11 @@ public class Heap {
         return ret;
     }
 
+    /**
+     * Method checks whether array is binary heap or not.
+     *
+     * @return
+     */
     public boolean isHeap() {
         for (int i = 0; i < heap.length; i++) {
             if (!checkInvariant(i)) return false;
