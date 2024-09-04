@@ -5,7 +5,7 @@ public class Main {
     public static void heapsort(int arr[]) {
         Heap heap = new Heap(arr);
         int i = 0;
-        while (i < arr.length) {
+        while (!heap.isEmpty()) {
             arr[i] = heap.extractMin();
             i++;
         }

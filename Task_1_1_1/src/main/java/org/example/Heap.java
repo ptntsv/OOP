@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 public class Heap {
     private int[] heap;
+    private int heapLen;
 
     /**
      * Binary heap should maintain an invariant
@@ -13,8 +14,8 @@ public class Heap {
      * @return Does i-th element in heap keeps an invariant
      */
     private boolean checkInvariant(int i) {
-        if (heap.length / 2 <= i) return true;
-        return heap[i] <= heap[2 * i + 1] && (2 * i + 2 >= heap.length || heap[i] <= heap[2 * i + 2]);
+        if (heapLen / 2 <= i) return true;
+        return heap[i] <= heap[2 * i + 1] && (2 * i + 2 >= heapLen || heap[i] <= heap[2 * i + 2]);
     }
 
 
@@ -31,9 +32,9 @@ public class Heap {
     }
 
     private void siftDown(int i) {
-        while (i < heap.length / 2) {
+        while (i < heapLen / 2) {
             int min_child_i = 2 * i + 1;
-            if (2 * i + 2 < heap.length && heap[2 * i + 1] > heap[2 * i + 2]) min_child_i = 2 * i + 2;
+            if (2 * i + 2 < heapLen && heap[2 * i + 1] > heap[2 * i + 2]) min_child_i = 2 * i + 2;
             if (heap[i] > heap[min_child_i]) {
                 swap(i, min_child_i);
             }
@@ -50,7 +51,7 @@ public class Heap {
      * Loop starts with first 'non-crown' element in reverse order.
      */
     private void heapify() {
-        for (int i = heap.length / 2 - 1; i >= 0; i--) {
+        for (int i = heapLen / 2 - 1; i >= 0; i--) {
             if (!checkInvariant(i)) {
                 siftDown(i);
             }
@@ -59,8 +60,8 @@ public class Heap {
 
     public int extractMin() {
         int ret = peekMin();
-        swap(0, heap.length - 1);
-        heap = Arrays.copyOf(heap, heap.length - 1);
+        swap(0, heapLen - 1);
+        heapLen--;
         siftDown(0);
         return ret;
     }
@@ -71,14 +72,18 @@ public class Heap {
      * @return
      */
     public boolean isHeap() {
-        for (int i = 0; i < heap.length; i++) {
+        for (int i = 0; i < heapLen; i++) {
             if (!checkInvariant(i)) return false;
         }
         return true;
     }
+    public boolean isEmpty() {
+        return heapLen == 0;
+    }
 
     public Heap(int arr[]) {
         heap = arr.clone();
+        heapLen = arr.length;
         heapify();
         assert isHeap();
     }
