@@ -3,18 +3,20 @@ package org.example;
 import java.util.Arrays;
 
 public class Heap {
+
     private int[] heap;
     private int heapLen;
 
     /**
-     * Binary heap should maintain an invariant
-     * A[i] <= A[i * 2 + 1] and A[i] <= A[i * 2 + 2]
+     * Binary heap should maintain an invariant A[i] <= A[i * 2 + 1] and A[i] <= A[i * 2 + 2]
      *
      * @param i Index of heap element
      * @return Does i-th element in heap maintains an invariant
      */
     private boolean checkInvariant(int i) {
-        if (heapLen / 2 <= i) return true;
+        if (heapLen / 2 <= i) {
+            return true;
+        }
         return heap[i] <= heap[2 * i + 1] && (2 * i + 2 >= heapLen || heap[i] <= heap[2 * i + 2]);
     }
 
@@ -34,7 +36,9 @@ public class Heap {
     private void siftDown(int i) {
         while (i < heapLen / 2) {
             int min_child_i = 2 * i + 1;
-            if (2 * i + 2 < heapLen && heap[2 * i + 1] > heap[2 * i + 2]) min_child_i = 2 * i + 2;
+            if (2 * i + 2 < heapLen && heap[2 * i + 1] > heap[2 * i + 2]) {
+                min_child_i = 2 * i + 2;
+            }
             if (heap[i] > heap[min_child_i]) {
                 swap(i, min_child_i);
             }
@@ -47,8 +51,8 @@ public class Heap {
     }
 
     /**
-     * Method that turns an array into binary heap.
-     * Loop starts with first 'non-crown' element in reverse order.
+     * Method that turns an array into binary heap. Loop starts with first 'non-crown' element in
+     * reverse order.
      */
     private void heapify() {
         for (int i = heapLen / 2 - 1; i >= 0; i--) {
@@ -73,10 +77,13 @@ public class Heap {
      */
     public boolean isHeap() {
         for (int i = 0; i < heapLen; i++) {
-            if (!checkInvariant(i)) return false;
+            if (!checkInvariant(i)) {
+                return false;
+            }
         }
         return true;
     }
+
     public boolean isEmpty() {
         return heapLen == 0;
     }
