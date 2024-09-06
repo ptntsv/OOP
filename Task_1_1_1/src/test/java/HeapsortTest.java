@@ -1,9 +1,12 @@
 import org.example.Main;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import java.util.Random;
+import org.junit.jupiter.api.Test;
 
+/**
+ * Heapsort tests
+ */
 public class HeapsortTest {
 
     private boolean isSorted(int[] arr) {
