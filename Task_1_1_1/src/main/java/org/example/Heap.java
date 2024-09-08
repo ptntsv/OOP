@@ -33,12 +33,12 @@ public class Heap {
 
     private void siftDown(int i) {
         while (i < heapLen / 2) {
-            int min_child_i = 2 * i + 1;
+            int minChildIndex = 2 * i + 1;
             if (2 * i + 2 < heapLen && heap[2 * i + 1] > heap[2 * i + 2]) {
-                min_child_i = 2 * i + 2;
+                minChildIndex = 2 * i + 2;
             }
-            if (heap[i] > heap[min_child_i]) {
-                swap(i, min_child_i);
+            if (heap[i] > heap[minChildIndex]) {
+                swap(i, minChildIndex);
             }
             i++;
         }
@@ -71,7 +71,7 @@ public class Heap {
     /**
      * Method checks whether array is binary heap or not.
      *
-     * @return
+     * @return Does an array a heap or not
      */
     public boolean isHeap() {
         for (int i = 0; i < heapLen; i++) {
@@ -86,7 +86,7 @@ public class Heap {
         return heapLen == 0;
     }
 
-    public Heap(int arr[]) {
+    public Heap(int[] arr) {
         heap = arr.clone();
         heapLen = arr.length;
         heapify();
