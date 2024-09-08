@@ -18,7 +18,7 @@ public class Heap {
     }
 
     /**
-     * Binary heap should maintain an invariant A[i] <= A[i * 2 + 1] and A[i] <= A[i * 2 + 2]
+     * Binary heap should maintain an invariant A[i] &lt;= A[i * 2 + 1] and A[i] &lt;= A[i * 2 + 2]
      *
      * @param i Index of heap element
      * @return Does i-th element in heap maintains an invariant
