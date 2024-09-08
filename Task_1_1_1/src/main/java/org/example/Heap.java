@@ -1,9 +1,21 @@
 package org.example;
 
+
+import java.util.Arrays;
+
 public class Heap {
 
     private int[] heap;
+
+    public int[] getHeap() {
+        return Arrays.copyOf(heap, heapLen);
+    }
+
     private int heapLen;
+
+    public int getHeapLen() {
+        return heapLen;
+    }
 
     /**
      * Binary heap should maintain an invariant A[i] <= A[i * 2 + 1] and A[i] <= A[i * 2 + 2]
@@ -11,7 +23,7 @@ public class Heap {
      * @param i Index of heap element
      * @return Does i-th element in heap maintains an invariant
      */
-    private boolean checkInvariant(int i) {
+    public boolean checkInvariant(int i) {
         if (heapLen / 2 <= i) {
             return true;
         }
@@ -68,19 +80,6 @@ public class Heap {
         return ret;
     }
 
-    /**
-     * Method checks whether array is binary heap or not.
-     *
-     * @return Does an array a heap or not
-     */
-    public boolean isHeap() {
-        for (int i = 0; i < heapLen; i++) {
-            if (!checkInvariant(i)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
     public boolean isEmpty() {
         return heapLen == 0;
@@ -90,6 +89,5 @@ public class Heap {
         heap = arr.clone();
         heapLen = arr.length;
         heapify();
-        assert isHeap();
     }
 }

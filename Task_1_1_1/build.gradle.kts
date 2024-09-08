@@ -1,7 +1,7 @@
 plugins {
     id("java")
-    // id("jacoco")
-    jacoco
+    id("jacoco")
+    // jacoco
 }
 
 group = "org.example"
