@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -174,23 +174,33 @@ extends java.lang.Object</pre>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#checkInvariant(int)">checkInvariant</a></span>&#8203;(int&nbsp;i)</code></th>
+<td class="colLast">
+<div class="block">Binary heap should maintain an invariant A[i] &lt;= A[i * 2 + 1] and A[i] &lt;= A[i * 2 + 2]</div>
+</td>
+</tr>
+<tr id="i1" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#extractMin()">extractMin</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i1" class="rowColor">
+<tr id="i2" class="altColor">
+<td class="colFirst"><code>int[]</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHeap()">getHeap</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHeapLen()">getHeapLen</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>boolean</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isEmpty()">isEmpty</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i2" class="altColor">
-<td class="colFirst"><code>boolean</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#isHeap()">isHeap</a></span>()</code></th>
-<td class="colLast">
-<div class="block">Method checks whether array is binary heap or not.</div>
-</td>
-</tr>
-<tr id="i3" class="rowColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>int</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peekMin()">peekMin</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
@@ -238,6 +248,40 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="getHeap()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHeap</h4>
+<pre class="methodSignature">public&nbsp;int[]&nbsp;getHeap()</pre>
+</li>
+</ul>
+<a id="getHeapLen()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHeapLen</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getHeapLen()</pre>
+</li>
+</ul>
+<a id="checkInvariant(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>checkInvariant</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;checkInvariant&#8203;(int&nbsp;i)</pre>
+<div class="block">Binary heap should maintain an invariant A[i] &lt;= A[i * 2 + 1] and A[i] &lt;= A[i * 2 + 2]</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>i</code> - Index of heap element</dd>
+<dt><span class="returnLabel">Returns:</span></dt>
+<dd>Does i-th element in heap maintains an invariant</dd>
+</dl>
+</li>
+</ul>
 <a id="peekMin()">
 <!--   -->
 </a>
@@ -254,20 +298,6 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>extractMin</h4>
 <pre class="methodSignature">public&nbsp;int&nbsp;extractMin()</pre>
-</li>
-</ul>
-<a id="isHeap()">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>isHeap</h4>
-<pre class="methodSignature">public&nbsp;boolean&nbsp;isHeap()</pre>
-<div class="block">Method checks whether array is binary heap or not.</div>
-<dl>
-<dt><span class="returnLabel">Returns:</span></dt>
-<dd>Does an array a heap or not</dd>
-</dl>
 </li>
 </ul>
 <a id="isEmpty()">
