@@ -5,6 +5,9 @@ import org.example.Main;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Test class for checking heapsort algorithm and Heap methods which heapsort depends on.
+ */
 public class HeapsortTest {
 
     /**

@@ -76,6 +76,11 @@ public class Heap {
         }
     }
 
+    /**
+     * Extract minimum value of heap.
+     *
+     * @return Current minimum.
+     */
     public int extractMin() {
         final int ret = peekMin();
         swap(0, heapLen - 1);
@@ -85,6 +90,11 @@ public class Heap {
     }
 
 
+    /**
+     * Whether heap empty or not.
+     *
+     * @return True if heapLen == 0, false otherwise.
+     */
     public boolean isEmpty() {
         return heapLen == 0;
     }
