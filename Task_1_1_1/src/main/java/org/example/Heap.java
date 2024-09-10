@@ -93,12 +93,17 @@ public class Heap {
     /**
      * Whether heap empty or not.
      *
-     * @return True if heapLen == 0, false otherwise.
+     * @return True if heapLen == 0, false otherwise
      */
     public boolean isEmpty() {
         return heapLen == 0;
     }
 
+    /**
+     * Constructor for Heap class.
+     *
+     * @param arr Array that needs to be "heapified"
+     */
     public Heap(int[] arr) {
         heap = arr.clone();
         heapLen = arr.length;
