@@ -56,7 +56,7 @@ public class Heap {
             if (heap[i] > heap[minChildIndex]) {
                 swap(i, minChildIndex);
             }
-            i++;
+            i = minChildIndex;
         }
     }
 
