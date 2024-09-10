@@ -6,7 +6,7 @@ public class Main {
     /**
      * Heapsort algorithm.
      *
-     * @param Array to sort.
+     * @param arr Array to sort.
      */
     public static void heapsort(int[] arr) {
         Heap heap = new Heap(arr);
