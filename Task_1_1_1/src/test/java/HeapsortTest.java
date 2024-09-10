@@ -3,14 +3,14 @@ import java.util.Random;
 import org.example.Heap;
 import org.example.Main;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class HeapsortTest {
 
-    private static Random rand;
-    private static Heap testHeap;
+    /**
+     * Size of randomly generated array.
+     */
+    private static final int testArrSize = 1000;
 
     /**
      * Method checks whether array is binary heap or not.
@@ -35,18 +35,28 @@ public class HeapsortTest {
         return true;
     }
 
-    @BeforeAll
-    public static void setup() {
-        rand = new Random();
-    }
-
-    @BeforeEach
-    public void generate() {
-        int[] data = new int[1000];
+    /**
+     * Method that generates array with randomized numbers for testing purposes.
+     *
+     * @return Array that contains random numbers.
+     */
+    private int[] generateRandomArr() {
+        Random rand = new Random();
+        int[] data = new int[testArrSize];
         for (int i = 0; i < data.length; i++) {
             data[i] = rand.nextInt();
         }
-        testHeap = new Heap(data);
+        return data;
+    }
+
+    /**
+     * Method that generates heap with randomized array for testing purposes.
+     *
+     * @return Heap that contains randomized array.
+     */
+    public Heap generateHeap() {
+        int[] data = generateRandomArr();
+        return new Heap(data);
     }
 
 
@@ -115,25 +125,23 @@ public class HeapsortTest {
 
     @Test
     public void testRandomized() {
-        int[] arr = new int[1000];
-        for (int i = 0; i < 1000; i++) {
-            arr[i] = rand.nextInt();
-        }
+        int[] arr = generateRandomArr();
         Main.heapsort(arr);
         Assertions.assertTrue(isSorted(arr));
     }
 
     @Test
     public void testHeapify() {
-        Assertions.assertTrue(isHeap(testHeap));
+        Assertions.assertTrue(isHeap(generateHeap()));
     }
 
     @Test
     public void testExtractMin() {
-        while (!testHeap.isEmpty()) {
-            int min = Arrays.stream(testHeap.getHeap()).min().getAsInt();
-            Assertions.assertEquals(testHeap.extractMin(), min);
-            Assertions.assertTrue(isHeap(testHeap));
+        Heap h = generateHeap();
+        while (!h.isEmpty()) {
+            int min = Arrays.stream(h.getHeap()).min().getAsInt();
+            Assertions.assertEquals(h.extractMin(), min);
+            Assertions.assertTrue(isHeap(h));
         }
     }
 }
