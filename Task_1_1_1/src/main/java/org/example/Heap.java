@@ -36,7 +36,7 @@ public class Heap {
 
 
     /**
-     * Swaps two heap elements
+     * Swaps two heap elements.
      *
      * @param i Index of first element
      * @param j Index of second element
