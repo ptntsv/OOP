@@ -18,9 +18,10 @@ public class Deck {
         return deckLen == 0;
     }
 
-    public Card peekCard() {
+    public Card peekCard(boolean isOpen) {
         int index = rand.nextInt(deckLen);
         Card ret = deck.get(index);
+        ret.isOpen = isOpen;
         deck.set(index, deck.get(--deckLen));
         return ret;
     }
