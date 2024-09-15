@@ -1,65 +1,74 @@
 package org.example;
 
+import java.util.concurrent.TimeUnit;
+
 public class Game {
 
-    private Deck deck = new Deck();
-    private Player you = new Player();
-    private Player dealer = new Player();
+    final private Deck deck = new Deck();
+    final private Player player = new Player();
+    final private Dealer dealer = new Dealer();
+    final private IO io = new IO(this);
     private int currentRound = 1;
-    private final int winCondition = 21;
-    public boolean isOver = false;
+    int[] scoreTable = {0, 0};
 
-    private void peekCard(Player player, boolean isOpen) {
-        player.addCard(deck.peekCard());
-        if (deck.isEmpty()) {
-            isOver = true;
+    public Player getPlayer() {
+        return this.player;
+    }
+
+    public Dealer getDealer() {
+        return this.dealer;
+    }
+
+    private boolean checkWinCondition(boolean isRoundEnds) {
+        boolean ret = true;
+        int threshold = 21;
+        if (player.getScore() == threshold || dealer.getScore() > threshold) {
+            player.win(scoreTable);
+        } else if (dealer.getScore() == threshold || player.getScore() > threshold) {
+            dealer.win(scoreTable);
+        } else if (isRoundEnds) {
+            if (player.getScore() >= dealer.getScore()) {
+                player.win(scoreTable);
+            } else {
+                dealer.win(scoreTable);
+            }
+        } else {
+            ret = false;
         }
-    }
-
-    private boolean isWinner(Player player) {
-        return player.getScore() == winCondition;
-    }
-
-    private void dealTheCards() {
-        peekCard(you, true);
-        peekCard(you, true);
-        System.out.println("\t Ваши карты: " + you.cardsToString());
-
-        peekCard(dealer, true);
-        peekCard(dealer, false);
-        System.out.println("\t Карты дилера: " + dealer.cardsToString());
-    }
-
-    private void dealerTurn() {
-    }
-
-    private void playerTurn() {
-
+        return ret;
     }
 
     private void newRound() {
+        IO.printRoundMsg(currentRound);
         currentRound++;
         deck.reset();
-        you.reset();
+        player.reset();
         dealer.reset();
+        try {
+            TimeUnit.SECONDS.sleep(1);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void gameLoop() {
-        while (!isOver) {
-            IO.printRoundMsg(currentRound);
-            dealTheCards();
-
-            if (isWinner(you)) {
-                isOver = true;
-                return;
-            } else if (isWinner(dealer)) {
-                isOver = true;
-                return;
-            }
-            playerTurn();
-            dealerTurn();
-
+        while (true) {
             newRound();
+            dealer.dealCards(deck, player);
+            if (checkWinCondition(false)) {
+                continue;
+            }
+
+            player.takeTurn(deck, io);
+            if (checkWinCondition(false)) {
+                continue;
+            }
+            dealer.takeTurn(deck, io);
+            if (checkWinCondition(false)) {
+                continue;
+            }
+
+            checkWinCondition(true);
         }
     }
 
