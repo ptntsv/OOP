@@ -7,16 +7,9 @@ public class IO {
     private final Game gameContext;
     public static Scanner in = new Scanner(System.in);
     public static final String playerTurnMsg =
-        """
-            Ваш ход
-            -------
-            Введите "1", чтобы взять карту, и "0", чтобы остановиться...
-            """;
+        " Ваш ход\n-------\nВведите \"1\", чтобы взять карту, и \"0\", чтобы остановиться....";
     public static final String dealerTurnMsg =
-        """
-            Ход дилера
-            -------
-            """;
+        "Ход дилера\n-------";
 
     public void printHeldCards() {
         this.gameContext.getPlayer().printCards();
@@ -31,6 +24,7 @@ public class IO {
         System.out.println("Раунд " + round);
         System.out.println("Дилер раздал карты");
     }
+
     public IO(Game game) {
         this.gameContext = game;
     }
