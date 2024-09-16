@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -185,20 +185,19 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printCards()">printCards</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTurnEpilogueString(org.example.Card,boolean)">getTurnEpilogueString</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;c,
+                     boolean&nbsp;wasClosed)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printTurnEpilogue(org.example.Card,org.example.IO,boolean)">printTurnEpilogue</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;c,
-                 <a href="IO.html" title="class in org.example">IO</a>&nbsp;io,
-                 boolean&nbsp;wasClosed)</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTurnPrologueString()">getTurnPrologueString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printTurnPrologue()">printTurnPrologue</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#printCardsMsg()">printCardsMsg</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
@@ -208,13 +207,8 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 </tr>
 <tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#takeTurn(org.example.Deck,org.example.IO)">takeTurn</a></span>&#8203;(<a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck,
-        <a href="IO.html" title="class in org.example">IO</a>&nbsp;io)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr id="i6" class="altColor">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#win(int%5B%5D)">win</a></span>&#8203;(int[]&nbsp;scoreTable)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#takeTurn(org.example.Deck,org.example.Game)">takeTurn</a></span>&#8203;(<a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck,
+        <a href="Game.html" title="class in org.example">Game</a>&nbsp;gameContext)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </table>
@@ -223,7 +217,7 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.example.<a href="Player.html" title="class in org.example">Player</a></h3>
-<code><a href="Player.html#cardsToString()">cardsToString</a>, <a href="Player.html#getScore()">getScore</a>, <a href="Player.html#peekCard(org.example.Card)">peekCard</a>, <a href="Player.html#printTurnEpilogue(org.example.Card,org.example.IO)">printTurnEpilogue</a></code></li>
+<code><a href="Player.html#cardsToString()">cardsToString</a>, <a href="Player.html#getScore()">getScore</a>, <a href="Player.html#getTurnEpilogueString(org.example.Card)">getTurnEpilogueString</a>, <a href="Player.html#peekCard(org.example.Card)">peekCard</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -267,19 +261,6 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
-<a id="win(int[])">
-<!--   -->
-</a>
-<ul class="blockList">
-<li class="blockList">
-<h4>win</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;win&#8203;(int[]&nbsp;scoreTable)</pre>
-<dl>
-<dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="Player.html#win(int%5B%5D)">win</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
-</dl>
-</li>
-</ul>
 <a id="reset()">
 <!--   -->
 </a>
@@ -293,54 +274,53 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 </dl>
 </li>
 </ul>
-<a id="printTurnPrologue()">
+<a id="getTurnPrologueString()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>printTurnPrologue</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;printTurnPrologue()</pre>
+<h4>getTurnPrologueString</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getTurnPrologueString()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="Player.html#printTurnPrologue()">printTurnPrologue</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
+<dd><code><a href="Player.html#getTurnPrologueString()">getTurnPrologueString</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="printTurnEpilogue(org.example.Card,org.example.IO,boolean)">
+<a id="getTurnEpilogueString(org.example.Card,boolean)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>printTurnEpilogue</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;printTurnEpilogue&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;c,
-                              <a href="IO.html" title="class in org.example">IO</a>&nbsp;io,
-                              boolean&nbsp;wasClosed)</pre>
+<h4>getTurnEpilogueString</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;getTurnEpilogueString&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;c,
+                                              boolean&nbsp;wasClosed)</pre>
 </li>
 </ul>
-<a id="takeTurn(org.example.Deck,org.example.IO)">
+<a id="takeTurn(org.example.Deck,org.example.Game)">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
 <h4>takeTurn</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;takeTurn&#8203;(<a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck,
-                     <a href="IO.html" title="class in org.example">IO</a>&nbsp;io)</pre>
+                     <a href="Game.html" title="class in org.example">Game</a>&nbsp;gameContext)</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="Player.html#takeTurn(org.example.Deck,org.example.IO)">takeTurn</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
+<dd><code><a href="Player.html#takeTurn(org.example.Deck,org.example.Game)">takeTurn</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
 </dl>
 </li>
 </ul>
-<a id="printCards()">
+<a id="printCardsMsg()">
 <!--   -->
 </a>
 <ul class="blockList">
 <li class="blockList">
-<h4>printCards</h4>
-<pre class="methodSignature">public&nbsp;void&nbsp;printCards()</pre>
+<h4>printCardsMsg</h4>
+<pre class="methodSignature">public&nbsp;java.lang.String&nbsp;printCardsMsg()</pre>
 <dl>
 <dt><span class="overrideSpecifyLabel">Overrides:</span></dt>
-<dd><code><a href="Player.html#printCards()">printCards</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
+<dd><code><a href="Player.html#printCardsMsg()">printCardsMsg</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a></code></dd>
 </dl>
 </li>
 </ul>
