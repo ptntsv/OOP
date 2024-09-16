@@ -13,7 +13,7 @@ public class Player {
     }
 
     /**
-     * Change all ace's values to 1
+     * Change all ace's values to 1.
      */
     private void downgradeAces() {
         for (var c : this.cards) {
@@ -24,7 +24,8 @@ public class Player {
     }
 
     /**
-     * Updating score if given card caused threshold exceeding
+     * Updating score if given card caused threshold exceeding.
+     *
      * @param card Given card
      */
     private void updateScore(Card card) {
