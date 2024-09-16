@@ -7,40 +7,33 @@ public class Dealer extends Player {
     private boolean hasOpened = false;
 
     @Override
-    public void win(int[] scoreTable) {
-        System.out.println("Дилер выигрывает раунд! Счёт " + scoreTable[0] + ":" + ++scoreTable[1]);
-    }
-
-    @Override
     public void reset() {
         super.reset();
         hasOpened = false;
     }
 
     @Override
-    public void printTurnPrologue() {
-        System.out.println(IO.dealerTurnMsg);
+    public String getTurnPrologueString() {
+        return IO.dealerTurnMsg;
     }
 
-    public void printTurnEpilogue(Card c, IO io, boolean wasClosed) {
-        final String msg =
-            "Дилер открывает " + ((wasClosed) ? "закрытую " : "") + "карту " + c.toString();
-        System.out.println(msg);
-        io.printHeldCards();
+    public String getTurnEpilogueString(Card c, boolean wasClosed) {
+        return "Дилер открывает " + ((wasClosed) ? "закрытую " : "") + "карту " + c.toString();
     }
 
     @Override
-    public void takeTurn(Deck deck, IO io) {
+    public void takeTurn(Deck deck, Game gameContext) {
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        printTurnPrologue();
+        IO.printTurnMsg(getTurnPrologueString());
         if (!hasOpened) {
             this.cards.get(1).isOpen = true;
             hasOpened = true;
-            printTurnEpilogue(this.cards.get(1), io, true);
+            IO.printTurnMsg(getTurnEpilogueString(this.cards.get(1), true));
+            IO.printHeldCards(gameContext);
         }
         while (getScore() < 17) {
             peekCard(deck.peekCard(true));
@@ -49,9 +42,8 @@ public class Dealer extends Player {
 
 
     @Override
-    public void printCards() {
-        System.out.println(
-            "\tКарты дилера: " + cardsToString() + (this.hasOpened ? " => " + getScore() : ""));
+    public String printCardsMsg() {
+        return "\tКарты дилера: " + cardsToString() + (this.hasOpened ? " => " + getScore() : "");
     }
 
     public void dealCards(Deck deck, Player player) {
@@ -61,7 +53,7 @@ public class Dealer extends Player {
         this.peekCard(deck.peekCard(true));
         this.peekCard(deck.peekCard(false));
 
-        player.printCards();
-        this.printCards();
+        IO.printCards(player);
+        IO.printCards(this);
     }
 }

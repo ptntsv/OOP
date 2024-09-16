@@ -2,13 +2,24 @@ package org.example;
 
 import java.util.concurrent.TimeUnit;
 
+enum GameState {
+    DRAW,
+    PLAYER_WON,
+    DEALER_WON,
+    NEITHER
+}
+
+/**
+ * Class that contains current state of game, i.e. main class
+ */
 public class Game {
 
     final private Deck deck = new Deck();
     final private Player player = new Player();
     final private Dealer dealer = new Dealer();
-    final private IO io = new IO(this);
+    final public static int threshold = 21;
     private int currentRound = 1;
+    private GameState gameState;
     int[] scoreTable = {0, 0};
 
     public Player getPlayer() {
@@ -19,25 +30,58 @@ public class Game {
         return this.dealer;
     }
 
+    /**
+     * Checks for win condition every time when dealer/player took their turn and changes game
+     * states (winner, score table, etc.).
+     *
+     * @param isRoundEnds If true - then we can compare player and dealer score and chose a winner.
+     *                    If else - this method was called after dealer deal the cards.
+     * @return Is there a winner?
+     */
     private boolean checkWinCondition(boolean isRoundEnds) {
-        boolean ret = true;
+        boolean someOneWon = true;
         int threshold = 21;
         if (player.getScore() == threshold || dealer.getScore() > threshold) {
-            player.win(scoreTable);
+            gameState = GameState.PLAYER_WON;
         } else if (dealer.getScore() == threshold || player.getScore() > threshold) {
-            dealer.win(scoreTable);
+            gameState = GameState.DEALER_WON;
         } else if (isRoundEnds) {
-            if (player.getScore() >= dealer.getScore()) {
-                player.win(scoreTable);
+            if (player.getScore() > dealer.getScore()) {
+                gameState = GameState.PLAYER_WON;
+            } else if (dealer.getScore() > player.getScore()) {
+                gameState = GameState.DEALER_WON;
             } else {
-                dealer.win(scoreTable);
+                gameState = GameState.DRAW;
             }
         } else {
-            ret = false;
+            someOneWon = false;
         }
-        return ret;
+        if (someOneWon) {
+            switch (gameState) {
+                case PLAYER_WON -> {
+                    IO.printPlayerWon();
+                    scoreTable[0]++;
+                    break;
+                }
+                case DEALER_WON -> {
+                    IO.printDealerWon();
+                    scoreTable[1]++;
+                    break;
+                }
+                case DRAW -> {
+                    break;
+                }
+                default -> {
+                }
+            }
+            IO.printScore(scoreTable);
+        }
+        return someOneWon;
     }
 
+    /**
+     * Resets game state (deck, player's and dealer's scores, etc.).
+     */
     private void newRound() {
         IO.printRoundMsg(currentRound);
         currentRound++;
@@ -59,11 +103,11 @@ public class Game {
                 continue;
             }
 
-            player.takeTurn(deck, io);
+            player.takeTurn(deck, this);
             if (checkWinCondition(false)) {
                 continue;
             }
-            dealer.takeTurn(deck, io);
+            dealer.takeTurn(deck, this);
             if (checkWinCondition(false)) {
                 continue;
             }
