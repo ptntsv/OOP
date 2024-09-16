@@ -58,20 +58,20 @@ public class Game {
         }
         if (someOneWon) {
             switch (gameState) {
-                case PLAYER_WON -> {
+                case PLAYER_WON: {
                     IO.printPlayerWon();
                     scoreTable[0]++;
                     break;
                 }
-                case DEALER_WON -> {
+                case DEALER_WON: {
                     IO.printDealerWon();
                     scoreTable[1]++;
                     break;
                 }
-                case DRAW -> {
+                case DRAW: {
                     break;
                 }
-                default -> {
+                default: {
                 }
             }
             IO.printScore(scoreTable);
