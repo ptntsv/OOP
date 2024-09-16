@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Player {
 
@@ -13,9 +12,25 @@ public class Player {
         return score;
     }
 
+    /**
+     * Change all ace's values to 1
+     */
+    private void downgradeAces() {
+        for (var c : this.cards) {
+            if (c.type == CardType.Ace) {
+                c.value = 1;
+            }
+        }
+    }
+
+    /**
+     * Updating score if given card caused threshold exceeding
+     * @param card Given card
+     */
     private void updateScore(Card card) {
-        if (card.type == CardType.Ace && this.score > 21) {
-            this.score += 1;
+        if (card.type == CardType.Ace && this.score > Game.threshold - CardType.Ace.getValue()) {
+            downgradeAces();
+            this.score = this.cards.stream().mapToInt(x -> x.value).sum();
         } else {
             this.score += card.value;
         }
@@ -26,31 +41,25 @@ public class Player {
         updateScore(card);
     }
 
-    public void win(int[] scoreTable) {
-        System.out.println("Вы выигрываете раунд! Счёт " + ++scoreTable[0] + ":" + scoreTable[1]);
+    public String getTurnPrologueString() {
+        return IO.playerTurnMsg;
     }
 
-    public void printTurnPrologue() {
-        System.out.println(IO.playerTurnMsg);
+    public String getTurnEpilogueString(Card c) {
+        return "Вы открыли карту " + c.toString();
     }
 
-    public void printTurnEpilogue(Card c, IO io) {
-        final String msg = "Вы открыли карту " + c.toString();
-        System.out.println(msg);
-        io.printHeldCards();
-    }
-
-    public void takeTurn(Deck deck, IO io) {
-        printTurnPrologue();
-        Scanner reader = new Scanner(System.in);
-        int input = reader.nextInt();
+    public void takeTurn(Deck deck, Game gameContext) {
+        IO.printTurnMsg(getTurnPrologueString());
+        int input = IO.readPlayerInput();
         while (input == 1) {
             Card c = deck.peekCard(true);
             peekCard(c);
-            printTurnEpilogue(c, io);
+            IO.printTurnMsg(getTurnEpilogueString(c));
+            IO.printHeldCards(gameContext);
 
-            printTurnPrologue();
-            input = reader.nextInt();
+            IO.printTurnMsg(getTurnPrologueString());
+            input = IO.readPlayerInput();
         }
     }
 
@@ -71,8 +80,8 @@ public class Player {
         return s.toString();
     }
 
-    public void printCards() {
-        System.out.println("\tВаши карты: " + cardsToString() + " => " + getScore());
+    public String printCardsMsg() {
+        return "\tВаши карты: " + cardsToString() + " => " + getScore();
     }
 
 }
