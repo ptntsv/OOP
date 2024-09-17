@@ -10,14 +10,6 @@ public class Deck {
     private Random rand = new Random();
     private int deckLen;
 
-    public int getDeckLen() {
-        return deckLen;
-    }
-
-    public boolean isEmpty() {
-        return deckLen == 0;
-    }
-
     public Card peekCard(boolean isOpen) {
         int index = rand.nextInt(deckLen);
         Card ret = deck.get(index);
