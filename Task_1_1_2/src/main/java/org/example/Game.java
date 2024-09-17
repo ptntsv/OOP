@@ -2,13 +2,6 @@ package org.example;
 
 import java.util.concurrent.TimeUnit;
 
-enum GameState {
-    DRAW,
-    PLAYER_WON,
-    DEALER_WON,
-    NEITHER
-}
-
 /**
  * Class that contains current state of game, i.e. main class
  */
@@ -19,11 +12,18 @@ public class Game {
     final private Dealer dealer = new Dealer();
     final public static int threshold = 21;
     private int currentRound = 1;
-    private GameState gameState;
+    public WinState winState = WinState.NEITHER;
+    /**
+     * scoreTable[0] - player's score scoreTable[1] - dealer's score
+     */
     int[] scoreTable = {0, 0};
 
     public Player getPlayer() {
         return this.player;
+    }
+
+    public Deck getDeck() {
+        return this.deck;
     }
 
     public Dealer getDealer() {
@@ -38,45 +38,41 @@ public class Game {
      *                    If else - this method was called after dealer deal the cards.
      * @return Is there a winner?
      */
-    private boolean checkWinCondition(boolean isRoundEnds) {
-        boolean someOneWon = true;
+    public void checkWinCondition(boolean isRoundEnds) {
+//        boolean someOneWon = true;
         int threshold = 21;
         if (player.getScore() == threshold || dealer.getScore() > threshold) {
-            gameState = GameState.PLAYER_WON;
+            winState = WinState.PLAYER_WON;
         } else if (dealer.getScore() == threshold || player.getScore() > threshold) {
-            gameState = GameState.DEALER_WON;
+            winState = WinState.DEALER_WON;
         } else if (isRoundEnds) {
             if (player.getScore() > dealer.getScore()) {
-                gameState = GameState.PLAYER_WON;
+                winState = WinState.PLAYER_WON;
             } else if (dealer.getScore() > player.getScore()) {
-                gameState = GameState.DEALER_WON;
+                winState = WinState.DEALER_WON;
             } else {
-                gameState = GameState.DRAW;
+                winState = WinState.DRAW;
             }
-        } else {
-            someOneWon = false;
         }
-        if (someOneWon) {
-            switch (gameState) {
-                case PLAYER_WON: {
-                    IO.printPlayerWon();
-                    scoreTable[0]++;
-                    break;
-                }
-                case DEALER_WON: {
-                    IO.printDealerWon();
-                    scoreTable[1]++;
-                    break;
-                }
-                case DRAW: {
-                    break;
-                }
-                default: {
-                }
+        switch (winState) {
+            case PLAYER_WON: {
+                IO.printPlayerWon();
+                scoreTable[0]++;
+                break;
             }
-            IO.printScore(scoreTable);
+            case DEALER_WON: {
+                IO.printDealerWon();
+                scoreTable[1]++;
+                break;
+            }
+            case DRAW: {
+                break;
+            }
+            default: {
+                return;
+            }
         }
-        return someOneWon;
+        IO.printScore(scoreTable);
     }
 
     /**
@@ -85,6 +81,7 @@ public class Game {
     private void newRound() {
         IO.printRoundMsg(currentRound);
         currentRound++;
+        winState = WinState.NEITHER;
         deck.reset();
         player.reset();
         dealer.reset();
@@ -95,20 +92,23 @@ public class Game {
         }
     }
 
+    /**
+     * Main game loop.
+     */
     private void gameLoop() {
         while (true) {
             newRound();
             dealer.dealCards(deck, player);
-            if (checkWinCondition(false)) {
+            if (winState != WinState.NEITHER) {
                 continue;
             }
 
             player.takeTurn(deck, this);
-            if (checkWinCondition(false)) {
+            if (winState != WinState.NEITHER) {
                 continue;
             }
             dealer.takeTurn(deck, this);
-            if (checkWinCondition(false)) {
+            if (winState != WinState.NEITHER) {
                 continue;
             }
 
