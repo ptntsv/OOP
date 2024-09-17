@@ -22,10 +22,6 @@ public class Game {
         return this.player;
     }
 
-    public Deck getDeck() {
-        return this.deck;
-    }
-
     public Dealer getDealer() {
         return this.dealer;
     }
@@ -36,10 +32,8 @@ public class Game {
      *
      * @param isRoundEnds If true - then we can compare player and dealer score and chose a winner.
      *                    If else - this method was called after dealer deal the cards.
-     * @return Is there a winner?
      */
     public void checkWinCondition(boolean isRoundEnds) {
-//        boolean someOneWon = true;
         int threshold = 21;
         if (player.getScore() == threshold || dealer.getScore() > threshold) {
             winState = WinState.PLAYER_WON;
