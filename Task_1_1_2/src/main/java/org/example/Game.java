@@ -13,10 +13,7 @@ public class Game {
     final public static int threshold = 21;
     private int currentRound = 1;
     public WinState winState = WinState.NEITHER;
-    /**
-     * scoreTable[0] - player's score scoreTable[1] - dealer's score
-     */
-    int[] scoreTable = {0, 0};
+    ScoreTuple scoreTable = new ScoreTuple();
 
     public Player getPlayer() {
         return this.player;
@@ -34,7 +31,6 @@ public class Game {
      *                    If else - this method was called after dealer deal the cards.
      */
     public void checkWinCondition(boolean isRoundEnds) {
-        int threshold = 21;
         if (player.getScore() == threshold || dealer.getScore() > threshold) {
             winState = WinState.PLAYER_WON;
         } else if (dealer.getScore() == threshold || player.getScore() > threshold) {
@@ -51,15 +47,16 @@ public class Game {
         switch (winState) {
             case PLAYER_WON: {
                 IO.printPlayerWon();
-                scoreTable[0]++;
+                scoreTable.playerScore++;
                 break;
             }
             case DEALER_WON: {
                 IO.printDealerWon();
-                scoreTable[1]++;
+                scoreTable.dealerScore++;
                 break;
             }
             case DRAW: {
+                IO.printDraw();
                 break;
             }
             default: {
@@ -92,21 +89,35 @@ public class Game {
     private void gameLoop() {
         while (true) {
             newRound();
-            dealer.dealCards(deck, player);
-            if (winState != WinState.NEITHER) {
-                continue;
+
+            // TODO: remove
+            for (int i = 0; i < 50; i++) {
+                try {
+                    player.peekCard(deck.peekCard(true));
+                } catch (DeckIsEmptyException e) {
+                    continue;
+                }
             }
 
-            player.takeTurn(deck, this);
-            if (winState != WinState.NEITHER) {
-                continue;
-            }
-            dealer.takeTurn(deck, this);
-            if (winState != WinState.NEITHER) {
-                continue;
-            }
+            try {
+                dealer.dealCards(deck, player);
+                checkWinCondition(false);
+                if (winState != WinState.NEITHER) {
+                    continue;
+                }
 
-            checkWinCondition(true);
+                player.takeTurn(deck, this);
+                checkWinCondition(false);
+                if (winState != WinState.NEITHER) {
+                    continue;
+                }
+
+                dealer.takeTurn(deck, this);
+                checkWinCondition(true);
+
+            } catch (InvalidTurnException e) {
+                System.out.println(e.getMessage());
+            }
         }
     }
 

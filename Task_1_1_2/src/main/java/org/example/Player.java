@@ -28,7 +28,10 @@ public class Player {
      *
      * @param card Given card
      */
-    private void updateScore(Card card) {
+    public void updateScore(Card card) {
+        if (!card.isOpen) {
+            return;
+        }
         if (card.type == CardType.Ace && this.score > Game.threshold - CardType.Ace.getValue()) {
             downgradeAces();
             this.score = this.cards.stream().mapToInt(x -> x.value).sum();
@@ -50,17 +53,21 @@ public class Player {
         return "Вы открыли карту " + c.toString();
     }
 
-    public void takeTurn(Deck deck, Game gameContext) {
+    public void takeTurn(Deck deck, Game gameContext) throws InvalidTurnException {
         IO.printTurnMsg(getTurnPrologueString());
         int input = IO.readPlayerInput();
-        while (input == 1) {
-            Card c = deck.peekCard(true);
-            peekCard(c);
-            IO.printTurnMsg(getTurnEpilogueString(c));
-            IO.printHeldCards(gameContext);
+        while (input == IO.keyPeekCard) {
+            try {
+                Card c = deck.peekCard(true);
+                peekCard(c);
+                IO.printTurnMsg(getTurnEpilogueString(c));
+                IO.printHeldCards(gameContext);
 
-            IO.printTurnMsg(getTurnPrologueString());
-            input = IO.readPlayerInput();
+                IO.printTurnMsg(getTurnPrologueString());
+                input = IO.readPlayerInput();
+            } catch (DeckIsEmptyException e) {
+                throw new InvalidTurnException(e.getMessage());
+            }
         }
     }
 

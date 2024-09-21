@@ -15,8 +15,10 @@ public class Card {
 
     @Override
     public String toString() {
-        if (isOpen)
-            return this.type.toString() + " " + this.suit.toString() + " (" + this.type.getValue() + ")";
+        if (isOpen) {
+            return this.type.toString() + " " + this.suit.toString() + " (" + this.type.getValue()
+                   + ")";
+        }
         return "<закрытая карта>";
     }
 }

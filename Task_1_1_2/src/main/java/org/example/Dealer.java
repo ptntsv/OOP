@@ -22,7 +22,7 @@ public class Dealer extends Player {
     }
 
     @Override
-    public void takeTurn(Deck deck, Game gameContext) {
+    public void takeTurn(Deck deck, Game gameContext) throws InvalidTurnException {
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
@@ -32,11 +32,16 @@ public class Dealer extends Player {
         if (!hasOpened) {
             this.cards.get(1).isOpen = true;
             hasOpened = true;
+            updateScore(this.cards.get(1));
             IO.printTurnMsg(getTurnEpilogueString(this.cards.get(1), true));
             IO.printHeldCards(gameContext);
         }
         while (getScore() < 17) {
-            peekCard(deck.peekCard(true));
+            try {
+                peekCard(deck.peekCard(true));
+            } catch (DeckIsEmptyException e) {
+                throw new InvalidTurnException(e.toString());
+            }
         }
     }
 
@@ -46,12 +51,16 @@ public class Dealer extends Player {
         return "\tКарты дилера: " + cardsToString() + (this.hasOpened ? " => " + getScore() : "");
     }
 
-    public void dealCards(Deck deck, Player player) {
-        player.peekCard(deck.peekCard(true));
-        player.peekCard(deck.peekCard(true));
+    public void dealCards(Deck deck, Player player) throws InvalidTurnException {
+        try  {
+            player.peekCard(deck.peekCard(true));
+            player.peekCard(deck.peekCard(true));
 
-        this.peekCard(deck.peekCard(true));
-        this.peekCard(deck.peekCard(false));
+            this.peekCard(deck.peekCard(true));
+            this.peekCard(deck.peekCard(false));
+        } catch (DeckIsEmptyException e) {
+            throw new InvalidTurnException(e.getMessage());
+        }
 
         IO.printCards(player);
         IO.printCards(this);

@@ -7,6 +7,8 @@ import java.util.Scanner;
  */
 public class IO {
 
+    public static final int keyStop = 0;
+    public static final int keyPeekCard = 1;
     public static Scanner in = new Scanner(System.in);
     public static final String playerTurnMsg =
         "Ваш ход\n-------\nВведите \"1\", чтобы взять карту, и \"0\", чтобы остановиться....";
@@ -35,16 +37,20 @@ public class IO {
         System.out.print("Дилер выиграл раунд. ");
     }
 
+    public static void printDraw() {
+        System.out.print("Ничья.");
+    }
+
     public static void printTurnMsg(String msg) {
         System.out.println(msg);
     }
 
-    public static void printScore(int[] scoreTable) {
-        System.out.print("Счёт " + scoreTable[0] + ":" + scoreTable[1]);
-        if (scoreTable[0] > scoreTable[1]) {
+    public static void printScore(ScoreTuple scoreTable) {
+        System.out.print("Счёт " + scoreTable.playerScore + ":" + scoreTable.dealerScore);
+        if (scoreTable.playerScore > scoreTable.dealerScore) {
             System.out.print(" в вашу пользу.");
         }
-        if (scoreTable[0] < scoreTable[1]) {
+        if (scoreTable.playerScore < scoreTable.dealerScore) {
             System.out.print(" в пользу дилера.");
         }
         System.out.print("\n");
@@ -55,6 +61,15 @@ public class IO {
     }
 
     public static int readPlayerInput() {
-        return in.nextInt();
+        int input = in.nextInt();
+        while (input != keyStop && input != keyPeekCard) {
+            printInputError();
+            input = in.nextInt();
+        }
+        return input;
+    }
+
+    public static void printInputError() {
+        System.out.println("Неверная команда, попробуйте ещё раз.");
     }
 }
