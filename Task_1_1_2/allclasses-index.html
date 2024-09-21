@@ -27,8 +27,8 @@
     catch(err) {
     }
 //-->
-var data = {"i0":2,"i1":4,"i2":2,"i3":2,"i4":2,"i5":2,"i6":2,"i7":2,"i8":4,"i9":4};
-var tabs = {65535:["t0","All Classes"],2:["t2","Class Summary"],4:["t3","Enum Summary"]};
+var data = {"i0":8,"i1":2,"i2":4,"i3":2,"i4":2,"i5":8,"i6":2,"i7":8,"i8":2,"i9":2,"i10":2,"i11":2,"i12":4,"i13":4};
+var tabs = {65535:["t0","All Classes"],2:["t2","Class Summary"],4:["t3","Enum Summary"],8:["t4","Exception Summary"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
 var tableTab = "tableTab";
@@ -104,52 +104,68 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <ul class="blockList">
 <li class="blockList">
 <table class="typeSummary">
-<caption><span id="t0" class="activeTableTab"><span>All Classes</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Class Summary</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Enum Summary</a></span><span class="tabEnd">&nbsp;</span></span></caption>
+<caption><span id="t0" class="activeTableTab"><span>All Classes</span><span class="tabEnd">&nbsp;</span></span><span id="t2" class="tableTab"><span><a href="javascript:show(2);">Class Summary</a></span><span class="tabEnd">&nbsp;</span></span><span id="t3" class="tableTab"><span><a href="javascript:show(4);">Enum Summary</a></span><span class="tabEnd">&nbsp;</span></span><span id="t4" class="tableTab"><span><a href="javascript:show(8);">Exception Summary</a></span><span class="tabEnd">&nbsp;</span></span></caption>
 <tr>
 <th class="colFirst" scope="col">Class</th>
 <th class="colLast" scope="col">Description</th>
 </tr>
 <tr id="i0" class="altColor">
-<td class="colFirst"><a href="org/example/Card.html" title="class in org.example">Card</a></td>
+<td class="colFirst"><a href="org/example/BaseException.html" title="class in org.example">BaseException</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><a href="org/example/CardType.html" title="enum in org.example">CardType</a></td>
+<td class="colFirst"><a href="org/example/Card.html" title="class in org.example">Card</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>
 <tr id="i2" class="altColor">
-<td class="colFirst"><a href="org/example/Dealer.html" title="class in org.example">Dealer</a></td>
+<td class="colFirst"><a href="org/example/CardType.html" title="enum in org.example">CardType</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>
 <tr id="i3" class="rowColor">
-<td class="colFirst"><a href="org/example/Deck.html" title="class in org.example">Deck</a></td>
+<td class="colFirst"><a href="org/example/Dealer.html" title="class in org.example">Dealer</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><a href="org/example/Deck.html" title="class in org.example">Deck</a></td>
+<th class="colLast" scope="row">&nbsp;</th>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><a href="org/example/DeckIsEmptyException.html" title="class in org.example">DeckIsEmptyException</a></td>
+<th class="colLast" scope="row">&nbsp;</th>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><a href="org/example/Game.html" title="class in org.example">Game</a></td>
 <th class="colLast" scope="row">
 <div class="block">Class that contains current state of game, i.e.</div>
 </th>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
+<td class="colFirst"><a href="org/example/InvalidTurnException.html" title="class in org.example">InvalidTurnException</a></td>
+<th class="colLast" scope="row">&nbsp;</th>
+</tr>
+<tr id="i8" class="altColor">
 <td class="colFirst"><a href="org/example/IO.html" title="class in org.example">IO</a></td>
 <th class="colLast" scope="row">
 <div class="block">Class for BlackJack input-output</div>
 </th>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><a href="org/example/Main.html" title="class in org.example">Main</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><a href="org/example/Player.html" title="class in org.example">Player</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i11" class="rowColor">
+<td class="colFirst"><a href="org/example/ScoreTuple.html" title="class in org.example">ScoreTuple</a></td>
+<th class="colLast" scope="row">&nbsp;</th>
+</tr>
+<tr id="i12" class="altColor">
 <td class="colFirst"><a href="org/example/Suit.html" title="enum in org.example">Suit</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>
-<tr id="i9" class="rowColor">
+<tr id="i13" class="rowColor">
 <td class="colFirst"><a href="org/example/WinState.html" title="enum in org.example">WinState</a></td>
 <th class="colLast" scope="row">&nbsp;</th>
 </tr>

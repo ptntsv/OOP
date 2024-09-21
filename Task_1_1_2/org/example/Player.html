@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -218,6 +218,13 @@ extends java.lang.Object</pre>
         <a href="Game.html" title="class in org.example">Game</a>&nbsp;gameContext)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr id="i8" class="altColor">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateScore(org.example.Card)">updateScore</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;card)</code></th>
+<td class="colLast">
+<div class="block">Updating score if given card caused threshold exceeding.</div>
+</td>
+</tr>
 </table>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -270,6 +277,20 @@ extends java.lang.Object</pre>
 <pre class="methodSignature">public&nbsp;int&nbsp;getScore()</pre>
 </li>
 </ul>
+<a id="updateScore(org.example.Card)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>updateScore</h4>
+<pre class="methodSignature">public&nbsp;void&nbsp;updateScore&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;card)</pre>
+<div class="block">Updating score if given card caused threshold exceeding.</div>
+<dl>
+<dt><span class="paramLabel">Parameters:</span></dt>
+<dd><code>card</code> - Given card</dd>
+</dl>
+</li>
+</ul>
 <a id="peekCard(org.example.Card)">
 <!--   -->
 </a>
@@ -304,7 +325,12 @@ extends java.lang.Object</pre>
 <li class="blockList">
 <h4>takeTurn</h4>
 <pre class="methodSignature">public&nbsp;void&nbsp;takeTurn&#8203;(<a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck,
-                     <a href="Game.html" title="class in org.example">Game</a>&nbsp;gameContext)</pre>
+                     <a href="Game.html" title="class in org.example">Game</a>&nbsp;gameContext)
+              throws <a href="InvalidTurnException.html" title="class in org.example">InvalidTurnException</a></pre>
+<dl>
+<dt><span class="throwsLabel">Throws:</span></dt>
+<dd><code><a href="InvalidTurnException.html" title="class in org.example">InvalidTurnException</a></code></dd>
+</dl>
 </li>
 </ul>
 <a id="reset()">
