@@ -1,31 +1,32 @@
 package org.example;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Collections;
 
 public class Deck {
 
     private ArrayList<Card> deck = new ArrayList<>();
 
-    private Random rand = new Random();
-    private int deckLen;
+    public int getDeckLen() {
+        return deck.size();
+    }
 
-    public Card peekCard(boolean isOpen) {
-        int index = rand.nextInt(deckLen);
-        Card ret = deck.get(index);
-        ret.isOpen = isOpen;
-        deck.set(index, deck.get(--deckLen));
-        return ret;
+    public Card peekCard(boolean isOpen) throws DeckIsEmptyException {
+        if (deck.isEmpty())
+            throw new DeckIsEmptyException("Колода пуста.");
+        var c = deck.remove(deck.size() - 1);
+        c.isOpen = isOpen;
+        return c;
     }
 
     public void reset() {
+        deck.clear();
         for (Suit s : Suit.values()) {
             for (CardType t : CardType.values()) {
                 deck.add(new Card(s, t));
             }
-
         }
-        deckLen = deck.size();
+        Collections.shuffle(deck);
     }
 
     public Deck() {
