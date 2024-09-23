@@ -1,8 +1,8 @@
 import org.example.Card;
 import org.example.CardType;
 import org.example.Game;
-import org.example.WinState;
 import org.example.Suit;
+import org.example.WinState;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

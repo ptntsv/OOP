@@ -6,14 +6,14 @@ public enum Suit {
     Hearts("Червы"),
     Spades("Пики");
 
-    private final String toStr;
+    private final String name;
 
     Suit(String string) {
-        this.toStr = string;
+        this.name = string;
     }
 
     @Override
     public String toString() {
-        return toStr;
+        return name;
     }
 }

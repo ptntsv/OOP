@@ -15,11 +15,11 @@ public enum CardType {
     King("Король", 10),
     Ace("Туз", 11);
 
-    private final String toStr;
+    private final String name;
     private final int value;
 
     CardType(String string, int value) {
-        this.toStr = string;
+        this.name = string;
         this.value = value;
     }
 
@@ -29,6 +29,6 @@ public enum CardType {
 
     @Override
     public String toString() {
-        return toStr;
+        return name;
     }
 }

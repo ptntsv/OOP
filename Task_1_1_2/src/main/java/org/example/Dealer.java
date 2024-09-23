@@ -47,7 +47,7 @@ public class Dealer extends Player {
 
 
     @Override
-    public String printCardsMsg() {
+    public String getCardsMsg() {
         return "\tКарты дилера: " + cardsToString() + (this.hasOpened ? " => " + getScore() : "");
     }
 
