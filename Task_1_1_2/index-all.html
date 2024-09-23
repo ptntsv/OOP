@@ -152,7 +152,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/example/Deck.html#%3Cinit%3E()">Deck()</a></span> - Constructor for class org.example.<a href="org/example/Deck.html" title="class in org.example">Deck</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/DeckIsEmptyException.html" title="class in org.example"><span class="typeNameLink">DeckIsEmptyException</span></a> - Exception in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception that raises when Deck class method peekCard() called on empty deck.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="org/example/DeckIsEmptyException.html#%3Cinit%3E(java.lang.String)">DeckIsEmptyException(String)</a></span> - Constructor for exception org.example.<a href="org/example/DeckIsEmptyException.html" title="class in org.example">DeckIsEmptyException</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/Suit.html#Diamonds">Diamonds</a></span> - org.example.<a href="org/example/Suit.html" title="enum in org.example">Suit</a></dt>
@@ -166,6 +168,8 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <h2 class="title">E</h2>
 <dl>
 <dt><span class="memberNameLink"><a href="org/example/CardType.html#Eight">Eight</a></span> - org.example.<a href="org/example/CardType.html" title="enum in org.example">CardType</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/example/Card.html#equals(java.lang.Object)">equals(Object)</a></span> - Method in class org.example.<a href="org/example/Card.html" title="class in org.example">Card</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <a id="I:F">
@@ -189,7 +193,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 </dd>
 <dt><span class="memberNameLink"><a href="org/example/Game.html#%3Cinit%3E()">Game()</a></span> - Constructor for class org.example.<a href="org/example/Game.html" title="class in org.example">Game</a></dt>
 <dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/example/Deck.html#getCard(int)">getCard(int)</a></span> - Method in class org.example.<a href="org/example/Deck.html" title="class in org.example">Deck</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/example/Dealer.html#getCardsMsg()">getCardsMsg()</a></span> - Method in class org.example.<a href="org/example/Dealer.html" title="class in org.example">Dealer</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/example/Player.html#getCardsMsg()">getCardsMsg()</a></span> - Method in class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/example/Game.html#getCurrentRound()">getCurrentRound()</a></span> - Method in class org.example.<a href="org/example/Game.html" title="class in org.example">Game</a></dt>
+<dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/Game.html#getDealer()">getDealer()</a></span> - Method in class org.example.<a href="org/example/Game.html" title="class in org.example">Game</a></dt>
+<dd>&nbsp;</dd>
+<dt><span class="memberNameLink"><a href="org/example/Game.html#getDeck()">getDeck()</a></span> - Method in class org.example.<a href="org/example/Game.html" title="class in org.example">Game</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/Deck.html#getDeckLen()">getDeckLen()</a></span> - Method in class org.example.<a href="org/example/Deck.html" title="class in org.example">Deck</a></dt>
 <dd>&nbsp;</dd>
@@ -226,12 +240,14 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/example/IO.html#in">in</a></span> - Static variable in class org.example.<a href="org/example/IO.html" title="class in org.example">IO</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/InvalidTurnException.html" title="class in org.example"><span class="typeNameLink">InvalidTurnException</span></a> - Exception in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception that raises when DeckIsEmptyException handled.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="org/example/InvalidTurnException.html#%3Cinit%3E(java.lang.String)">InvalidTurnException(String)</a></span> - Constructor for exception org.example.<a href="org/example/InvalidTurnException.html" title="class in org.example">InvalidTurnException</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/IO.html" title="class in org.example"><span class="typeNameLink">IO</span></a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
 <dd>
-<div class="block">Class for BlackJack input-output</div>
+<div class="block">Class for BlackJack input-output.</div>
 </dd>
 <dt><span class="memberNameLink"><a href="org/example/IO.html#%3Cinit%3E()">IO()</a></span> - Constructor for class org.example.<a href="org/example/IO.html" title="class in org.example">IO</a></dt>
 <dd>&nbsp;</dd>
@@ -298,7 +314,9 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/example/Player.html#peekCard(org.example.Card)">peekCard(Card)</a></span> - Method in class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Player.html" title="class in org.example"><span class="typeNameLink">Player</span></a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Blackjack player class.</div>
+</dd>
 <dt><span class="memberNameLink"><a href="org/example/Player.html#%3Cinit%3E()">Player()</a></span> - Constructor for class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/WinState.html#PLAYER_WON">PLAYER_WON</a></span> - org.example.<a href="org/example/WinState.html" title="enum in org.example">WinState</a></dt>
@@ -308,10 +326,6 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/example/IO.html#playerTurnMsg">playerTurnMsg</a></span> - Static variable in class org.example.<a href="org/example/IO.html" title="class in org.example">IO</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/IO.html#printCards(org.example.Player)">printCards(Player)</a></span> - Static method in class org.example.<a href="org/example/IO.html" title="class in org.example">IO</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="org/example/Dealer.html#printCardsMsg()">printCardsMsg()</a></span> - Method in class org.example.<a href="org/example/Dealer.html" title="class in org.example">Dealer</a></dt>
-<dd>&nbsp;</dd>
-<dt><span class="memberNameLink"><a href="org/example/Player.html#printCardsMsg()">printCardsMsg()</a></span> - Method in class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/IO.html#printDealerWon()">printDealerWon()</a></span> - Static method in class org.example.<a href="org/example/IO.html" title="class in org.example">IO</a></dt>
 <dd>&nbsp;</dd>
@@ -352,13 +366,17 @@ $('.navPadding').css('padding-top', $('.fixedNav').css("height"));
 <dt><span class="memberNameLink"><a href="org/example/Deck.html#reset()">reset()</a></span> - Method in class org.example.<a href="org/example/Deck.html" title="class in org.example">Deck</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/Player.html#reset()">reset()</a></span> - Method in class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Resets player's state.</div>
+</dd>
 </dl>
 <a id="I:S">
 <!--   -->
 </a>
 <h2 class="title">S</h2>
 <dl>
+<dt><span class="memberNameLink"><a href="org/example/Game.html#scoreTable">scoreTable</a></span> - Variable in class org.example.<a href="org/example/Game.html" title="class in org.example">Game</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="org/example/ScoreTuple.html" title="class in org.example"><span class="typeNameLink">ScoreTuple</span></a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
 <dd>&nbsp;</dd>
 <dt><span class="memberNameLink"><a href="org/example/ScoreTuple.html#%3Cinit%3E()">ScoreTuple()</a></span> - Constructor for class org.example.<a href="org/example/ScoreTuple.html" title="class in org.example">ScoreTuple</a></dt>
@@ -455,7 +473,9 @@ the order they are declared.</div>
 <dt><span class="memberNameLink"><a href="org/example/Game.html#winState">winState</a></span> - Variable in class org.example.<a href="org/example/Game.html" title="class in org.example">Game</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/WinState.html" title="enum in org.example"><span class="typeNameLink">WinState</span></a> - Enum in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Enum with all possible winners.</div>
+</dd>
 </dl>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:J">J</a>&nbsp;<a href="#I:K">K</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:Q">Q</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes</a>&nbsp;<a href="allpackages-index.html">All&nbsp;Packages</a></div>
 </main>
