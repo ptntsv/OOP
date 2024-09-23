@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class GameTest {
+
     @Test
     public void gameInitTest() {
         Game game = new Game();
@@ -18,9 +19,10 @@ public class GameTest {
         Assertions.assertEquals(game.scoreTable.dealerScore, 0);
         Assertions.assertEquals(game.scoreTable.playerScore, 0);
     }
+
     @Test
     public void newRoundTest()
-        throws InvalidTurnException, NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         Game game = new Game();
 
         game.getPlayer().peekCard(new Card(Suit.Clubs, CardType.Ace));
