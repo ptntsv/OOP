@@ -7,13 +7,18 @@ public class Deck {
 
     private ArrayList<Card> deck = new ArrayList<>();
 
+    public Card getCard(int index) {
+        return deck.get(index);
+    }
+
     public int getDeckLen() {
         return deck.size();
     }
 
     public Card peekCard(boolean isOpen) throws DeckIsEmptyException {
-        if (deck.isEmpty())
+        if (deck.isEmpty()) {
             throw new DeckIsEmptyException("Колода пуста.");
+        }
         var c = deck.remove(deck.size() - 1);
         c.isOpen = isOpen;
         return c;

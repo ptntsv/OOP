@@ -7,13 +7,18 @@ import java.util.concurrent.TimeUnit;
  */
 public class Game {
 
-    final private Deck deck = new Deck();
-    final private Player player = new Player();
-    final private Dealer dealer = new Dealer();
-    final public static int threshold = 21;
+    private final Deck deck = new Deck();
+    private final Player player = new Player();
+    private final Dealer dealer = new Dealer();
+    public final static int threshold = 21;
     private int currentRound = 1;
+
+    public int getCurrentRound() {
+        return currentRound;
+    }
+
     public WinState winState = WinState.NEITHER;
-    ScoreTuple scoreTable = new ScoreTuple();
+    public ScoreTuple scoreTable = new ScoreTuple();
 
     public Player getPlayer() {
         return this.player;
@@ -21,6 +26,10 @@ public class Game {
 
     public Dealer getDealer() {
         return this.dealer;
+    }
+
+    public Deck getDeck() {
+        return this.deck;
     }
 
     /**
@@ -89,16 +98,6 @@ public class Game {
     private void gameLoop() {
         while (true) {
             newRound();
-
-            // TODO: remove
-            for (int i = 0; i < 50; i++) {
-                try {
-                    player.peekCard(deck.peekCard(true));
-                } catch (DeckIsEmptyException e) {
-                    continue;
-                }
-            }
-
             try {
                 dealer.dealCards(deck, player);
                 checkWinCondition(false);

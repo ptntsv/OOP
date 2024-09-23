@@ -3,7 +3,7 @@ package org.example;
 import java.util.Scanner;
 
 /**
- * Class for BlackJack input-output
+ * Class for BlackJack input-output.
  */
 public class IO {
 
@@ -45,10 +45,7 @@ public class IO {
         System.out.println(msg);
     }
 
-    public static void printScore(ScoreTuple scoreTable) {
-        System.out.print("Счёт " + scoreTable.playerScore + ":" + scoreTable.dealerScore);
-        if (scoreTable.playerScore > scoreTable.dealerScore) {
-            System.out.print(" в вашу пользу.");
+    public static void printScore(ScoreTuple scoreTable) { System.out.print("Счёт " + scoreTable.playerScore + ":" + scoreTable.dealerScore); if (scoreTable.playerScore > scoreTable.dealerScore) { System.out.print(" в вашу пользу.");
         }
         if (scoreTable.playerScore < scoreTable.dealerScore) {
             System.out.print(" в пользу дилера.");
@@ -57,7 +54,7 @@ public class IO {
     }
 
     public static void printCards(Player player) {
-        System.out.println(player.printCardsMsg());
+        System.out.println(player.getCardsMsg());
     }
 
     public static int readPlayerInput() {

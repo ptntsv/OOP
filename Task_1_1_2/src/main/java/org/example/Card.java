@@ -16,9 +16,15 @@ public class Card {
     @Override
     public String toString() {
         if (isOpen) {
-            return this.type.toString() + " " + this.suit.toString() + " (" + this.type.getValue()
+            return this.type.toString() + " " + this.suit.toString() + " (" + this.value
                    + ")";
         }
         return "<закрытая карта>";
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Card other = (Card) obj;
+        return this.suit == other.suit && this.type == other.type && this.value == other.value;
     }
 }

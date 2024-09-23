@@ -5,20 +5,23 @@ import org.example.Suit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests that ensure proper score calculation.
+ */
 public class ScoreCalcTest {
 
     @Test
     public void acesTest1() {
         Player p = new Player();
         var c1 = new Card(Suit.Diamonds, CardType.Ace);
-        var c2 = new Card(Suit.Diamonds, CardType.Ace);
-        var c3 = new Card(Suit.Spades, CardType.Ace);
-        var c4 = new Card(Suit.Spades, CardType.Ace);
         p.peekCard(c1);
+        var c2 = new Card(Suit.Diamonds, CardType.Ace);
         p.peekCard(c2);
         Assertions.assertEquals(2, p.getScore());
+        var c3 = new Card(Suit.Spades, CardType.Ace);
         p.peekCard(c3);
         Assertions.assertEquals(13, p.getScore());
+        var c4 = new Card(Suit.Spades, CardType.Ace);
         p.peekCard(c4);
         Assertions.assertEquals(4, p.getScore());
     }

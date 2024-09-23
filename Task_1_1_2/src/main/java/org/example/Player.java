@@ -2,6 +2,9 @@ package org.example;
 
 import java.util.ArrayList;
 
+/**
+ * Blackjack player class.
+ */
 public class Player {
 
     final ArrayList<Card> cards = new ArrayList<>();
@@ -71,6 +74,9 @@ public class Player {
         }
     }
 
+    /**
+     * Resets player's state.
+     */
     public void reset() {
         this.cards.clear();
         this.score = 0;
@@ -88,8 +94,7 @@ public class Player {
         return s.toString();
     }
 
-    public String printCardsMsg() {
+    public String getCardsMsg() {
         return "\tВаши карты: " + cardsToString() + " => " + getScore();
     }
-
 }
