@@ -12,11 +12,11 @@ import org.junit.jupiter.api.Test;
  */
 public class DeckTest {
 
-    @Test
     /**
      * Test for initializing deck and get sure that
      * cards in deck are shuffled.
      */
+    @Test
     public void resetDeckTest() {
         var d = new Deck();
         final int expectedDeckLen = 52;

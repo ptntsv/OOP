@@ -10,10 +10,8 @@ public class IO {
     public static final int keyStop = 0;
     public static final int keyPeekCard = 1;
     public static Scanner in = new Scanner(System.in);
-    public static final String playerTurnMsg =
-        "Ваш ход\n-------\nВведите \"1\", чтобы взять карту, и \"0\", чтобы остановиться....";
-    public static final String dealerTurnMsg =
-        "Ход дилера\n-------";
+    public static final String playerTurnMsg = "Ваш ход\n-------\nВведите \"1\", чтобы взять карту, и \"0\", чтобы остановиться....";
+    public static final String dealerTurnMsg = "Ход дилера\n-------";
 
     public static void printHeldCards(Game gameContext) {
         IO.printCards(gameContext.getPlayer());
@@ -45,7 +43,10 @@ public class IO {
         System.out.println(msg);
     }
 
-    public static void printScore(ScoreTuple scoreTable) { System.out.print("Счёт " + scoreTable.playerScore + ":" + scoreTable.dealerScore); if (scoreTable.playerScore > scoreTable.dealerScore) { System.out.print(" в вашу пользу.");
+    public static void printScore(ScoreTuple scoreTable) {
+        System.out.print("Счёт " + scoreTable.playerScore + ":" + scoreTable.dealerScore);
+        if (scoreTable.playerScore > scoreTable.dealerScore) {
+            System.out.print(" в вашу пользу.");
         }
         if (scoreTable.playerScore < scoreTable.dealerScore) {
             System.out.print(" в пользу дилера.");

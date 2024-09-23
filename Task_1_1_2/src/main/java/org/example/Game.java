@@ -10,7 +10,7 @@ public class Game {
     private final Deck deck = new Deck();
     private final Player player = new Player();
     private final Dealer dealer = new Dealer();
-    public final static int threshold = 21;
+    public static final int threshold = 21;
     private int currentRound = 1;
 
     public int getCurrentRound() {

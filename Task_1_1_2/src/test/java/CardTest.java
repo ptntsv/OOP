@@ -4,6 +4,9 @@ import org.example.Suit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for proper converting Card -> string mostly.
+ */
 public class CardTest {
 
     @Test
