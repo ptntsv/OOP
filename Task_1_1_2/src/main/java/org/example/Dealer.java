@@ -6,6 +6,10 @@ public class Dealer extends Player {
 
     private boolean hasOpened = false;
 
+    public boolean getHasOpened() {
+        return hasOpened;
+    }
+
     @Override
     public void reset() {
         super.reset();
@@ -52,7 +56,7 @@ public class Dealer extends Player {
     }
 
     public void dealCards(Deck deck, Player player) throws InvalidTurnException {
-        try  {
+        try {
             player.peekCard(deck.peekCard(true));
             player.peekCard(deck.peekCard(true));
 

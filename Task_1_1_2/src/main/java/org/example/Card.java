@@ -24,7 +24,10 @@ public class Card {
 
     @Override
     public boolean equals(Object obj) {
-        Card other = (Card) obj;
-        return this.suit == other.suit && this.type == other.type && this.value == other.value;
+        if (obj instanceof Card) {
+            return this.suit == ((Card) obj).suit && this.type == ((Card) obj).type
+                   && this.value == ((Card) obj).value;
+        }
+        return false;
     }
 }

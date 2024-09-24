@@ -9,6 +9,14 @@ public class Player {
 
     final ArrayList<Card> cards = new ArrayList<>();
 
+    public int getCardsLen() {
+        return cards.size();
+    }
+
+    public Card getCard(int index) {
+        return cards.get(index);
+    }
+
     private int score;
 
     public int getScore() {
