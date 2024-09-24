@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -184,44 +184,54 @@ extends java.lang.Object</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i1" class="rowColor">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCardsMsg()">getCardsMsg</a></span>()</code></th>
+<td class="colFirst"><code><a href="Card.html" title="class in org.example">Card</a></code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCard(int)">getCard</a></span>&#8203;(int&nbsp;index)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScore()">getScore</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCardsLen()">getCardsLen</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTurnEpilogueString(org.example.Card)">getTurnEpilogueString</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;c)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCardsMsg()">getCardsMsg</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i4" class="altColor">
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScore()">getScore</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i5" class="rowColor">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTurnEpilogueString(org.example.Card)">getTurnEpilogueString</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;c)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTurnPrologueString()">getTurnPrologueString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i7" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#peekCard(org.example.Card)">peekCard</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;card)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i6" class="altColor">
+<tr id="i8" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reset()">reset</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Resets player's state.</div>
 </td>
 </tr>
-<tr id="i7" class="rowColor">
+<tr id="i9" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#takeTurn(org.example.Deck,org.example.Game)">takeTurn</a></span>&#8203;(<a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck,
         <a href="Game.html" title="class in org.example">Game</a>&nbsp;gameContext)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i8" class="altColor">
+<tr id="i10" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#updateScore(org.example.Card)">updateScore</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;card)</code></th>
 <td class="colLast">
@@ -271,6 +281,24 @@ extends java.lang.Object</pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="getCardsLen()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCardsLen</h4>
+<pre class="methodSignature">public&nbsp;int&nbsp;getCardsLen()</pre>
+</li>
+</ul>
+<a id="getCard(int)">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getCard</h4>
+<pre class="methodSignature">public&nbsp;<a href="Card.html" title="class in org.example">Card</a>&nbsp;getCard&#8203;(int&nbsp;index)</pre>
+</li>
+</ul>
 <a id="getScore()">
 <!--   -->
 </a>

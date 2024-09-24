@@ -27,7 +27,7 @@
     catch(err) {
     }
 //-->
-var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10};
+var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -190,24 +190,29 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr id="i2" class="altColor">
+<td class="colFirst"><code>boolean</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHasOpened()">getHasOpened</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr id="i3" class="rowColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTurnEpilogueString(org.example.Card,boolean)">getTurnEpilogueString</a></span>&#8203;(<a href="Card.html" title="class in org.example">Card</a>&nbsp;c,
                      boolean&nbsp;wasClosed)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i3" class="rowColor">
+<tr id="i4" class="altColor">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTurnPrologueString()">getTurnPrologueString</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr id="i4" class="altColor">
+<tr id="i5" class="rowColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#reset()">reset</a></span>()</code></th>
 <td class="colLast">
 <div class="block">Resets player's state.</div>
 </td>
 </tr>
-<tr id="i5" class="rowColor">
+<tr id="i6" class="altColor">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#takeTurn(org.example.Deck,org.example.Game)">takeTurn</a></span>&#8203;(<a href="Deck.html" title="class in org.example">Deck</a>&nbsp;deck,
         <a href="Game.html" title="class in org.example">Game</a>&nbsp;gameContext)</code></th>
@@ -219,7 +224,7 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 <!--   -->
 </a>
 <h3>Methods inherited from class&nbsp;org.example.<a href="Player.html" title="class in org.example">Player</a></h3>
-<code><a href="Player.html#cardsToString()">cardsToString</a>, <a href="Player.html#getScore()">getScore</a>, <a href="Player.html#getTurnEpilogueString(org.example.Card)">getTurnEpilogueString</a>, <a href="Player.html#peekCard(org.example.Card)">peekCard</a>, <a href="Player.html#updateScore(org.example.Card)">updateScore</a></code></li>
+<code><a href="Player.html#cardsToString()">cardsToString</a>, <a href="Player.html#getCard(int)">getCard</a>, <a href="Player.html#getCardsLen()">getCardsLen</a>, <a href="Player.html#getScore()">getScore</a>, <a href="Player.html#getTurnEpilogueString(org.example.Card)">getTurnEpilogueString</a>, <a href="Player.html#peekCard(org.example.Card)">peekCard</a>, <a href="Player.html#updateScore(org.example.Card)">updateScore</a></code></li>
 </ul>
 <ul class="blockList">
 <li class="blockList"><a id="methods.inherited.from.class.java.lang.Object">
@@ -263,6 +268,15 @@ extends <a href="Player.html" title="class in org.example">Player</a></pre>
 <!--   -->
 </a>
 <h3>Method Detail</h3>
+<a id="getHasOpened()">
+<!--   -->
+</a>
+<ul class="blockList">
+<li class="blockList">
+<h4>getHasOpened</h4>
+<pre class="methodSignature">public&nbsp;boolean&nbsp;getHasOpened()</pre>
+</li>
+</ul>
 <a id="reset()">
 <!--   -->
 </a>
