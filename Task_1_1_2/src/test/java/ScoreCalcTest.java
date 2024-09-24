@@ -1,5 +1,3 @@
-package org.example.tests;
-
 import org.example.Card;
 import org.example.CardType;
 import org.example.Player;
