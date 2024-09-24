@@ -1,3 +1,5 @@
+package org.example.tests;
+
 import java.util.ArrayList;
 import org.example.Card;
 import org.example.CardType;
