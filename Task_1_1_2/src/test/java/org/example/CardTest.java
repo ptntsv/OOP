@@ -1,6 +1,5 @@
-import org.example.Card;
-import org.example.CardType;
-import org.example.Suit;
+package org.example;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
