@@ -78,7 +78,7 @@ public class Game {
     /**
      * Resets game state (deck, player's and dealer's scores, etc.).
      */
-    private void newRound() {
+    protected void newRound() {
         IO.printRoundMsg(currentRound);
         currentRound++;
         winState = WinState.NEITHER;

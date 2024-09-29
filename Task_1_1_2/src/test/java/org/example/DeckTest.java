@@ -1,9 +1,6 @@
+package org.example;
+
 import java.util.ArrayList;
-import org.example.Card;
-import org.example.CardType;
-import org.example.Deck;
-import org.example.DeckIsEmptyException;
-import org.example.Suit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

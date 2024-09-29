@@ -1,14 +1,10 @@
+package org.example;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import org.example.Card;
-import org.example.CardType;
-import org.example.Game;
-import org.example.Suit;
-import org.example.WinState;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class GameTest extends Game {
+public class GameTest {
 
     @Test
     public void gameInitTest() {
@@ -20,17 +16,14 @@ public class GameTest extends Game {
     }
 
     @Test
-    public void newRoundTest()
-        throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public void newRoundTest() {
         Game game = new Game();
 
         game.getPlayer().peekCard(new Card(Suit.Clubs, CardType.Ace));
         game.getDealer().peekCard(new Card(Suit.Clubs, CardType.Two));
         game.checkWinCondition(true);
 
-        Method newRoundMethod = Game.class.getDeclaredMethod("newRound");
-        newRoundMethod.setAccessible(true);
-        newRoundMethod.invoke(game);
+        game.newRound();
 
         Assertions.assertEquals(game.getCurrentRound(), 2);
         Assertions.assertEquals(game.winState, WinState.NEITHER);
