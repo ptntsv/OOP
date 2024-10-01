@@ -1,7 +1,8 @@
 package org.example.Expressions;
 
-public class UnsignifiedVariableException extends RuntimeException {
+public class UnsignedVariableException extends Exception {
 
-    public UnsignifiedVariableException() {
+    public UnsignedVariableException(String message) {
+        super(message);
     }
 }
