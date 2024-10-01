@@ -1,4 +1,5 @@
 package org.example.Lexer;
 
-public class Associativity {
+public enum Associativity {
+    ASSOC_LEFT, ASSOC_RIGHT
 }

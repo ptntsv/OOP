@@ -1,13 +1,11 @@
-package Lexer;
+package org.example.Lexer;
 
 public enum TokenType {
-    OP_ADD,
-    OP_MUL,
-    OP_SUB,
-    OP_DIV,
+    OP,
     NUMBER,
     VARIABLE,
     LPAREN,
     RPAREN,
-    NULL
+    EOF,
+    NULL;
 }

@@ -3,6 +3,7 @@ package org.example.Expressions;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.Stack;
 import org.example.Lexer.Lexer;
 import org.example.Lexer.NumberToken;
@@ -19,6 +20,11 @@ public abstract class Expression {
     public Expression left;
     public Expression right;
 
+    /**
+     * @param tokens Tokens in reverse polish format.
+     * @return Converted expression.
+     * @throws EmptyStackException Exception is thrown if given expression has wrong format.
+     */
     private static Expression parseExpression(ArrayList<Token> tokens) throws EmptyStackException {
         Stack<Expression> s = new Stack<>();
         try {
@@ -54,46 +60,82 @@ public abstract class Expression {
             }
             return s.pop();
         } catch (EmptyStackException e) {
-            throw new EmptyStackException();
+            throw new RuntimeException("Bad expression.");
         }
     }
 
-    public static Expression deserialize(String expr) {
+    /**
+     * @param reader Input stream (might be file or stdin).
+     * @return Deserialized expression.
+     */
+    public static Expression deserialize(Scanner reader) {
+        String expr = reader.nextLine();
         Lexer lexer = new Lexer(expr);
         ArrayList<Token> tokens = Parser.infixToPolish(lexer.tokenize());
         return parseExpression(tokens);
     }
 
+    /**
+     * Recursively prints expression content.
+     */
     public void print() {
         System.out.println(this);
     }
 
+    /**
+     * Helper method that executes operation upon signed(!) left and right operands.
+     *
+     * @return Resulting integer value.
+     */
     abstract int eval_helper();
 
-    protected void signify(HashMap<String, Integer> varMap) {
+    /**
+     * Method that signifies provided throughout varMap variables.
+     *
+     * @param varMap Given signification.
+     * @throws UnsignedVariableException Thrown if some variable in expression is unsigned.
+     */
+    protected void signify(HashMap<String, Integer> varMap) throws UnsignedVariableException {
         left.signify(varMap);
         right.signify(varMap);
     }
 
-    public int eval(String variables) throws RuntimeException {
+    /**
+     * 'High order' method that parses variable signification, calls signify method and
+     * eval_helper.
+     *
+     * @param variables String with variable signification.
+     * @return Result of helper method.
+     * @throws BadSignificationFormatException Thrown if variables differs from provided format.
+     * @throws UnsignedVariableException       Thrown if some variable in expression is unsigned.
+     */
+    public int eval(String variables)
+        throws BadSignificationFormatException, UnsignedVariableException {
         HashMap<String, Integer> varMap = new HashMap<>();
-        for (String s : variables.split(";")) {
-            String[] split = s.split("=");
-            if (split.length != 2) {
-                throw new RuntimeException("Bad variable signification format");
-            }
-            String name = split[0].strip();
-            try {
+        try {
+            for (String s : variables.split(";")) {
+                String[] split = s.split("=");
+                if (split.length != 2) {
+                    throw new BadSignificationFormatException("Bad variable signification format.");
+                }
+                String name = split[0].strip();
                 int value = Integer.parseInt(split[1].strip());
                 varMap.put(name, value);
-            } catch (NumberFormatException e) {
-                throw new RuntimeException("Bad variable value");
             }
+            signify(varMap);
+
+        } catch (NumberFormatException e) {
+            throw new BadSignificationFormatException("Bad variable value.");
         }
-        signify(varMap);
         return eval_helper();
     }
 
+    /**
+     * Method for calculating symbol-derivation.
+     *
+     * @param var Variable upon which calculate derivative.
+     * @return New expression, result of derivation.
+     */
     public abstract Expression derivative(String var);
 
     public Expression() {
