@@ -4,7 +4,8 @@ import java.util.HashMap;
 
 public class Variable extends Expression {
 
-    public String name;
+    private int value;
+    private String name;
 
     public Variable(String name) {
         this.name = name;
@@ -25,7 +26,7 @@ public class Variable extends Expression {
     }
 
     @Override
-    int eval_helper() {
+    protected int eval_helper() {
         return this.value;
     }
 

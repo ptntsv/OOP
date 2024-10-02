@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 public class Number extends Expression {
 
+    private int value;
+
     public Number(int value) {
         this.value = value;
     }
@@ -18,7 +20,7 @@ public class Number extends Expression {
     }
 
     @Override
-    int eval_helper() {
+    protected int eval_helper() {
         return this.value;
     }
 

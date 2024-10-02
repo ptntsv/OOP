@@ -1,9 +1,9 @@
 package org.example.Expressions;
 
-public class Div extends Expression {
+public class Div extends BinaryExpression {
 
     @Override
-    int eval_helper() {
+    protected int eval_helper() {
         return left.eval_helper() / right.eval_helper();
     }
 

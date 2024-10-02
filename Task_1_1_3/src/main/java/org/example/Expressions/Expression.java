@@ -14,12 +14,6 @@ import org.example.Parser.Parser;
 
 public abstract class Expression {
 
-    public int value;
-    public char opSign;
-
-    public Expression left;
-    public Expression right;
-
     /**
      * @param tokens Tokens in reverse polish format.
      * @return Converted expression.
@@ -87,7 +81,7 @@ public abstract class Expression {
      *
      * @return Resulting integer value.
      */
-    abstract int eval_helper();
+    protected abstract int eval_helper();
 
     /**
      * Method that signifies provided throughout varMap variables.
@@ -95,10 +89,8 @@ public abstract class Expression {
      * @param varMap Given signification.
      * @throws UnsignedVariableException Thrown if some variable in expression is unsigned.
      */
-    protected void signify(HashMap<String, Integer> varMap) throws UnsignedVariableException {
-        left.signify(varMap);
-        right.signify(varMap);
-    }
+    protected abstract void signify(HashMap<String, Integer> varMap)
+        throws UnsignedVariableException;
 
     /**
      * 'High order' method that parses variable signification, calls signify method and
@@ -137,17 +129,4 @@ public abstract class Expression {
      * @return New expression, result of derivation.
      */
     public abstract Expression derivative(String var);
-
-    public Expression() {
-    }
-
-    public Expression(Expression left, Expression right) {
-        this.left = left;
-        this.right = right;
-    }
-
-    @Override
-    public String toString() {
-        return '(' + left.toString() + this.opSign + right.toString() + ')';
-    }
 }

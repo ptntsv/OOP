@@ -6,10 +6,11 @@ public class OperationToken extends Token {
     public int precedence;
     public Associativity associativity;
 
-    public OperationToken(OpType type, String content, int p, Associativity as) {
+    public OperationToken(OpType type, String content, int precedence,
+        Associativity associativity) {
         super(TokenType.OP, content);
         this.type = type;
-        precedence = p;
-        associativity = as;
+        this.precedence = precedence;
+        this.associativity = associativity;
     }
 }

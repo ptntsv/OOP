@@ -1,9 +1,11 @@
 package org.example.Expressions;
 
-public class Mul extends Expression {
+import java.util.HashMap;
+
+public class Mul extends BinaryExpression {
 
     @Override
-    int eval_helper() {
+    protected int eval_helper() {
         return left.eval_helper() * right.eval_helper();
     }
 
