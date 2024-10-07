@@ -1,6 +1,7 @@
 package org.example.Expressions;
 
 import java.util.HashMap;
+import java.util.Objects;
 
 public class Variable extends Expression {
 
@@ -9,6 +10,11 @@ public class Variable extends Expression {
 
     public Variable(String name) {
         this.name = name;
+    }
+
+    public Variable(String name, int value) {
+        this.name = name;
+        this.value = value;
     }
 
     @Override
@@ -26,6 +32,16 @@ public class Variable extends Expression {
     }
 
     @Override
+    public Expression simplify() {
+        return new Variable(this.name, this.value);
+    }
+
+    @Override
+    protected boolean anyVariables() {
+        return true;
+    }
+
+    @Override
     protected int eval_helper() {
         return this.value;
     }
@@ -33,5 +49,13 @@ public class Variable extends Expression {
     @Override
     public String toString() {
         return this.name;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Variable v) {
+            return v.value == this.value && Objects.equals(v.name, this.name);
+        }
+        return false;
     }
 }

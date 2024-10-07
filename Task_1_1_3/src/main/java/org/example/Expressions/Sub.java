@@ -12,6 +12,18 @@ public class Sub extends BinaryExpression {
         return new Sub(left.derivative(var), right.derivative(var));
     }
 
+    @Override
+    public Expression simplify() {
+        left = left.simplify();
+        right = right.simplify();
+        if (this.left.equals(this.right)) {
+            return new Number(0);
+        }
+        if (left instanceof Number && right instanceof Number)
+            return new Number(this.eval_helper());
+        return new Sub(left, right);
+    }
+
     public Sub(Expression left, Expression right) {
         super(left, right);
         this.opSign = '-';

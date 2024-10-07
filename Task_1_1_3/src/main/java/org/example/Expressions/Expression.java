@@ -58,12 +58,20 @@ public abstract class Expression {
         }
     }
 
+    protected abstract boolean anyVariables();
+
     /**
      * @param reader Input stream (might be file or stdin).
      * @return Deserialized expression.
      */
     public static Expression deserialize(Scanner reader) {
         String expr = reader.nextLine();
+        Lexer lexer = new Lexer(expr);
+        ArrayList<Token> tokens = Parser.infixToPolish(lexer.tokenize());
+        return parseExpression(tokens);
+    }
+
+    public static Expression deserialize(String expr) {
         Lexer lexer = new Lexer(expr);
         ArrayList<Token> tokens = Parser.infixToPolish(lexer.tokenize());
         return parseExpression(tokens);
@@ -129,4 +137,17 @@ public abstract class Expression {
      * @return New expression, result of derivation.
      */
     public abstract Expression derivative(String var);
+
+    /**
+     * Simplifies given expression.
+     *
+     * @return Simplified expression.
+     */
+    public abstract Expression simplify();
+
+    /**
+     * Method for making deep copy of expression.
+     * @return New expression.
+     */
+    //public abstract Expression clone();
 }

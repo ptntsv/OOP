@@ -14,6 +14,15 @@ public class Div extends BinaryExpression {
             new Mul(right, right));
     }
 
+    @Override
+    public Expression simplify() {
+        left = left.simplify();
+        right = right.simplify();
+        if (left instanceof Number && right instanceof Number)
+            return new Number(this.eval_helper());
+        return new Div(left, right);
+    }
+
     public Div(Expression left, Expression right) {
         super(left, right);
         this.opSign = '/';

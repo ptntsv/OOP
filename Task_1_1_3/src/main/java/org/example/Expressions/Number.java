@@ -6,6 +6,10 @@ public class Number extends Expression {
 
     private int value;
 
+    public int getValue() {
+        return this.value;
+    }
+
     public Number(int value) {
         this.value = value;
     }
@@ -20,6 +24,16 @@ public class Number extends Expression {
     }
 
     @Override
+    public Expression simplify() {
+        return new Number(this.value);
+    }
+
+    @Override
+    protected boolean anyVariables() {
+        return false;
+    }
+
+    @Override
     protected int eval_helper() {
         return this.value;
     }
@@ -27,5 +41,13 @@ public class Number extends Expression {
     @Override
     public String toString() {
         return Integer.toString(value);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Number n) {
+            return n.value == this.value;
+        }
+        return false;
     }
 }

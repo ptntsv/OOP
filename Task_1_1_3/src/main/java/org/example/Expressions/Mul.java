@@ -1,7 +1,5 @@
 package org.example.Expressions;
 
-import java.util.HashMap;
-
 public class Mul extends BinaryExpression {
 
     @Override
@@ -12,6 +10,33 @@ public class Mul extends BinaryExpression {
     @Override
     public Expression derivative(String var) {
         return new Add(new Mul(left.derivative(var), right), new Mul(left, right.derivative(var)));
+    }
+
+    @Override
+    public Expression simplify() {
+        left = left.simplify();
+        right = right.simplify();
+        if (left instanceof Number l) {
+            switch (l.getValue()) {
+                case 0:
+                    return new Number(0);
+                case 1:
+                    return right;
+            }
+        }
+        if (right instanceof Number r) {
+            switch (r.getValue()) {
+                case 0:
+                    return new Number(0);
+                case 1:
+                    return left;
+            }
+        }
+        if (left instanceof Number &&
+            right instanceof Number) {
+            return new Number(this.eval_helper());
+        }
+        return new Mul(left, right);
     }
 
     public Mul(Expression left, Expression right) {
