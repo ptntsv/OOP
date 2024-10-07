@@ -49,11 +49,11 @@ public class SimplificationTest {
 
     @Test
     public void noSignificationTest() throws FileNotFoundException {
-        Expression e = Expression.deserialize(new Scanner(new File("input.txt")));
+        Expression e = Expression.deserialize("1 + 2 * 3 / 4 + (2 + x * 0)");
         Expression se = e.simplify();
         Assertions.assertInstanceOf(Number.class, se);
         Number n = (Number) se;
-        Assertions.assertEquals(n.toString(), "3");
+        Assertions.assertEquals(n.toString(), "4");
     }
 
     @Test
