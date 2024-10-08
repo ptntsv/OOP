@@ -77,6 +77,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Lexer</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Class that represents a lexer.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,7 +107,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>char</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#advance()" class="member-name-link">advance</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Advance cursor (with post increment).</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getIdentifier()" class="member-name-link">getIdentifier</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -119,16 +122,24 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnd()" class="member-name-link">isEnd</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Is it end of source string.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Token.html" title="class in org.example.lexer">Token</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nextToken()" class="member-name-link">nextToken</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Peeks next token.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>char</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#peek()" class="member-name-link">peek</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Peek current char.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="Token.html" title="class in org.example.lexer">Token</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tokenize()" class="member-name-link">tokenize</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Turn the string into list of tokens.</div>
+</div>
 </div>
 </div>
 </div>
@@ -164,18 +175,33 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="isEnd()">
 <h3>isEnd</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isEnd</span>()</div>
+<div class="block">Is it end of source string.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Either an end or not.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="advance()">
 <h3>advance</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">char</span>&nbsp;<span class="element-name">advance</span>()</div>
+<div class="block">Advance cursor (with post increment).</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Advanced char.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="peek()">
 <h3>peek</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">char</span>&nbsp;<span class="element-name">peek</span>()</div>
+<div class="block">Peek current char.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Character under the cursor.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -204,12 +230,22 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="nextToken()">
 <h3>nextToken</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Token.html" title="class in org.example.lexer">Token</a></span>&nbsp;<span class="element-name">nextToken</span>()</div>
+<div class="block">Peeks next token.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Next token.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="tokenize()">
 <h3>tokenize</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="Token.html" title="class in org.example.lexer">Token</a>&gt;</span>&nbsp;<span class="element-name">tokenize</span>()</div>
+<div class="block">Turn the string into list of tokens.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>List of tokens.</dd>
+</dl>
 </section>
 </li>
 </ul>
