@@ -2,17 +2,20 @@ import org.example.expressions.Expression;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for symbolic derivation.
+ */
 public class DerivativeTest {
 
     @Test
-    public void dConstTest1() {
+    public void constDerTest1() {
         Expression e = Expression.deserialize("1 + 2");
         var dx = e.derivative("x");
         Assertions.assertEquals("(0+0)", dx.toString());
     }
 
     @Test
-    public void dConstTest2() {
+    public void constDerTest2() {
         Expression e = Expression.deserialize("1 + 2 + y - z - 33");
         var dx = e.derivative("x");
         Assertions.assertEquals("((((0+0)+0)-0)-0)", dx.toString());

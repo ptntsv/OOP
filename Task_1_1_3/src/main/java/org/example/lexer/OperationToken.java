@@ -9,6 +9,14 @@ public class OperationToken extends Token {
     public int precedence;
     public Associativity associativity;
 
+    /**
+     * Constructor.
+     *
+     * @param type          type.
+     * @param content       content.
+     * @param precedence    precedence.
+     * @param associativity associativity.
+     */
     public OperationToken(OpType type, String content, int precedence,
         Associativity associativity) {
         super(TokenType.OP, content);

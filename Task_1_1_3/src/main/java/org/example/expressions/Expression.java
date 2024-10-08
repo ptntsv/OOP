@@ -19,6 +19,8 @@ import org.example.parser.Parser;
 public abstract class Expression {
 
     /**
+     * Method that parses expression.
+     *
      * @param tokens Tokens in reverse polish format.
      * @return Converted expression.
      * @throws EmptyStackException Exception is thrown if given expression has wrong format.
@@ -67,6 +69,8 @@ public abstract class Expression {
     }
 
     /**
+     * Deserializing expression.
+     *
      * @param reader Input stream (might be file or stdin).
      * @return Deserialized expression.
      */
@@ -76,6 +80,8 @@ public abstract class Expression {
     }
 
     /**
+     * Deserializing expression.
+     *
      * @param expr Expression as string.
      * @return Deserialized expression.
      */
