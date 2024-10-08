@@ -1,4 +1,4 @@
 unnamed package
-org.example.Expressions
-org.example.Lexer
-org.example.Parser
+org.example.expressions
+org.example.lexer
+org.example.parser

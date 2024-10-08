@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.example.Expressions"},{"l":"org.example.Lexer"},{"l":"org.example.Parser"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.example.expressions"},{"l":"org.example.lexer"},{"l":"org.example.parser"}];updateSearchResults();
