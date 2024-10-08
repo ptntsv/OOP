@@ -1,4 +1,4 @@
-package org.example.Expressions;
+package org.example.expressions;
 
 public class Mul extends BinaryExpression {
 

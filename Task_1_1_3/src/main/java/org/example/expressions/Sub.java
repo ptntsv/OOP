@@ -1,4 +1,4 @@
-package org.example.Expressions;
+package org.example.expressions;
 
 public class Sub extends BinaryExpression {
 
@@ -19,8 +19,9 @@ public class Sub extends BinaryExpression {
         if (this.left.equals(this.right)) {
             return new Number(0);
         }
-        if (left instanceof Number && right instanceof Number)
+        if (left instanceof Number && right instanceof Number) {
             return new Number(this.eval_helper());
+        }
         return new Sub(left, right);
     }
 

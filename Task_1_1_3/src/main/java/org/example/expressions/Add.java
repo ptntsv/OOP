@@ -1,4 +1,4 @@
-package org.example.Expressions;
+package org.example.expressions;
 
 public class Add extends BinaryExpression {
 
@@ -17,8 +17,7 @@ public class Add extends BinaryExpression {
         left = left.simplify();
         right = right.simplify();
 
-        if (left instanceof Number &&
-            right instanceof Number) {
+        if (left instanceof Number && right instanceof Number) {
             return new Number(this.eval_helper());
         }
         return new Add(left, right);

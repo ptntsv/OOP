@@ -1,15 +1,15 @@
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
-import org.example.Expressions.Add;
-import org.example.Expressions.BinaryExpression;
-import org.example.Expressions.Expression;
-import org.example.Expressions.Mul;
-import org.example.Expressions.Number;
-import org.example.Expressions.Sub;
+import org.example.expressions.Add;
+import org.example.expressions.BinaryExpression;
+import org.example.expressions.Expression;
+import org.example.expressions.Number;
+import org.example.expressions.Sub;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for simplify method and corresponding rules.
+ */
 public class SimplificationTest {
 
     @Test
@@ -53,7 +53,7 @@ public class SimplificationTest {
         Expression se = e.simplify();
         Assertions.assertInstanceOf(Number.class, se);
         Number n = (Number) se;
-        Assertions.assertEquals(n.toString(), "4");
+        Assertions.assertEquals("4", n.toString());
     }
 
     @Test
@@ -79,7 +79,7 @@ public class SimplificationTest {
         Expression e = Expression.deserialize("1 + 0 * x");
         var se = e.simplify();
         Assertions.assertInstanceOf(Number.class, se);
-        Assertions.assertEquals(((Number) se).getValue(), 1);
+        Assertions.assertEquals(1, ((Number) se).getValue());
     }
 
     @Test
@@ -94,7 +94,7 @@ public class SimplificationTest {
         Expression e = Expression.deserialize("(2 + 8 * (x / 2)) - (2 + 8 * (x / 2))");
         var se = e.simplify();
         Assertions.assertInstanceOf(Number.class, se);
-        Assertions.assertEquals(((Number) se).getValue(), 0);
+        Assertions.assertEquals(0, ((Number) se).getValue());
     }
 
     @Test
@@ -104,7 +104,7 @@ public class SimplificationTest {
         var se = e.simplify();
         se.print();
         Assertions.assertInstanceOf(Number.class, se);
-        Assertions.assertEquals(((Number) se).getValue(), 0);
+        Assertions.assertEquals(0, ((Number) se).getValue());
     }
 
     @Test
@@ -112,7 +112,7 @@ public class SimplificationTest {
         Expression e = Expression.deserialize("1 * (2 * 2 + x)");
         var se = e.simplify();
         Assertions.assertInstanceOf(Add.class, se);
-        Assertions.assertEquals(se.toString(), "(4+x)");
+        Assertions.assertEquals("(4+x)", se.toString());
     }
 
     @Test
@@ -120,6 +120,6 @@ public class SimplificationTest {
         Expression e = Expression.deserialize("1 * (x * 0 + 2)");
         var se = e.simplify();
         Assertions.assertInstanceOf(Number.class, se);
-        Assertions.assertEquals(((Number) se).getValue(), 2);
+        Assertions.assertEquals(2, ((Number) se).getValue());
     }
 }

@@ -1,16 +1,16 @@
-package org.example.Expressions;
+package org.example.expressions;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Stack;
-import org.example.Lexer.Lexer;
-import org.example.Lexer.NumberToken;
-import org.example.Lexer.OperationToken;
-import org.example.Lexer.Token;
-import org.example.Lexer.VariableToken;
-import org.example.Parser.Parser;
+import org.example.lexer.Lexer;
+import org.example.lexer.NumberToken;
+import org.example.lexer.OperationToken;
+import org.example.lexer.Token;
+import org.example.lexer.VariableToken;
+import org.example.parser.Parser;
 
 public abstract class Expression {
 
@@ -66,9 +66,7 @@ public abstract class Expression {
      */
     public static Expression deserialize(Scanner reader) {
         String expr = reader.nextLine();
-        Lexer lexer = new Lexer(expr);
-        ArrayList<Token> tokens = Parser.infixToPolish(lexer.tokenize());
-        return parseExpression(tokens);
+        return deserialize(expr);
     }
 
     public static Expression deserialize(String expr) {
@@ -113,21 +111,24 @@ public abstract class Expression {
         throws BadSignificationFormatException, UnsignedVariableException {
         HashMap<String, Integer> varMap = new HashMap<>();
         try {
-            for (String s : variables.split(";")) {
-                String[] split = s.split("=");
-                if (split.length != 2) {
-                    throw new BadSignificationFormatException("Bad variable signification format.");
+            if (!variables.isEmpty()) {
+                for (String s : variables.split(";")) {
+                    String[] split = s.split("=");
+                    if (split.length != 2) {
+                        throw new BadSignificationFormatException(
+                            "Bad variable signification format.");
+                    }
+                    String name = split[0].strip();
+                    int value = Integer.parseInt(split[1].strip());
+                    varMap.put(name, value);
                 }
-                String name = split[0].strip();
-                int value = Integer.parseInt(split[1].strip());
-                varMap.put(name, value);
             }
-            signify(varMap);
-
+            Expression se = this.simplify();
+            se.signify(varMap);
+            return se.eval_helper();
         } catch (NumberFormatException e) {
             throw new BadSignificationFormatException("Bad variable value.");
         }
-        return eval_helper();
     }
 
     /**
@@ -144,10 +145,4 @@ public abstract class Expression {
      * @return Simplified expression.
      */
     public abstract Expression simplify();
-
-    /**
-     * Method for making deep copy of expression.
-     * @return New expression.
-     */
-    //public abstract Expression clone();
 }

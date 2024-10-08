@@ -1,8 +1,8 @@
-package org.example.Lexer;
+package org.example.lexer;
 
 import static java.lang.Character.isAlphabetic;
 import static java.lang.Character.isDigit;
-import static org.example.Lexer.Associativity.ASSOC_LEFT;
+import static org.example.lexer.Associativity.ASSOC_LEFT;
 
 import java.util.ArrayList;
 
@@ -29,6 +29,11 @@ public class Lexer {
         return src.charAt(cursor);
     }
 
+    /**
+     * Reads number.
+     *
+     * @return Number value.
+     */
     public int getNumber() {
         int start = cursor - 1;
         while (isDigit(peek())) {
@@ -37,6 +42,11 @@ public class Lexer {
         return Integer.parseInt(src.substring(start, cursor));
     }
 
+    /**
+     * Reads identifier (in case of this task - variable's name).
+     *
+     * @return Identifier name.
+     */
     public String getIdentifier() {
         int start = cursor - 1;
         while (isAlphabetic(peek()) || isDigit(peek())) {

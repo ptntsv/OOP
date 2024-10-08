@@ -1,4 +1,4 @@
-package org.example.Expressions;
+package org.example.expressions;
 
 import java.util.HashMap;
 
@@ -25,7 +25,8 @@ public abstract class BinaryExpression extends Expression {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof BinaryExpression be) {
-            return this.left.equals(be.left) && this.right.equals(be.right) && be.opSign == this.opSign;
+            return this.left.equals(be.left) && this.right.equals(be.right)
+                   && be.opSign == this.opSign;
         }
         return false;
     }

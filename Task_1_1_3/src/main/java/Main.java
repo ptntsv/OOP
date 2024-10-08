@@ -1,6 +1,4 @@
-import java.util.Scanner;
-import org.example.Expressions.Expression;
-import org.example.Expressions.UnsignedVariableException;
+import org.example.expressions.UnsignedVariableException;
 
 public class Main {
 

@@ -1,10 +1,13 @@
 import java.util.ArrayList;
-import org.example.Lexer.Lexer;
-import org.example.Lexer.Token;
-import org.example.Parser.Parser;
+import org.example.lexer.Lexer;
+import org.example.lexer.Token;
+import org.example.parser.Parser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for check correctness of parsing into reverse polish notation.
+ */
 public class ParserTest {
 
     private static String tokensToString(ArrayList<Token> tokens) {
@@ -20,7 +23,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 + 2 + 3");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 + 3 +");
+        Assertions.assertEquals("1 2 + 3 +", tokensStr);
     }
 
     @Test
@@ -28,7 +31,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 * 2 * 3");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 * 3 *");
+        Assertions.assertEquals("1 2 * 3 *", tokensStr);
     }
 
     @Test
@@ -36,7 +39,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 / 33 / 3 / 4 / 6");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 33 / 3 / 4 / 6 /");
+        Assertions.assertEquals("1 33 / 3 / 4 / 6 /", tokensStr);
     }
 
     @Test
@@ -44,7 +47,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 + 2 * 3");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 3 * +");
+        Assertions.assertEquals("1 2 3 * +", tokensStr);
     }
 
     @Test
@@ -52,7 +55,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 * 2 + 3");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 * 3 +");
+        Assertions.assertEquals("1 2 * 3 +", tokensStr);
     }
 
     @Test
@@ -60,7 +63,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 * 2 * 3 + 5");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 * 3 * 5 +");
+        Assertions.assertEquals("1 2 * 3 * 5 +", tokensStr);
     }
 
     @Test
@@ -68,7 +71,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 + 2 + 3 + 4 * 5");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 + 3 + 4 5 * +");
+        Assertions.assertEquals("1 2 + 3 + 4 5 * +", tokensStr);
     }
 
     @Test
@@ -76,7 +79,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 * (2 + 3)");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 3 + *");
+        Assertions.assertEquals("1 2 3 + *", tokensStr);
     }
 
     @Test
@@ -84,7 +87,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 + (2 * 3)");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 3 * +");
+        Assertions.assertEquals("1 2 3 * +", tokensStr);
     }
 
     @Test
@@ -92,7 +95,7 @@ public class ParserTest {
         Lexer l = new Lexer("(1) + (2)");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 +");
+        Assertions.assertEquals("1 2 +", tokensStr);
     }
 
     @Test
@@ -100,7 +103,7 @@ public class ParserTest {
         Lexer l = new Lexer("(2 * ((3) + (4)))");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "2 3 4 + *");
+        Assertions.assertEquals("2 3 4 + *", tokensStr);
     }
 
     @Test
@@ -108,7 +111,7 @@ public class ParserTest {
         Lexer l = new Lexer("((1 + (2 * 3) + 8) / (2 / 3))");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 3 * + 8 + 2 3 / /");
+        Assertions.assertEquals("1 2 3 * + 8 + 2 3 / /", tokensStr);
     }
 
     @Test
@@ -116,7 +119,7 @@ public class ParserTest {
         Lexer l = new Lexer("(((1) + (((3)))) * 9)");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 3 + 9 *");
+        Assertions.assertEquals("1 3 + 9 *", tokensStr);
     }
 
     @Test
@@ -124,7 +127,7 @@ public class ParserTest {
         Lexer l = new Lexer("1 + 2 * x");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "1 2 x * +");
+        Assertions.assertEquals("1 2 x * +", tokensStr);
     }
 
     @Test
@@ -132,7 +135,7 @@ public class ParserTest {
         Lexer l = new Lexer("2 * (1 + (9 / (xxxxx * abcde1234) + 3))");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "2 1 9 xxxxx abcde1234 * / 3 + + *");
+        Assertions.assertEquals("2 1 9 xxxxx abcde1234 * / 3 + + *", tokensStr);
     }
 
     @Test
@@ -140,7 +143,7 @@ public class ParserTest {
         Lexer l = new Lexer("2 + x * 8 / 9");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "2 x 8 * 9 / +");
+        Assertions.assertEquals("2 x 8 * 9 / +", tokensStr);
     }
 
     @Test
@@ -148,6 +151,6 @@ public class ParserTest {
         Lexer l = new Lexer("2 * x + y + z + m + n - 56 - 66");
         var tokens = Parser.infixToPolish(l.tokenize());
         String tokensStr = tokensToString(tokens);
-        Assertions.assertEquals(tokensStr, "2 x * y + z + m + n + 56 - 66 -");
+        Assertions.assertEquals("2 x * y + z + m + n + 56 - 66 -", tokensStr);
     }
 }

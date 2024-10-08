@@ -1,4 +1,4 @@
-package org.example.Lexer;
+package org.example.lexer;
 
 public class OperationToken extends Token {
 
