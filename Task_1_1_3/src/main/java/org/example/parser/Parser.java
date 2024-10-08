@@ -9,6 +9,9 @@ import org.example.lexer.Token;
 import org.example.lexer.TokenType;
 import org.example.lexer.VariableToken;
 
+/**
+ * Parser class.
+ */
 public class Parser {
 
     /**
@@ -32,8 +35,8 @@ public class Parser {
                     if (op.precedence < topOp.precedence) {
                         opStack.push(op);
                     } else {
-                        while (!opStack.empty() &&
-                               opStack.peek().type != TokenType.LPAREN) {
+                        while (!opStack.empty()
+                               && opStack.peek().type != TokenType.LPAREN) {
                             if (opStack.peek() instanceof OperationToken top) {
                                 if (op.precedence > top.precedence || (
                                     op.precedence == top.precedence

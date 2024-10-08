@@ -1,5 +1,8 @@
 package org.example.expressions;
 
+/**
+ * Addition operation.
+ */
 public class Add extends BinaryExpression {
 
     @Override

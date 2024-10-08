@@ -9,9 +9,13 @@ import org.example.lexer.Lexer;
 import org.example.lexer.NumberToken;
 import org.example.lexer.OperationToken;
 import org.example.lexer.Token;
+import org.example.lexer.UnsupportedOperationException;
 import org.example.lexer.VariableToken;
 import org.example.parser.Parser;
 
+/**
+ * Abstract class that represents expression.
+ */
 public abstract class Expression {
 
     /**
@@ -49,6 +53,10 @@ public abstract class Expression {
                             s.push(new Div(left, right));
                             break;
                         }
+                        default: {
+                            throw new UnsupportedOperationException(
+                                "Unsupported operation type: " + op.type);
+                        }
                     }
                 }
             }
@@ -57,8 +65,6 @@ public abstract class Expression {
             throw new RuntimeException("Bad expression.");
         }
     }
-
-    protected abstract boolean anyVariables();
 
     /**
      * @param reader Input stream (might be file or stdin).
@@ -69,6 +75,10 @@ public abstract class Expression {
         return deserialize(expr);
     }
 
+    /**
+     * @param expr Expression as string.
+     * @return Deserialized expression.
+     */
     public static Expression deserialize(String expr) {
         Lexer lexer = new Lexer(expr);
         ArrayList<Token> tokens = Parser.infixToPolish(lexer.tokenize());

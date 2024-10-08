@@ -2,16 +2,15 @@ package org.example.expressions;
 
 import java.util.HashMap;
 
+/**
+ * Expression's subclass that represents binary expression (i.e expression that has left and right
+ * children).
+ */
 public abstract class BinaryExpression extends Expression {
 
     public Expression left;
     public Expression right;
     public char opSign;
-
-    @Override
-    protected boolean anyVariables() {
-        return left.anyVariables() || right.anyVariables();
-    }
 
     @Override
     public abstract Expression simplify();

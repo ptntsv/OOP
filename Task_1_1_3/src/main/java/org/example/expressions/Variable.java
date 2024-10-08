@@ -3,6 +3,9 @@ package org.example.expressions;
 import java.util.HashMap;
 import java.util.Objects;
 
+/**
+ * Class variable expression.
+ */
 public class Variable extends Expression {
 
     private int value;
@@ -34,11 +37,6 @@ public class Variable extends Expression {
     @Override
     public Expression simplify() {
         return new Variable(this.name, this.value);
-    }
-
-    @Override
-    protected boolean anyVariables() {
-        return true;
     }
 
     @Override

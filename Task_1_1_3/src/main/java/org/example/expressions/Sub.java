@@ -1,5 +1,8 @@
 package org.example.expressions;
 
+/**
+ * Subtract operation.
+ */
 public class Sub extends BinaryExpression {
 
     @Override

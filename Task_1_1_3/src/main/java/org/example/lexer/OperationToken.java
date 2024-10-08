@@ -1,5 +1,8 @@
 package org.example.lexer;
 
+/**
+ * Token that represents operation.
+ */
 public class OperationToken extends Token {
 
     public OpType type;

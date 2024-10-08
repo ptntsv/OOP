@@ -2,6 +2,9 @@ package org.example.expressions;
 
 import java.util.HashMap;
 
+/**
+ * Class that represents a number.
+ */
 public class Number extends Expression {
 
     private int value;
@@ -26,11 +29,6 @@ public class Number extends Expression {
     @Override
     public Expression simplify() {
         return new Number(this.value);
-    }
-
-    @Override
-    protected boolean anyVariables() {
-        return false;
     }
 
     @Override

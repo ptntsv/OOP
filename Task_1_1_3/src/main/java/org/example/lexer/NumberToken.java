@@ -1,5 +1,8 @@
 package org.example.lexer;
 
+/**
+ * Token that represents a number.
+ */
 public class NumberToken extends Token {
 
     public int value;

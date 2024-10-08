@@ -1,5 +1,8 @@
 package org.example.expressions;
 
+/**
+ * Multiplication operation.
+ */
 public class Mul extends BinaryExpression {
 
     @Override
@@ -22,6 +25,8 @@ public class Mul extends BinaryExpression {
                     return new Number(0);
                 case 1:
                     return right;
+                default:
+                    ;
             }
         }
         if (right instanceof Number r) {
@@ -30,10 +35,12 @@ public class Mul extends BinaryExpression {
                     return new Number(0);
                 case 1:
                     return left;
+                default:
+                    ;
             }
         }
-        if (left instanceof Number &&
-            right instanceof Number) {
+        if (left instanceof Number
+            && right instanceof Number) {
             return new Number(this.eval_helper());
         }
         return new Mul(left, right);

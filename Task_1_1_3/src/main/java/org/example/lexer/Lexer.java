@@ -6,15 +6,31 @@ import static org.example.lexer.Associativity.ASSOC_LEFT;
 
 import java.util.ArrayList;
 
+/**
+ * Class that represents a lexer.
+ */
 public class Lexer {
 
+    /**
+     * Source string.
+     */
     private String src;
     private int cursor = 0;
 
+    /**
+     * Is it end of source string.
+     *
+     * @return Either an end or not.
+     */
     public boolean isEnd() {
         return cursor == src.length();
     }
 
+    /**
+     * Advance cursor (with post increment).
+     *
+     * @return Advanced char.
+     */
     public char advance() {
         if (isEnd()) {
             return 0;
@@ -22,6 +38,11 @@ public class Lexer {
         return src.charAt(cursor++);
     }
 
+    /**
+     * Peek current char.
+     *
+     * @return Character under the cursor.
+     */
     public char peek() {
         if (isEnd()) {
             return 0;
@@ -55,6 +76,11 @@ public class Lexer {
         return src.substring(start, cursor);
     }
 
+    /**
+     * Peeks next token.
+     *
+     * @return Next token.
+     */
     public Token nextToken() {
         char ch = advance();
         switch (ch) {
@@ -70,6 +96,8 @@ public class Lexer {
                 return new OperationToken(OpType.OP_DIV, Character.toString(ch), 3, ASSOC_LEFT);
             case '*':
                 return new OperationToken(OpType.OP_MUL, Character.toString(ch), 3, ASSOC_LEFT);
+            default:
+                ;
         }
         if (isDigit(ch)) {
             return new NumberToken(getNumber());
@@ -80,6 +108,11 @@ public class Lexer {
         return new Token(TokenType.NULL, "NULL");
     }
 
+    /**
+     * Turn the string into list of tokens.
+     *
+     * @return List of tokens.
+     */
     public ArrayList<Token> tokenize() {
         ArrayList<Token> tokens = new ArrayList<Token>();
         while (!isEnd()) {

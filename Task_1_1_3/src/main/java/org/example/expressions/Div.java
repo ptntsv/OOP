@@ -1,5 +1,8 @@
 package org.example.expressions;
 
+/**
+ * Division operation.
+ */
 public class Div extends BinaryExpression {
 
     @Override
