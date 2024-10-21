@@ -4,19 +4,15 @@ import java.util.List;
 
 public interface IGraph<T> {
 
-    void addVertex(Vertex<T> vertex);
+    public T addVertex(T v);
 
-    void removeVertex(Vertex<T> vertex);
+    public T removeVertex(T v);
 
-    boolean isAdjacent(Vertex<T> from, Vertex<T> to);
+    public void addEdge(T dst, T src, double weight);
 
-    List<Vertex<T>> getAdjacent(Vertex<T> vertex);
+    public void removeEdge(T dst, T src);
 
-    void addEdge(Edge<T> edge);
+    public List<T> getAdjacent(T v);
 
-    void removeEdge(Edge<T> edge);
-
-    int getVerticesN();
-
-    void print();
+    public boolean isAdjacent(T v, T u);
 }

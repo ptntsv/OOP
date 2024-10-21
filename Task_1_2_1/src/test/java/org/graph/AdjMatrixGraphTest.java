@@ -1,139 +1,89 @@
 package org.graph;
 
-import java.util.HashMap;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class AdjMatrixGraphTest {
 
     @Test
-    void addVerticesTest() {
-        IGraph<Integer> graph = new AdjMatrixGraph<>();
-        var v1 = new Vertex<>(1, 1);
-        var v2 = new Vertex<>(2, 2);
-        var v3 = new Vertex<>(3, 3);
-        var v4 = new Vertex<>(4, 4);
-        graph.addVertex(v1);
-        graph.addVertex(v4);
-        graph.addVertex(v2);
-        graph.addVertex(v3);
-        Assertions.assertEquals(4, graph.getVerticesN());
-        graph.print();
-    }
-
-    @Test
-    void removeVerticesTest() {
-        var graph = new AdjMatrixGraph<Integer>();
-        var v1 = new Vertex<>(1, 1);
-        var v2 = new Vertex<>(2, 2);
-        var v3 = new Vertex<>(3, 3);
-        var v4 = new Vertex<>(5, 5);
-        graph.addVertex(v1);
-        graph.addVertex(v4);
-        graph.addVertex(v2);
-        graph.addVertex(v3);
-        Assertions.assertEquals(4, graph.getVerticesN());
-        graph.removeVertex(v1);
-        Assertions.assertEquals(3, graph.getVerticesN());
-        Assertions.assertFalse(graph.adjMatrix.containsKey(v1));
-        for (var v : graph.adjMatrix.keySet()) {
-            Assertions.assertFalse(graph.adjMatrix.get(v).containsKey(v1));
+    void adjMatrixCreateTest() {
+        List<Integer> ints = Arrays.stream(new Integer[] {6, 5, 4, 3, 2, 1}).toList();
+        Graph<Integer> igraph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
+        Assertions.assertInstanceOf(AdjMatrixIntGraph.class, igraph.abstractGraph);
+        for (int i = 0; i < ints.size(); i++) {
+            Assertions.assertEquals(ints.get(i), igraph.maps.getIntTHashMap().get(i));
+            Assertions.assertEquals(i, igraph.maps.gettIntHashMap().get(ints.get(i)));
         }
     }
-
     @Test
-    void addEdgeTest() {
-        var graph = new AdjMatrixGraph<Integer>();
-        var v1 = new Vertex<>(1, 1);
-        var v2 = new Vertex<>(2, 2);
-        var v3 = new Vertex<>(3, 3);
-        var v4 = new Vertex<>(5, 5);
-        graph.addVertex(v1);
-        graph.addVertex(v2);
-        graph.addVertex(v3);
-        graph.addVertex(v4);
-        graph.addEdge(new Edge<>(v1, v2));
-        Assertions.assertThrows(NoSuchVertexException.class,
-            () -> graph.addEdge(new Edge<>(new Vertex<>(6, 100), v2)));
-        Assertions.assertEquals(true, graph.adjMatrix.get(v1).get(v2));
-        Assertions.assertEquals(false, graph.adjMatrix.get(v2).get(v1));
-    }
-
-    @Test
-    void removeEdgeTest() {
-        var graph = new AdjMatrixGraph<Integer>();
-        var v1 = new Vertex<>(1, 1);
-        var v2 = new Vertex<>(2, 2);
-        var v3 = new Vertex<>(3, 3);
-        var v4 = new Vertex<>(5, 5);
-        graph.addVertex(v1);
-        graph.addVertex(v2);
-        graph.addVertex(v3);
-        graph.addVertex(v4);
-        graph.addEdge(new Edge<>(v1, v2));
-        graph.addEdge(new Edge<>(v2, v3));
-        graph.addEdge(new Edge<>(v3, v4));
-        graph.addEdge(new Edge<>(v4, v3));
-        Assertions.assertEquals(true, graph.adjMatrix.get(v1).get(v2));
-        Assertions.assertEquals(false, graph.adjMatrix.get(v2).get(v1));
-        Assertions.assertEquals(true, graph.adjMatrix.get(v2).get(v3));
-
-        graph.removeEdge(new Edge<>(v1, v2));
-        graph.removeEdge(new Edge<>(v2, v1));
-        Assertions.assertEquals(false, graph.adjMatrix.get(v1).get(v2));
-        Assertions.assertEquals(false, graph.adjMatrix.get(v2).get(v1));
-
-        graph.removeEdge(new Edge<>(v4, v3));
-        Assertions.assertEquals(true, graph.adjMatrix.get(v3).get(v4));
-        Assertions.assertEquals(false, graph.adjMatrix.get(v4).get(v3));
-    }
-
-    @Test
-    void getAdjVerticesTest() {
-        var graph = new AdjMatrixGraph<Integer>();
-        var v1 = new Vertex<>(1, 1);
-        var v2 = new Vertex<>(2, 2);
-        var v3 = new Vertex<>(3, 3);
-        var v4 = new Vertex<>(5, 5);
-        graph.addVertex(v1);
-        graph.addVertex(v2);
-        graph.addVertex(v3);
-        graph.addVertex(v4);
-
-        graph.addEdge(new Edge<>(v1, v2));
-        graph.addEdge(new Edge<>(v1, v1));
-        graph.addEdge(new Edge<>(v1, v3));
-        graph.addEdge(new Edge<>(v4, v1));
-
-        var adjToV1 = graph.getAdjacent(v1);
-        Assertions.assertEquals(3, adjToV1.size());
-        Assertions.assertTrue(adjToV1.contains(v1));
-        Assertions.assertTrue(adjToV1.contains(v2));
-        Assertions.assertTrue(adjToV1.contains(v3));
-        Assertions.assertFalse(adjToV1.contains(v4));
-
-        graph.removeEdge(new Edge<>(v1, v2));
-        var adjToV1ExceptV2 = graph.getAdjacent(v1);
-        Assertions.assertFalse(adjToV1ExceptV2.contains(v2));
-    }
-
-    @Test
-    void deserializeTest() {
-        String src = "1 2\n2 3\n4 5\n5 1\n2 7\n3 9\n";
-        var graph = AdjMatrixGraph.deserialize(src);
-        var verticesMap = new HashMap<Integer, Vertex<Integer>>();
-        for (var v : graph.adjMatrix.keySet()) {
-            verticesMap.put(v.getKey(), v);
+    void adjMatrixAddVertexTest() {
+        List<Integer> ints = Arrays.stream(new Integer[] {1, 2, 3, 4, 5, 6, 7}).toList();
+        Graph<Integer> graph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
+        Assertions.assertInstanceOf(AdjMatrixIntGraph.class, graph.abstractGraph);
+        Assertions.assertEquals(ints.size(), graph.maps.getN());
+        graph.addVertex(8);
+        Assertions.assertEquals(ints.size() + 1, graph.maps.getN());
+        double[][] adjMatrix = ((AdjMatrixIntGraph)graph.abstractGraph).adjMatrix;
+        for (int i = 0; i < ints.size() + 1; i++) {
+            for (int j = 0; j < ints.size() + 1; j++) {
+                Assertions.assertEquals((i == j) ? 0 : Double.POSITIVE_INFINITY, adjMatrix[i][j]);
+            }
         }
-        var v1 = verticesMap.get(1);
-        var v2 = verticesMap.get(2);
-        var v4 = verticesMap.get(4);
-        var v5 = verticesMap.get(5);
+    }
+    @Test
+    void adjMatrixRemoveVertexTest() {
+        List<Integer> ints = Arrays.stream(new Integer[] {1, 2, 3, 4, 5, 6, 7}).toList();
+        Graph<Integer> graph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
+        var adjGraph = ((AdjMatrixIntGraph)graph.abstractGraph);
+        graph.addVertex(8);
+        Assertions.assertEquals(ints.size() + 1, graph.maps.getN());
 
-        Assertions.assertTrue(graph.isAdjacent(v1, v2));
-        Assertions.assertFalse(graph.isAdjacent(v2, v1));
-
-        Assertions.assertTrue(graph.isAdjacent(v4, v5));
-        Assertions.assertTrue(graph.isAdjacent(v5, v1));
+        int toRemoveT = 8;
+        int toRemove = graph.maps.gettIntHashMap().get(toRemoveT);
+        graph.removeVertex(toRemoveT);
+        for (int i = 0; i < adjGraph.n; i++) {
+            for (int j = 0; j < adjGraph.n; j++) {
+                if (i == toRemove || j == toRemove) {
+                    Assertions.assertEquals(Double.NaN, adjGraph.adjMatrix[i][j]);
+                }
+            }
+        }
+        toRemoveT = 4;
+        toRemove = graph.maps.gettIntHashMap().get(toRemoveT);
+        graph.removeVertex(toRemoveT);
+        for (int i = 0; i < adjGraph.n; i++) {
+            for (int j = 0; j < adjGraph.n; j++) {
+                if (i == toRemove || j == toRemove) {
+                    Assertions.assertEquals(Double.NaN, adjGraph.adjMatrix[i][j]);
+                }
+            }
+        }
+    }
+    @Test
+    void edgesAdjacentMatrixGraphTest() {
+        List<Integer> ints = Arrays.stream(new Integer[] {1, 2, 3, 4, 5, 6, 7}).toList();
+        Graph<Integer> graph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
+        var adjGraph = ((AdjMatrixIntGraph)graph.abstractGraph);
+        int v = 2;
+        int v_mapped = graph.maps.gettIntHashMap().get(v);
+        int u = 5;
+        int u_mapped = graph.maps.gettIntHashMap().get(u);
+        graph.addEdge(v, u, 8);
+        Assertions.assertTrue(graph.isAdjacent(v, u));
+        Assertions.assertEquals(8, adjGraph.adjMatrix[v_mapped][u_mapped]);
+        graph.removeEdge(v, u);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, adjGraph.adjMatrix[v_mapped][u_mapped]);
+        graph.addEdge(1, 2, 1);
+        graph.addEdge(1, 3, 2);
+        graph.addEdge(1, 7, 2);
+        graph.addEdge(7, 1, 3);
+        var vs = Arrays.stream(new Integer[] {1, 2, 3, 7}).toList();
+        for (var e : graph.getAdjacent(1)) {
+            Assertions.assertTrue(vs.contains(e));
+        }
     }
 }
