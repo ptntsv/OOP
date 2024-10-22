@@ -30,11 +30,19 @@ public class VerticesMapsPair<T> {
     public VerticesMapsPair() {
     }
 
+    /**
+     * Insert new vertex for mapping.
+     * @param tv Vertex to insert.
+     */
     public void insert(T tv) {
         intTHashMap.put(N, tv);
         tIntHashMap.put(tv, N++);
     }
 
+    /**
+     * Remove a vertex for mapping.
+     * @param v Vertex to remove.
+     */
     public void remove(T v) {
         intTHashMap.remove(gettIntHashMap().get(v), v);
         tIntHashMap.remove(v);

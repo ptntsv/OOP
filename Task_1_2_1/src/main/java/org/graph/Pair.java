@@ -17,6 +17,11 @@ public class Pair<T1, T2> {
      */
     public T2 second;
 
+    /**
+     * Constructor.
+     * @param first First.
+     * @param second Second.
+     */
     public Pair(T1 first, T2 second) {
         this.first = first;
         this.second = second;

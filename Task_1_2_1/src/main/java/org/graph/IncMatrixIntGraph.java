@@ -33,8 +33,8 @@ public class IncMatrixIntGraph extends AbstractIntGraph {
     }
 
     /**
-     * Method to remove vertex from incidence matrix. this.incMatrix[v][i] = -2, where 0 <= i <
-     * this.nedges. In other words, incMatrix[v][i] == -2 if and only if v is removed vertex.
+     * Method to remove vertex from incidence matrix. this.incMatrix[v][i] = -2, where i in [0,
+     * nedges). In other words, incMatrix[v][i] == -2 if and only if v is removed vertex.
      *
      * @param v Vertex to remove.
      * @return Removed vertex.
@@ -102,6 +102,12 @@ public class IncMatrixIntGraph extends AbstractIntGraph {
         return this.nvertices;
     }
 
+    /**
+     * Constructor.
+     *
+     * @param nvertices Number of vertices.
+     * @param nedges    Number of edges.
+     */
     public IncMatrixIntGraph(int nvertices, int nedges) {
         this.nvertices = nvertices;
         this.nedges = nedges;

@@ -112,6 +112,10 @@ public class AdjMatrixIntGraph extends AbstractIntGraph {
         return vs;
     }
 
+    /**
+     * Constructor.
+     * @param n Number of nodes.
+     */
     public AdjMatrixIntGraph(int n) {
         this.nvertices = n;
         adjMatrix = new double[n][n];
