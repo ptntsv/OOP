@@ -1,5 +1,6 @@
 package org.graph;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface IGraph<T> {
@@ -15,4 +16,6 @@ public interface IGraph<T> {
     public List<T> getAdjacent(T v);
 
     public boolean isAdjacent(T v, T u);
+
+    public int getVerticesN();
 }

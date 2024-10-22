@@ -1,7 +1,5 @@
 package org.graph;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
@@ -45,8 +43,8 @@ public class AdjMatrixGraphTest {
         int toRemoveT = 8;
         int toRemove = graph.maps.gettIntHashMap().get(toRemoveT);
         graph.removeVertex(toRemoveT);
-        for (int i = 0; i < adjGraph.n; i++) {
-            for (int j = 0; j < adjGraph.n; j++) {
+        for (int i = 0; i < adjGraph.nvertices; i++) {
+            for (int j = 0; j < adjGraph.nvertices; j++) {
                 if (i == toRemove || j == toRemove) {
                     Assertions.assertEquals(Double.NaN, adjGraph.adjMatrix[i][j]);
                 }
@@ -55,8 +53,8 @@ public class AdjMatrixGraphTest {
         toRemoveT = 4;
         toRemove = graph.maps.gettIntHashMap().get(toRemoveT);
         graph.removeVertex(toRemoveT);
-        for (int i = 0; i < adjGraph.n; i++) {
-            for (int j = 0; j < adjGraph.n; j++) {
+        for (int i = 0; i < adjGraph.nvertices; i++) {
+            for (int j = 0; j < adjGraph.nvertices; j++) {
                 if (i == toRemove || j == toRemove) {
                     Assertions.assertEquals(Double.NaN, adjGraph.adjMatrix[i][j]);
                 }
