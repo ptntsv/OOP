@@ -5,6 +5,11 @@ package org.graph;
  */
 public class NoSuchVertexException extends RuntimeException {
 
+    /**
+     * Constructor.
+     *
+     * @param message Message.
+     */
     public NoSuchVertexException(String message) {
         super(message);
     }

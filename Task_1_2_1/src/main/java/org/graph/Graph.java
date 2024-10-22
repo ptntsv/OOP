@@ -15,6 +15,9 @@ import java.util.Set;
  */
 public class Graph<T> implements IGraph<T> {
 
+    /**
+     * Graph implementation.
+     */
     protected AbstractIntGraph abstractGraph;
 
     /**
@@ -151,6 +154,10 @@ public class Graph<T> implements IGraph<T> {
      * where w is weight (lines are separated by \n) Example: 1 2 3|10 11 2 5 6|9 77 Means that
      * there are 2 edges on the first line: 1 -> 2 with weight 10 and 1 -> 3 with weight 11 2 -> 5
      * with weight 9 and 2 -> 6 with weight 77 on the second.
+     *
+     * @param str            Source string.
+     * @param representation The way to implement graph.
+     * @return Deserialized graph.
      */
     public static Graph<Integer> deserializeIntGraph(String str,
         GraphRepresentation representation) {
@@ -177,6 +184,7 @@ public class Graph<T> implements IGraph<T> {
      * - 1)).
      *
      * @param vList          Provided vertices.
+     * @param eList          Provided edges.
      * @param representation The way how graph is represented.
      */
     public Graph(List<T> vList, List<Pair<Integer, Pair<Integer, Double>>> eList,
@@ -207,6 +215,12 @@ public class Graph<T> implements IGraph<T> {
         }
     }
 
+    /**
+     * Default constructor but without edges.
+     *
+     * @param vList          Provided vertices.
+     * @param representation The way how graph is represented.
+     */
     public Graph(List<T> vList, GraphRepresentation representation) {
         this(vList, new ArrayList<>(), representation);
     }

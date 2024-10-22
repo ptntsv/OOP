@@ -8,7 +8,13 @@ package org.graph;
  */
 public class Pair<T1, T2> {
 
+    /**
+     * First element.
+     */
     public T1 first;
+    /**
+     * Second element.
+     */
     public T2 second;
 
     public Pair(T1 first, T2 second) {

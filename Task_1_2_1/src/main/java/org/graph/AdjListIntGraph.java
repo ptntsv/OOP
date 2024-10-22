@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Adjacency list graph implementation.
+ */
 public class AdjListIntGraph extends AbstractIntGraph {
 
     /**
@@ -67,6 +70,11 @@ public class AdjListIntGraph extends AbstractIntGraph {
         return adjList.size();
     }
 
+    /**
+     * Constructor.
+     * @param vs List of vertices.
+     * @param edges List of edeges.
+     */
     public AdjListIntGraph(List<Integer> vs, List<Pair<Integer, Pair<Integer, Double>>> edges) {
         for (var v : vs) {
             adjList.put(v, new ArrayList<>());

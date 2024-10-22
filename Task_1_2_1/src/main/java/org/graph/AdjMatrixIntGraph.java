@@ -3,6 +3,9 @@ package org.graph;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Adjacency matrix graph implementation.
+ */
 public class AdjMatrixIntGraph extends AbstractIntGraph {
 
     /**
@@ -11,6 +14,9 @@ public class AdjMatrixIntGraph extends AbstractIntGraph {
      * (if vertex is removed), any other value - valid weight.
      */
     protected double[][] adjMatrix;
+    /**
+     * Number of vertices.
+     */
     protected int nvertices;
 
     /**

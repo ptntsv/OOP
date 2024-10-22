@@ -3,13 +3,22 @@ package org.graph;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Incidence matrix graph implementation.
+ */
 public class IncMatrixIntGraph extends AbstractIntGraph {
 
     /**
      * Incidence matrix.
      */
     protected int[][] incMatrix;
+    /**
+     * Number of vertices.
+     */
     protected int nvertices;
+    /**
+     * Number of edges.
+     */
     protected int nedges;
 
     @Override

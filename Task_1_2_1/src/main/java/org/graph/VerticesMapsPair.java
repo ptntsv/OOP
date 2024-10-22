@@ -10,17 +10,23 @@ import java.util.HashMap;
  */
 public class VerticesMapsPair<T> {
 
+    /**
+     * From int to T map.
+     */
     private HashMap<Integer, T> intTHashMap = new HashMap<>();
+    /**
+     * From T to int map.
+     */
     private HashMap<T, Integer> tIntHashMap = new HashMap<>();
 
+    /**
+     * Next integer key to map on.
+     */
     private int N = 0;
 
-    public VerticesMapsPair(HashMap<Integer, T> intTHashMap, HashMap<T, Integer> tIntHashMap) {
-        this.intTHashMap = intTHashMap;
-        this.tIntHashMap = tIntHashMap;
-        this.N = intTHashMap.size();
-    }
-
+    /**
+     * Contructor.
+     */
     public VerticesMapsPair() {
     }
 
@@ -34,14 +40,29 @@ public class VerticesMapsPair<T> {
         tIntHashMap.remove(v);
     }
 
+    /**
+     * Getter for intTHashMap.
+     *
+     * @return intTHashMap
+     */
     public HashMap<Integer, T> getIntTHashMap() {
         return intTHashMap;
     }
 
+    /**
+     * Getter for tIntHashMap.
+     *
+     * @return tIntHashMap
+     */
     public HashMap<T, Integer> gettIntHashMap() {
         return tIntHashMap;
     }
 
+    /**
+     * Getter for N.
+     *
+     * @return N.
+     */
     public int getN() {
         return N;
     }
