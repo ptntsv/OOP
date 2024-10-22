@@ -1,6 +1,5 @@
 package org.graph;
 
-import java.util.HashMap;
 import java.util.List;
 
 public interface IGraph<T> {

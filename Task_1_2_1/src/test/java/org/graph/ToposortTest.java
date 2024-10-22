@@ -27,4 +27,14 @@ public class ToposortTest {
             Assertions.assertEquals(sorted.get(i), toCmp.get(i));
         }
     }
+    @Test
+    void toposortCommonTest3() {
+        Graph<Integer> graph = Graph.deserializeIntGraph("3 2|0",
+            GraphRepresentation.ADJ_LIST);
+        var sorted = graph.toposort();
+        ArrayList<Integer> toCmp = new ArrayList<>(Arrays.asList(3, 2));
+        for (int i = 0; i < sorted.size(); i++) {
+            Assertions.assertEquals(sorted.get(i), toCmp.get(i));
+        }
+    }
 }

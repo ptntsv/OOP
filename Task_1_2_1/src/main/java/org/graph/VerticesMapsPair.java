@@ -2,6 +2,12 @@ package org.graph;
 
 import java.util.HashMap;
 
+/**
+ * Utility class to keep two-way mapping between Graph wrapper and concrete IntegerGraph
+ * implementation
+ *
+ * @param <T> User's specified graph node type.
+ */
 public class VerticesMapsPair<T> {
 
     private HashMap<Integer, T> intTHashMap = new HashMap<>();
@@ -22,6 +28,7 @@ public class VerticesMapsPair<T> {
         intTHashMap.put(N, tv);
         tIntHashMap.put(tv, N++);
     }
+
     public void remove(T v) {
         intTHashMap.remove(gettIntHashMap().get(v), v);
         tIntHashMap.remove(v);

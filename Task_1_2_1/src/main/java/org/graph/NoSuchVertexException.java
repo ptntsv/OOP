@@ -1,5 +1,8 @@
 package org.graph;
 
+/**
+ * Thrown if provided vertex not in graph.
+ */
 public class NoSuchVertexException extends RuntimeException {
 
     public NoSuchVertexException(String message) {

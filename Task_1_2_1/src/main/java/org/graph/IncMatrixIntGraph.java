@@ -5,6 +5,9 @@ import java.util.List;
 
 public class IncMatrixIntGraph extends AbstractIntGraph {
 
+    /**
+     * Incidence matrix.
+     */
     protected int[][] incMatrix;
     protected int nvertices;
     protected int nedges;

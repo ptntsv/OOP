@@ -8,6 +8,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Graph wrapper.
+ *
+ * @param <T> Type of graph node, specified by user.
+ */
 public class Graph<T> implements IGraph<T> {
 
     protected AbstractIntGraph abstractGraph;
@@ -17,6 +22,12 @@ public class Graph<T> implements IGraph<T> {
      */
     protected VerticesMapsPair<T> maps = new VerticesMapsPair<>();
 
+    /**
+     * Updates map and call addVertex from concreate graph implementation.
+     *
+     * @param v Vertex to add.
+     * @return Added vertex.
+     */
     @Override
     public T addVertex(T v) {
         maps.insert(v);
@@ -24,6 +35,12 @@ public class Graph<T> implements IGraph<T> {
         return v;
     }
 
+    /**
+     * Updates map and call removeVertex from concreate graph implementation.
+     *
+     * @param v Vertex to remove.
+     * @return Removed vertex.
+     */
     @Override
     public T removeVertex(T v) {
         abstractGraph.removeVertex(maps.gettIntHashMap().get(v));
@@ -31,17 +48,36 @@ public class Graph<T> implements IGraph<T> {
         return v;
     }
 
+    /**
+     * Calls addEdge from concreate graph implementation with proper arguments.
+     *
+     * @param src    Source vertex.
+     * @param dst    Destination vertex.
+     * @param weight Weight.
+     */
     @Override
     public void addEdge(T src, T dst, double weight) {
         abstractGraph.addEdge(maps.gettIntHashMap().get(src), maps.gettIntHashMap().get(dst),
             weight);
     }
 
+    /**
+     * Calls removeEdge from concreate graph implementation with proper arguments.
+     *
+     * @param src Source vertex.
+     * @param dst Destination vertex.
+     */
     @Override
     public void removeEdge(T src, T dst) {
         abstractGraph.removeEdge(maps.gettIntHashMap().get(src), maps.gettIntHashMap().get(dst));
     }
 
+    /**
+     * Get adjacent vertices to provided.
+     *
+     * @param v Provided vertex.
+     * @return List of adjacent vertices.
+     */
     @Override
     public List<T> getAdjacent(T v) {
         var ints = abstractGraph.getAdjacent(maps.gettIntHashMap().get(v));
@@ -50,6 +86,13 @@ public class Graph<T> implements IGraph<T> {
             .toList();
     }
 
+    /**
+     * Either vertices are adjacents or not.
+     *
+     * @param v Vertex #1.
+     * @param u Vertex #2.
+     * @return Adjacent or not.
+     */
     public boolean isAdjacent(T v, T u) {
         return abstractGraph.isAdjacent(maps.gettIntHashMap().get(v), maps.gettIntHashMap().get(u));
     }
@@ -57,8 +100,9 @@ public class Graph<T> implements IGraph<T> {
     /**
      * Deep-first traverse.
      *
-     * @param vertex  Vertex to visit.
-     * @param visited Hashmap of visited verices.
+     * @param vertex   Vertex to visit.
+     * @param sortList List with vertices.
+     * @param visited  Hashmap of visited verices.
      */
     public void DFS(T vertex, HashMap<T, Boolean> visited, List<T> sortList) {
         var intV = maps.gettIntHashMap().get(vertex);
