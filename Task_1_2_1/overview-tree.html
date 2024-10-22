@@ -27,7 +27,6 @@ loadScripts(document, 'script');</script>
 <div class="top-nav" id="navbar-top">
 <div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
 <ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
-<li><a href="index.html">Overview</a></li>
 <li>Package</li>
 <li>Class</li>
 <li class="nav-bar-cell1-rev">Tree</li>
@@ -50,7 +49,6 @@ loadScripts(document, 'script');</script>
 <h1 class="title">Hierarchy For All Packages</h1>
 <span class="package-hierarchy-label">Package Hierarchies:</span>
 <ul class="horizontal">
-<li><a href="org/example/package-tree.html">org.example</a>, </li>
 <li><a href="org/graph/package-tree.html">org.graph</a></li>
 </ul>
 </div>
@@ -59,15 +57,14 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" class="type-name-link external-link" title="class or interface in java.lang">Object</a>
 <ul>
-<li class="circle">org.graph.<a href="org/graph/AbstractIntGraph.html" class="type-name-link" title="class in org.graph">AbstractIntGraph</a> (implements org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a>&lt;T&gt;)
+<li class="circle">org.graph.<a href="org/graph/AbstractGraph.html" class="type-name-link" title="class in org.graph">AbstractGraph</a>&lt;T&gt; (implements org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a>&lt;T&gt;)
 <ul>
-<li class="circle">org.graph.<a href="org/graph/AdjListIntGraph.html" class="type-name-link" title="class in org.graph">AdjListIntGraph</a></li>
-<li class="circle">org.graph.<a href="org/graph/AdjMatrixIntGraph.html" class="type-name-link" title="class in org.graph">AdjMatrixIntGraph</a></li>
-<li class="circle">org.graph.<a href="org/graph/IncMatrixIntGraph.html" class="type-name-link" title="class in org.graph">IncMatrixIntGraph</a></li>
+<li class="circle">org.graph.<a href="org/graph/AdjListGraph.html" class="type-name-link" title="class in org.graph">AdjListGraph</a>&lt;T&gt;</li>
+<li class="circle">org.graph.<a href="org/graph/AdjMatrixGraph.html" class="type-name-link" title="class in org.graph">AdjMatrixGraph</a>&lt;T&gt;</li>
+<li class="circle">org.graph.<a href="org/graph/IncMatrixGraph.html" class="type-name-link" title="class in org.graph">IncMatrixGraph</a>&lt;T&gt;</li>
 </ul>
 </li>
-<li class="circle">org.graph.<a href="org/graph/Graph.html" class="type-name-link" title="class in org.graph">Graph</a>&lt;T&gt; (implements org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a>&lt;T&gt;)</li>
-<li class="circle">org.example.<a href="org/example/Main.html" class="type-name-link" title="class in org.example">Main</a></li>
+<li class="circle">org.graph.<a href="org/graph/Matrix.html" class="type-name-link" title="class in org.graph">Matrix</a></li>
 <li class="circle">org.graph.<a href="org/graph/Pair.html" class="type-name-link" title="class in org.graph">Pair</a>&lt;T1,<wbr>T2&gt;</li>
 <li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Throwable.html" class="type-name-link external-link" title="class or interface in java.lang">Throwable</a> (implements java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>)
 <ul>
@@ -75,6 +72,7 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/RuntimeException.html" class="type-name-link external-link" title="class or interface in java.lang">RuntimeException</a>
 <ul>
+<li class="circle">org.graph.<a href="org/graph/MatrixOutOfBoundsException.html" class="type-name-link" title="class in org.graph">MatrixOutOfBoundsException</a></li>
 <li class="circle">org.graph.<a href="org/graph/NoSuchVertexException.html" class="type-name-link" title="class in org.graph">NoSuchVertexException</a></li>
 </ul>
 </li>
@@ -82,6 +80,7 @@ loadScripts(document, 'script');</script>
 </li>
 </ul>
 </li>
+<li class="circle">org.graph.<a href="org/graph/Toposort.html" class="type-name-link" title="class in org.graph">Toposort</a></li>
 <li class="circle">org.graph.<a href="org/graph/VerticesMapsPair.html" class="type-name-link" title="class in org.graph">VerticesMapsPair</a>&lt;T&gt;</li>
 </ul>
 </li>
@@ -91,20 +90,6 @@ loadScripts(document, 'script');</script>
 <h2 title="Interface Hierarchy">Interface Hierarchy</h2>
 <ul>
 <li class="circle">org.graph.<a href="org/graph/IGraph.html" class="type-name-link" title="interface in org.graph">IGraph</a>&lt;T&gt;</li>
-</ul>
-</section>
-<section class="hierarchy">
-<h2 title="Enum Class Hierarchy">Enum Class Hierarchy</h2>
-<ul>
-<li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" class="type-name-link external-link" title="class or interface in java.lang">Object</a>
-<ul>
-<li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html" class="type-name-link external-link" title="class or interface in java.lang">Enum</a>&lt;E&gt; (implements java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;T&gt;, java.lang.constant.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/constant/Constable.html" title="class or interface in java.lang.constant" class="external-link">Constable</a>, java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>)
-<ul>
-<li class="circle">org.graph.<a href="org/graph/GraphRepresentation.html" class="type-name-link" title="enum class in org.graph">GraphRepresentation</a></li>
-</ul>
-</li>
-</ul>
-</li>
 </ul>
 </section>
 </main>
