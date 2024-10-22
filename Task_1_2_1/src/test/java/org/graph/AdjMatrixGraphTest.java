@@ -8,80 +8,89 @@ import org.junit.jupiter.api.Test;
 public class AdjMatrixGraphTest {
 
     @Test
-    void adjMatrixCreateTest() {
-        List<Integer> ints = Arrays.stream(new Integer[] {6, 5, 4, 3, 2, 1}).toList();
-        Graph<Integer> igraph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
-        Assertions.assertInstanceOf(AdjMatrixIntGraph.class, igraph.abstractGraph);
-        for (int i = 0; i < ints.size(); i++) {
-            Assertions.assertEquals(ints.get(i), igraph.maps.getIntTHashMap().get(i));
-            Assertions.assertEquals(i, igraph.maps.gettIntHashMap().get(ints.get(i)));
-        }
-    }
-    @Test
-    void adjMatrixAddVertexTest() {
-        List<Integer> ints = Arrays.stream(new Integer[] {1, 2, 3, 4, 5, 6, 7}).toList();
-        Graph<Integer> graph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
-        Assertions.assertInstanceOf(AdjMatrixIntGraph.class, graph.abstractGraph);
-        Assertions.assertEquals(ints.size(), graph.maps.getN());
-        graph.addVertex(8);
-        Assertions.assertEquals(ints.size() + 1, graph.maps.getN());
-        double[][] adjMatrix = ((AdjMatrixIntGraph)graph.abstractGraph).adjMatrix;
-        for (int i = 0; i < ints.size() + 1; i++) {
-            for (int j = 0; j < ints.size() + 1; j++) {
-                Assertions.assertEquals((i == j) ? 0 : Double.POSITIVE_INFINITY, adjMatrix[i][j]);
-            }
-        }
-    }
-    @Test
-    void adjMatrixRemoveVertexTest() {
-        List<Integer> ints = Arrays.stream(new Integer[] {1, 2, 3, 4, 5, 6, 7}).toList();
-        Graph<Integer> graph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
-        var adjGraph = ((AdjMatrixIntGraph)graph.abstractGraph);
-        graph.addVertex(8);
-        Assertions.assertEquals(ints.size() + 1, graph.maps.getN());
+    void createTest() {
+        int n = 10;
+        AdjMatrixGraph<Integer> g = new AdjMatrixGraph<>(n);
+        Assertions.assertEquals(n, g.adjMatrix.rowsCapacity);
+        Assertions.assertEquals(n, g.adjMatrix.columnsCapacity);
 
-        int toRemoveT = 8;
-        int toRemove = graph.maps.gettIntHashMap().get(toRemoveT);
-        graph.removeVertex(toRemoveT);
-        for (int i = 0; i < adjGraph.nvertices; i++) {
-            for (int j = 0; j < adjGraph.nvertices; j++) {
-                if (i == toRemove || j == toRemove) {
-                    Assertions.assertEquals(Double.NaN, adjGraph.adjMatrix[i][j]);
-                }
-            }
+        Assertions.assertEquals(0, g.maps.gettIntHashMap().size());
+        Assertions.assertEquals(0, g.maps.getIntTHashMap().size());
+    }
+
+    @Test
+    void addVerticesTest() {
+        int n = 10;
+        AdjMatrixGraph<Integer> g = new AdjMatrixGraph<>(n);
+        int v = 1;
+        int expVKey = 0;
+        g.addVertex(v);
+
+        Assertions.assertEquals(1, g.maps.gettIntHashMap().size());
+        Assertions.assertEquals(1, g.maps.getIntTHashMap().size());
+        Assertions.assertEquals(expVKey, g.maps.gettIntHashMap().get(v));
+
+        v = 2;
+        expVKey = 1;
+        g.addVertex(v);
+        Assertions.assertEquals(expVKey, g.maps.gettIntHashMap().get(v));
+        Assertions.assertEquals(v, g.maps.getIntTHashMap().get(expVKey));
+    }
+
+    @Test
+    void removeVerticesTest() {
+        int n = 10;
+        AdjMatrixGraph<Integer> g = new AdjMatrixGraph<>(n);
+        for (int i = 0; i < n; i++) {
+            g.addVertex(i);
         }
-        toRemoveT = 4;
-        toRemove = graph.maps.gettIntHashMap().get(toRemoveT);
-        graph.removeVertex(toRemoveT);
-        for (int i = 0; i < adjGraph.nvertices; i++) {
-            for (int j = 0; j < adjGraph.nvertices; j++) {
-                if (i == toRemove || j == toRemove) {
-                    Assertions.assertEquals(Double.NaN, adjGraph.adjMatrix[i][j]);
-                }
-            }
+        int v = 4;
+        int vKey = g.maps.gettIntHashMap().get(v);
+        g.removeVertex(v);
+        for (int i = 0; i < g.getVerticesN(); i++) {
+            Assertions.assertEquals(Double.NaN, g.adjMatrix.get(vKey, i));
+        }
+        for (int i = 0; i < g.getVerticesN(); i++) {
+            Assertions.assertEquals(Double.NaN, g.adjMatrix.get(i, vKey));
         }
     }
+
     @Test
-    void edgesAdjacentMatrixGraphTest() {
-        List<Integer> ints = Arrays.stream(new Integer[] {1, 2, 3, 4, 5, 6, 7}).toList();
-        Graph<Integer> graph = new Graph<>(ints, GraphRepresentation.ADJ_MATRIX);
-        var adjGraph = ((AdjMatrixIntGraph)graph.abstractGraph);
-        int v = 2;
-        int v_mapped = graph.maps.gettIntHashMap().get(v);
-        int u = 5;
-        int u_mapped = graph.maps.gettIntHashMap().get(u);
-        graph.addEdge(v, u, 8);
-        Assertions.assertTrue(graph.isAdjacent(v, u));
-        Assertions.assertEquals(8, adjGraph.adjMatrix[v_mapped][u_mapped]);
-        graph.removeEdge(v, u);
-        Assertions.assertEquals(Double.POSITIVE_INFINITY, adjGraph.adjMatrix[v_mapped][u_mapped]);
-        graph.addEdge(1, 2, 1);
-        graph.addEdge(1, 3, 2);
-        graph.addEdge(1, 7, 2);
-        graph.addEdge(7, 1, 3);
-        var vs = Arrays.stream(new Integer[] {1, 2, 3, 7}).toList();
-        for (var e : graph.getAdjacent(1)) {
-            Assertions.assertTrue(vs.contains(e));
+    void addEdgeTest() {
+        int n = 10;
+        AdjMatrixGraph<Integer> g = new AdjMatrixGraph<>(n);
+        for (int i = 0; i < n; i++) {
+            g.addVertex(i);
         }
+        g.addEdge(0, 1, 1);
+        Assertions.assertTrue(g.isAdjacent(0, 1));
+        Assertions.assertEquals(1, g.adjMatrix.get(0, 1));
+        g.addEdge(0, 2, 2);
+        Assertions.assertTrue(g.isAdjacent(0, 2));
+        Assertions.assertEquals(2, g.adjMatrix.get(0, 2));
+        g.addEdge(0, 3, 3);
+        Assertions.assertTrue(g.isAdjacent(0, 3));
+        Assertions.assertEquals(3, g.adjMatrix.get(0, 3));
+        g.addEdge(3, 4, 4);
+        Assertions.assertTrue(g.isAdjacent(3, 4));
+        Assertions.assertEquals(4, g.adjMatrix.get(3, 4));
+        g.addEdge(4, 1, 5);
+        Assertions.assertTrue(g.isAdjacent(4, 1));
+        Assertions.assertEquals(5, g.adjMatrix.get(4, 1));
+    }
+
+    @Test
+    void removeEdgeTest() {
+        int n = 5;
+        AdjMatrixGraph<Integer> g = new AdjMatrixGraph<>(n);
+        for (int i = 0; i < n; i++) {
+            g.addVertex(i);
+        }
+        g.addEdge(0, 1, 1);
+        g.addEdge(2, 2, 2);
+        g.addEdge(3, 4, 30);
+        g.removeEdge(g.maps.gettIntHashMap().get(0), g.maps.gettIntHashMap().get(1));
+        Assertions.assertFalse(
+            g.isAdjacent(g.maps.gettIntHashMap().get(0), g.maps.gettIntHashMap().get(1)));
     }
 }

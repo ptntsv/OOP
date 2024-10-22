@@ -15,7 +15,7 @@ public interface IGraph<T> {
      * @param v Vertex to add.
      * @return Added vertex.
      */
-    public T addVertex(T v);
+    T addVertex(T v);
 
     /**
      * Removing a vertex.
@@ -23,7 +23,7 @@ public interface IGraph<T> {
      * @param v Vertex to remove.
      * @return Removed vertex.
      */
-    public T removeVertex(T v);
+    T removeVertex(T v);
 
     /**
      * Adding a new edge.
@@ -32,7 +32,7 @@ public interface IGraph<T> {
      * @param src    Source vertex.
      * @param weight Weight.
      */
-    public void addEdge(T dst, T src, double weight);
+    void addEdge(T dst, T src, double weight);
 
     /**
      * Removing an edge.
@@ -40,7 +40,7 @@ public interface IGraph<T> {
      * @param dst Destination vertex.
      * @param src Source vertex.
      */
-    public void removeEdge(T dst, T src);
+    void removeEdge(T dst, T src);
 
     /**
      * Getting adjacent vertices.
@@ -48,7 +48,7 @@ public interface IGraph<T> {
      * @param v Source vertex.
      * @return List of adjacent vertices.
      */
-    public List<T> getAdjacent(T v);
+    List<T> getAdjacent(T v);
 
     /**
      * Either two vertices are adjacent or not.
@@ -57,12 +57,24 @@ public interface IGraph<T> {
      * @param dst Destination vertex.
      * @return Adjacent or not.
      */
-    public boolean isAdjacent(T src, T dst);
+    boolean isAdjacent(T src, T dst);
 
     /**
      * Get number of vertices.
      *
      * @return Number of vertices.
      */
-    public int getVerticesN();
+    int getVerticesN();
+
+    /**
+     * Get list of vertices.
+     *
+     * @return List of vertices.
+     */
+    List<T> getVertices();
+
+    /**
+     * Resetting graph.
+     */
+    void reset();
 }
