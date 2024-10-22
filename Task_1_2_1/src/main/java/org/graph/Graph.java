@@ -208,6 +208,6 @@ public class Graph<T> implements IGraph<T> {
     }
 
     public Graph(List<T> vList, GraphRepresentation representation) {
-        new Graph<T>(vList, new ArrayList<>(), representation);
+        this(vList, new ArrayList<>(), representation);
     }
 }

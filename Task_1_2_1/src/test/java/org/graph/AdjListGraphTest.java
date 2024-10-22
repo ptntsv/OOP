@@ -30,10 +30,10 @@ public class AdjListGraphTest {
         graph.addEdge(1, 2, 1);
         graph.addEdge(1, 3, 2);
         graph.addEdge(1, 4, 3);
-        Assertions.assertEquals(4, adjListGraph.adjList.get(graph.maps.gettIntHashMap().get(1)).size());
-        graph.removeVertex(3);
         Assertions.assertEquals(3, adjListGraph.adjList.get(graph.maps.gettIntHashMap().get(1)).size());
-        graph.removeEdge(1, 2);
+        graph.removeVertex(3);
         Assertions.assertEquals(2, adjListGraph.adjList.get(graph.maps.gettIntHashMap().get(1)).size());
+        graph.removeEdge(1, 2);
+        Assertions.assertEquals(1, adjListGraph.adjList.get(graph.maps.gettIntHashMap().get(1)).size());
     }
 }
