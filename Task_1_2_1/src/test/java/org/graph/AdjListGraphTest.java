@@ -105,4 +105,22 @@ public class AdjListGraphTest {
         Assertions.assertFalse(g.getAdjacent(srcKey).contains(dstKey));
         Assertions.assertTrue(g.adjList.containsKey(dstKey));
     }
+
+    @Test
+    void isAdjacentTest() {
+        List<Pair<Integer, Integer>> edges = new ArrayList<>();
+        edges.add(new Pair<>(0, 1));
+        edges.add(new Pair<>(0, 2));
+        edges.add(new Pair<>(0, 3));
+        edges.add(new Pair<>(1, 0));
+        edges.add(new Pair<>(1, 2));
+        edges.add(new Pair<>(2, 99));
+        AdjListGraph<Integer> g = new AdjListGraph<>(edges);
+
+        Assertions.assertTrue(g.isAdjacent(0, 1));
+        Assertions.assertTrue(g.isAdjacent(0, 2));
+        Assertions.assertTrue(g.isAdjacent(0, 3));
+        Assertions.assertTrue(g.isAdjacent(1, 0));
+        Assertions.assertTrue(g.isAdjacent(1, 2));
+    }
 }

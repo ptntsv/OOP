@@ -16,8 +16,10 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public T addVertex(T v) {
-        incMatrix.extend(1, 0);
-        maps.insert(v);
+        int nextMapIndex = getNextMapIndex();
+        incMatrix.ensureCapacity(nextMapIndex, 0);
+//        incMatrix.extend(1, 0);
+        maps.insert(v, nextMapIndex);
         return v;
     }
 
@@ -46,7 +48,7 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
     public void addEdge(T src, T dst) {
         int srcKey = maps.gettIntHashMap().get(src);
         int dstKey = maps.gettIntHashMap().get(dst);
-        incMatrix.extend(0, 1);
+        incMatrix.ensureCapacity(incMatrix.rows, incMatrix.columns + 1);
         try {
             incMatrix.set(srcKey, incMatrix.columns - 1, 1);
             incMatrix.set(dstKey, incMatrix.columns - 1, -1);
@@ -74,12 +76,10 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
     @Override
     public List<T> getAdjacent(T v) {
         List<T> vs = new ArrayList<>();
-        for (int i = 0; i < incMatrix.columns; i++) {
-            for (int j = 0; j < incMatrix.rows; j++) {
-                T jKey = maps.getIntTHashMap().get(j);
-                if (isAdjacent(v, jKey)) {
-                    vs.add(jKey);
-                }
+        for (int i = 0; i < incMatrix.rows; i++) {
+            T iKey = maps.getIntTHashMap().get(i);
+            if (iKey != null && isAdjacent(v, iKey)) {
+                vs.add(iKey);
             }
         }
         return vs;
@@ -103,13 +103,12 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public int getVerticesN() {
-        return incMatrix.rows;
+        return maps.gettIntHashMap().size();
     }
 
     @Override
     public List<T> getVertices() {
-        return IntStream.rangeClosed(0, incMatrix.rows - 1).boxed().toList().stream()
-            .map(i -> maps.getIntTHashMap().get(i)).toList();
+        return maps.gettIntHashMap().keySet().stream().toList();
     }
 
     public IncMatrixGraph(int nvertices, int nedges) {
@@ -123,9 +122,9 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
      * @param nedges    Number of edges.
      */
     public IncMatrixGraph(
-        int nvertices,
-        int nedges,
-        List<Pair<T, T>> edges) {
+            int nvertices,
+            int nedges,
+            List<Pair<T, T>> edges) {
         this(nvertices, nedges);
         for (var e : edges) {
             if (!maps.gettIntHashMap().containsKey(e.first)) {

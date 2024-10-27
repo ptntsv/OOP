@@ -22,8 +22,9 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public T addVertex(T v) {
-        adjMatrix.extend(1, 1);
-        maps.insert(v);
+        int nextMapIndex = getNextMapIndex();
+        adjMatrix.ensureCapacity(nextMapIndex, nextMapIndex);
+        maps.insert(v, nextMapIndex);
         return v;
     }
 
@@ -54,8 +55,8 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
     /**
      * Method to add new edge.
      *
-     * @param src    Source vertex.
-     * @param dst    Destination vertex.
+     * @param src Source vertex.
+     * @param dst Destination vertex.
      */
     @Override
     public void addEdge(T src, T dst) {
@@ -134,12 +135,11 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public int getVerticesN() {
-        return adjMatrix.rows;
+        return maps.gettIntHashMap().size();
     }
 
     @Override
     public List<T> getVertices() {
-        return IntStream.rangeClosed(0, adjMatrix.rows - 1).boxed().toList().stream()
-            .map(i -> maps.getIntTHashMap().get(i)).toList();
+        return maps.gettIntHashMap().keySet().stream().toList();
     }
 }

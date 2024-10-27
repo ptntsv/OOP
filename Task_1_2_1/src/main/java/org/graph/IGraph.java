@@ -29,8 +29,8 @@ public interface IGraph<T> {
      * Adding a new edge. If graph doesn't contain source or destination vertices then
      * NoSuchVertexException is thrown.
      *
-     * @param src    Source vertex.
-     * @param dst    Destination  vertex.
+     * @param src Source vertex.
+     * @param dst Destination  vertex.
      */
     void addEdge(T src, T dst);
 

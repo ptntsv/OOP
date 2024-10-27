@@ -17,7 +17,8 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
 
     @Override
     public T addVertex(T v) {
-        maps.insert(v);
+        int nextMapIndex = getNextMapIndex();
+        maps.insert(v, nextMapIndex);
         int vKey = maps.gettIntHashMap().get(v);
         adjList.put(vKey, new ArrayList<>());
         return v;
@@ -83,8 +84,8 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
     @Override
     public List<T> getVertices() {
         return adjList.keySet().stream()
-            .map(i -> maps.getIntTHashMap().get(i))
-            .toList();
+                .map(i -> maps.getIntTHashMap().get(i))
+                .toList();
     }
 
     /**

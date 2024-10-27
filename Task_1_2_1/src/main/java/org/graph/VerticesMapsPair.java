@@ -20,11 +20,6 @@ public class VerticesMapsPair<T> {
     private HashMap<T, Integer> tIntHashMap = new HashMap<>();
 
     /**
-     * Next integer key to map on.
-     */
-    private int N = 0;
-
-    /**
      * Contructor.
      */
     public VerticesMapsPair() {
@@ -35,10 +30,10 @@ public class VerticesMapsPair<T> {
      *
      * @param tv Vertex to insert.
      */
-    public void insert(T tv) {
+    public void insert(T tv, int index) {
         if (!tIntHashMap.containsKey(tv)) {
-            intTHashMap.put(N, tv);
-            tIntHashMap.put(tv, N++);
+            intTHashMap.put(index, tv);
+            tIntHashMap.put(tv, index);
         }
     }
 
@@ -68,14 +63,5 @@ public class VerticesMapsPair<T> {
      */
     public HashMap<T, Integer> gettIntHashMap() {
         return tIntHashMap;
-    }
-
-    /**
-     * Getter for N.
-     *
-     * @return N.
-     */
-    public int getN() {
-        return N;
     }
 }
