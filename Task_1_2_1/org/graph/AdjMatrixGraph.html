@@ -116,8 +116,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">AdjMatrixGraph</a><wbr>(int&nbsp;capacity)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(int,java.util.ArrayList)" class="member-name-link">AdjMatrixGraph</a><wbr>(int&nbsp;capacity,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&gt;&gt;&nbsp;edges)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(int,java.util.List)" class="member-name-link">AdjMatrixGraph</a><wbr>(int&nbsp;capacity,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&gt;&gt;&nbsp;edges)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -134,9 +134,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEdge(T,T,double)" class="member-name-link">addEdge</a><wbr>(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;src,
- <a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;dst,
- double&nbsp;weight)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEdge(T,T)" class="member-name-link">addEdge</a><wbr>(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;src,
+ <a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;dst)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Method to add new edge.</div>
 </div>
@@ -177,17 +176,15 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Method to remove vertex from graph.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reset()" class="member-name-link">reset</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Resetting graph.</div>
-</div>
 </div>
 </div>
 </div>
 <div class="inherited-list">
+<h3 id="methods-inherited-from-class-org.graph.AbstractGraph">Methods inherited from class&nbsp;org.graph.<a href="AbstractGraph.html" title="class in org.graph">AbstractGraph</a></h3>
+<code><a href="AbstractGraph.html#deserialize(java.lang.String)">deserialize</a>, <a href="AbstractGraph.html#display()">display</a>, <a href="AbstractGraph.html#equals(java.lang.Object)">equals</a></code></div>
+<div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
-<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
 </section>
 </li>
 </ul>
@@ -221,10 +218,10 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(int,java.util.ArrayList)">
+<section class="detail" id="&lt;init&gt;(int,java.util.List)">
 <h3>AdjMatrixGraph</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AdjMatrixGraph</span><wbr><span class="parameters">(int&nbsp;capacity,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;&gt;&gt;&nbsp;edges)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&gt;&gt;&nbsp;edges)</span></div>
 </section>
 </li>
 </ul>
@@ -239,8 +236,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addVertex(T)">
 <h3 id="addVertex(java.lang.Object)">addVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a></span>&nbsp;<span class="element-name">addVertex</span><wbr><span class="parameters">(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;v)</span></div>
-<div class="block">Method to insert a vertex into graph. In order to add a vertex into adjacent matrix, it
- (matrix) should be expanded on 1 column and 1 row.</div>
+<div class="block">Method to insert a vertex into graph.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>v</code> - Vertex to insert.</dd>
@@ -253,8 +249,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="removeVertex(T)">
 <h3 id="removeVertex(java.lang.Object)">removeVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a></span>&nbsp;<span class="element-name">removeVertex</span><wbr><span class="parameters">(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;v)</span></div>
-<div class="block">Method to remove vertex from graph. Corresponding row and column, that mapped on vertex to
- remove is filling with NaNs.</div>
+<div class="block">Method to remove vertex from graph.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>v</code> - Vertex to remove.</dd>
@@ -264,17 +259,15 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="addEdge(T,T,double)">
-<h3 id="addEdge(java.lang.Object,java.lang.Object,double)">addEdge</h3>
+<section class="detail" id="addEdge(T,T)">
+<h3 id="addEdge(java.lang.Object,java.lang.Object)">addEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;src,
- <a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;dst,
- double&nbsp;weight)</span></div>
+ <a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;dst)</span></div>
 <div class="block">Method to add new edge.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>src</code> - Source vertex.</dd>
 <dd><code>dst</code> - Destination vertex.</dd>
-<dd><code>weight</code> - Weight.</dd>
 </dl>
 </section>
 </li>
@@ -310,7 +303,8 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAdjacent</span><wbr><span class="parameters">(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;src,
  <a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;dst)</span></div>
 <div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#isAdjacent(T,T)">IGraph</a></code></span></div>
-<div class="block">Either two vertices are adjacent or not.</div>
+<div class="block">Either two vertices are adjacent or not. If graph doesn't contain source or destination
+ vertices then NoSuchVertexException is thrown.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>src</code> - Source vertex.</dd>
@@ -342,14 +336,6 @@ loadScripts(document, 'script');</script>
 <dt>Returns:</dt>
 <dd>List of vertices.</dd>
 </dl>
-</section>
-</li>
-<li>
-<section class="detail" id="reset()">
-<h3>reset</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reset</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#reset()">IGraph</a></code></span></div>
-<div class="block">Resetting graph.</div>
 </section>
 </li>
 </ul>
