@@ -31,7 +31,6 @@ public interface IGraph<T> {
      *
      * @param src    Source vertex.
      * @param dst    Destination  vertex.
-     * @param weight Weight.
      */
     void addEdge(T src, T dst);
 

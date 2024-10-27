@@ -61,7 +61,6 @@ public abstract class AbstractGraph<T> implements IGraph<T> {
      * Deserialize graph from input string.
      *
      * @param str Source string.
-     * @param <T> Specified vertex type.
      * @return List of edges to build graph of.
      */
     public static List<Pair<Integer, Integer>> deserialize(String str) {

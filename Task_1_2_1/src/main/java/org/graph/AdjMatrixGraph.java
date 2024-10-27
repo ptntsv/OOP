@@ -56,7 +56,6 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      *
      * @param src    Source vertex.
      * @param dst    Destination vertex.
-     * @param weight Weight.
      */
     @Override
     public void addEdge(T src, T dst) {
