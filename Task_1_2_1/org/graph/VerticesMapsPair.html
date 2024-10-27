@@ -116,24 +116,20 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Getter for intTHashMap.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getN()" class="member-name-link">getN</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#gettIntHashMap()" class="member-name-link">gettIntHashMap</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Getter for N.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/HashMap.html" title="class or interface in java.util" class="external-link">HashMap</a>&lt;<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#gettIntHashMap()" class="member-name-link">gettIntHashMap</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Getter for tIntHashMap.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#insert(T)" class="member-name-link">insert</a><wbr>(<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>&nbsp;tv)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#insert(T,int)" class="member-name-link">insert</a><wbr>(<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>&nbsp;tv,
+ int&nbsp;index)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Insert new vertex for mapping.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#remove(T)" class="member-name-link">remove</a><wbr>(<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>&nbsp;v)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#remove(T)" class="member-name-link">remove</a><wbr>(<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>&nbsp;v)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Remove a vertex for mapping.</div>
 </div>
 </div>
@@ -169,9 +165,10 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="insert(T)">
-<h3 id="insert(java.lang.Object)">insert</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">insert</span><wbr><span class="parameters">(<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>&nbsp;tv)</span></div>
+<section class="detail" id="insert(T,int)">
+<h3 id="insert(java.lang.Object,int)">insert</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">insert</span><wbr><span class="parameters">(<a href="VerticesMapsPair.html" title="type parameter in VerticesMapsPair">T</a>&nbsp;tv,
+ int&nbsp;index)</span></div>
 <div class="block">Insert new vertex for mapping.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -209,17 +206,6 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>tIntHashMap</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="getN()">
-<h3>getN</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getN</span>()</div>
-<div class="block">Getter for N.</div>
-<dl class="notes">
-<dt>Returns:</dt>
-<dd>N.</dd>
 </dl>
 </section>
 </li>
