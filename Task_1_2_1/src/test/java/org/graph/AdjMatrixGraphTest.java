@@ -62,21 +62,21 @@ public class AdjMatrixGraphTest {
         for (int i = 0; i < n; i++) {
             g.addVertex(i);
         }
-        g.addEdge(0, 1, 1);
+        g.addEdge(0, 1);
         Assertions.assertTrue(g.isAdjacent(0, 1));
         Assertions.assertEquals(1, g.adjMatrix.get(0, 1));
-        g.addEdge(0, 2, 2);
+        g.addEdge(0, 2);
         Assertions.assertTrue(g.isAdjacent(0, 2));
-        Assertions.assertEquals(2, g.adjMatrix.get(0, 2));
-        g.addEdge(0, 3, 3);
+        Assertions.assertEquals(1, g.adjMatrix.get(0, 2));
+        g.addEdge(0, 3);
         Assertions.assertTrue(g.isAdjacent(0, 3));
-        Assertions.assertEquals(3, g.adjMatrix.get(0, 3));
-        g.addEdge(3, 4, 4);
+        Assertions.assertEquals(1, g.adjMatrix.get(0, 3));
+        g.addEdge(3, 4);
         Assertions.assertTrue(g.isAdjacent(3, 4));
-        Assertions.assertEquals(4, g.adjMatrix.get(3, 4));
-        g.addEdge(4, 1, 5);
+        Assertions.assertEquals(1, g.adjMatrix.get(3, 4));
+        g.addEdge(4, 1);
         Assertions.assertTrue(g.isAdjacent(4, 1));
-        Assertions.assertEquals(5, g.adjMatrix.get(4, 1));
+        Assertions.assertEquals(1, g.adjMatrix.get(4, 1));
     }
 
     @Test
@@ -86,9 +86,9 @@ public class AdjMatrixGraphTest {
         for (int i = 0; i < n; i++) {
             g.addVertex(i);
         }
-        g.addEdge(0, 1, 1);
-        g.addEdge(2, 2, 2);
-        g.addEdge(3, 4, 30);
+        g.addEdge(0, 1);
+        g.addEdge(2, 2);
+        g.addEdge(3, 4);
         g.removeEdge(g.maps.gettIntHashMap().get(0), g.maps.gettIntHashMap().get(1));
         Assertions.assertFalse(
             g.isAdjacent(g.maps.gettIntHashMap().get(0), g.maps.gettIntHashMap().get(1)));

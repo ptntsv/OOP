@@ -38,12 +38,21 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
         } catch (MatrixOutOfBoundsException e) {
             throw new NoSuchVertexException(vKey);
         }
+        maps.remove(v);
         return v;
     }
 
     @Override
-    public void addEdge(T src, T dst, double weight) {
+    public void addEdge(T src, T dst) {
+        int srcKey = maps.gettIntHashMap().get(src);
+        int dstKey = maps.gettIntHashMap().get(dst);
         incMatrix.extend(0, 1);
+        try {
+            incMatrix.set(srcKey, incMatrix.columns - 1, 1);
+            incMatrix.set(dstKey, incMatrix.columns - 1, -1);
+        } catch (MatrixOutOfBoundsException e) {
+            throw new NoSuchVertexException(srcKey, dstKey);
+        }
     }
 
     @Override
@@ -99,14 +108,8 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public List<T> getVertices() {
-        return IntStream.rangeClosed(0, incMatrix.rows).boxed().toList().stream()
+        return IntStream.rangeClosed(0, incMatrix.rows - 1).boxed().toList().stream()
             .map(i -> maps.getIntTHashMap().get(i)).toList();
-    }
-
-    @Override
-    public void reset() {
-        Matrix.fill(incMatrix.matrix, incMatrix.rowsCapacity, incMatrix.columnsCapacity,
-            incMatrix.defVal);
     }
 
     public IncMatrixGraph(int nvertices, int nedges) {
@@ -122,18 +125,18 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
     public IncMatrixGraph(
         int nvertices,
         int nedges,
-        List<Pair<T, Pair<T, Double>>> edges) {
+        List<Pair<T, T>> edges) {
         this(nvertices, nedges);
         for (var e : edges) {
             if (!maps.gettIntHashMap().containsKey(e.first)) {
                 addVertex(e.first);
             }
-            if (!maps.gettIntHashMap().containsKey(e.second.first)) {
-                addVertex(e.second.first);
+            if (!maps.gettIntHashMap().containsKey(e.second)) {
+                addVertex(e.second);
             }
         }
         for (var e : edges) {
-            addEdge(e.first, e.second.first, e.second.second);
+            addEdge(e.first, e.second);
         }
     }
 }

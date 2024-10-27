@@ -15,8 +15,7 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
     protected Matrix adjMatrix;
 
     /**
-     * Method to insert a vertex into graph. In order to add a vertex into adjacent matrix, it
-     * (matrix) should be expanded on 1 column and 1 row.
+     * Method to insert a vertex into graph.
      *
      * @param v Vertex to insert.
      * @return Inserted vertex.
@@ -29,8 +28,7 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
     }
 
     /**
-     * Method to remove vertex from graph. Corresponding row and column, that mapped on vertex to
-     * remove is filling with NaNs.
+     * Method to remove vertex from graph.
      *
      * @param v Vertex to remove.
      * @return Removed vertex.
@@ -61,11 +59,11 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      * @param weight Weight.
      */
     @Override
-    public void addEdge(T src, T dst, double weight) {
+    public void addEdge(T src, T dst) {
         int srcKey = maps.gettIntHashMap().get(src);
         int dstKey = maps.gettIntHashMap().get(dst);
         try {
-            adjMatrix.set(srcKey, dstKey, weight);
+            adjMatrix.set(srcKey, dstKey, 1);
         } catch (MatrixOutOfBoundsException e) {
             throw new NoSuchVertexException(srcKey, dstKey);
         }
@@ -82,7 +80,7 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
         int srcKey = maps.gettIntHashMap().get(src);
         int dstKey = maps.gettIntHashMap().get(dst);
         try {
-            adjMatrix.set(srcKey, dstKey, Double.POSITIVE_INFINITY);
+            adjMatrix.set(srcKey, dstKey, 0);
         } catch (MatrixOutOfBoundsException e) {
             throw new NoSuchVertexException(srcKey, dstKey);
         }
@@ -107,21 +105,21 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
     }
 
     public AdjMatrixGraph(int capacity) {
-        adjMatrix = new Matrix(capacity, capacity, Double.POSITIVE_INFINITY);
+        adjMatrix = new Matrix(capacity, capacity, 0);
     }
 
-    public AdjMatrixGraph(int capacity, ArrayList<Pair<T, Pair<T, Double>>> edges) {
+    public AdjMatrixGraph(int capacity, List<Pair<T, T>> edges) {
         this(capacity);
         for (var e : edges) {
             if (!maps.gettIntHashMap().containsKey(e.first)) {
                 addVertex(e.first);
             }
-            if (!maps.gettIntHashMap().containsKey(e.second.first)) {
-                addVertex(e.second.first);
+            if (!maps.gettIntHashMap().containsKey(e.second)) {
+                addVertex(e.second);
             }
         }
         for (var e : edges) {
-            addEdge(e.first, e.second.first, e.second.second);
+            addEdge(e.first, e.second);
         }
     }
 
@@ -129,8 +127,7 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
         int srcKey = maps.gettIntHashMap().get(src);
         int dstKey = maps.gettIntHashMap().get(dst);
         try {
-            return !Double.isNaN(adjMatrix.get(srcKey, dstKey))
-                   && adjMatrix.get(srcKey, dstKey) != Double.POSITIVE_INFINITY;
+            return adjMatrix.get(srcKey, dstKey) == 1;
         } catch (MatrixOutOfBoundsException e) {
             throw new NoSuchVertexException(srcKey, dstKey);
         }
@@ -145,11 +142,5 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
     public List<T> getVertices() {
         return IntStream.rangeClosed(0, adjMatrix.rows - 1).boxed().toList().stream()
             .map(i -> maps.getIntTHashMap().get(i)).toList();
-    }
-
-    @Override
-    public void reset() {
-        Matrix.fill(adjMatrix.matrix, adjMatrix.rowsCapacity, adjMatrix.columnsCapacity,
-            adjMatrix.defVal);
     }
 }

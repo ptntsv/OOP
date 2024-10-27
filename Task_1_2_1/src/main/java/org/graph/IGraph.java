@@ -10,7 +10,7 @@ import java.util.List;
 public interface IGraph<T> {
 
     /**
-     * Adding new vertex.
+     * Adding new vertex. If such vertex already in graph then nothing happens.
      *
      * @param v Vertex to add.
      * @return Added vertex.
@@ -18,7 +18,7 @@ public interface IGraph<T> {
     T addVertex(T v);
 
     /**
-     * Removing a vertex.
+     * Removing a vertex. If no such vertex in graph, NoSuchVertexException is thrown.
      *
      * @param v Vertex to remove.
      * @return Removed vertex.
@@ -26,16 +26,18 @@ public interface IGraph<T> {
     T removeVertex(T v);
 
     /**
-     * Adding a new edge.
+     * Adding a new edge. If graph doesn't contain source or destination vertices then
+     * NoSuchVertexException is thrown.
      *
-     * @param dst    Destination vertex.
      * @param src    Source vertex.
+     * @param dst    Destination  vertex.
      * @param weight Weight.
      */
-    void addEdge(T dst, T src, double weight);
+    void addEdge(T src, T dst);
 
     /**
-     * Removing an edge.
+     * Removing an edge. If graph doesn't contain source or destination vertices then
+     * NoSuchVertexException is thrown.
      *
      * @param dst Destination vertex.
      * @param src Source vertex.
@@ -43,7 +45,8 @@ public interface IGraph<T> {
     void removeEdge(T dst, T src);
 
     /**
-     * Getting adjacent vertices.
+     * Getting adjacent vertices. If graph doesn't contain provided vertex then
+     * NoSuchVertexException is thrown.
      *
      * @param v Source vertex.
      * @return List of adjacent vertices.
@@ -51,7 +54,8 @@ public interface IGraph<T> {
     List<T> getAdjacent(T v);
 
     /**
-     * Either two vertices are adjacent or not.
+     * Either two vertices are adjacent or not. If graph doesn't contain source or destination
+     * vertices then NoSuchVertexException is thrown.
      *
      * @param src Source vertex.
      * @param dst Destination vertex.
@@ -74,7 +78,7 @@ public interface IGraph<T> {
     List<T> getVertices();
 
     /**
-     * Resetting graph.
+     * Displaying graph.
      */
-    void reset();
+    void display();
 }

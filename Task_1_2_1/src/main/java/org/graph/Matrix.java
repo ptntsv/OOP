@@ -35,7 +35,7 @@ public class Matrix {
             var newMatrix = new double[rowsCapacity][columnsCapacity];
             Matrix.fill(newMatrix, rowsCapacity, columnsCapacity, defVal);
             for (int i = 0; i < oldRows; i++) {
-                System.arraycopy(newMatrix[i], 0, matrix[i], 0, oldColumns);
+                System.arraycopy(matrix[i], 0, newMatrix[i], 0, oldColumns);
             }
             matrix = newMatrix;
         }
