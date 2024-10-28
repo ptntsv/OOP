@@ -19,7 +19,8 @@ public class Pair<T1, T2> {
 
     /**
      * Constructor.
-     * @param first First.
+     *
+     * @param first  First.
      * @param second Second.
      */
     public Pair(T1 first, T2 second) {
@@ -31,7 +32,7 @@ public class Pair<T1, T2> {
     public boolean equals(Object obj) {
         if (obj instanceof Pair another) {
             return another.first == this.first &&
-                   another.second == this.second;
+                    another.second == this.second;
         }
         return false;
     }

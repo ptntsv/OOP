@@ -2,6 +2,7 @@ package org.graph;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -44,6 +45,6 @@ public class GraphEqualityTest {
         edges.add(new Pair<>(2, 99));
         IncMatrixGraph<Integer> incMatrixGraph = new IncMatrixGraph<>(5, 5, edges);
         AdjListGraph<Integer> adjListGraph = new AdjListGraph<>(edges);
-        Assertions.assertEquals(incMatrixGraph, adjListGraph );
+        Assertions.assertEquals(incMatrixGraph, adjListGraph);
     }
 }

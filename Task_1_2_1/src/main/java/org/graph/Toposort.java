@@ -7,6 +7,12 @@ import java.util.Stack;
 
 public class Toposort {
 
+    /**
+     * Sorting verices in topological order.
+     * @param graph Provided graph.
+     * @return List of topological sorted vertices.
+     * @param <T> Type, specified by user.
+     */
     public static <T> List<T> toposort(IGraph<T> graph) {
         HashMap<T, Boolean> visited = new HashMap<>();
         List<T> topoSorted = new ArrayList<>();
