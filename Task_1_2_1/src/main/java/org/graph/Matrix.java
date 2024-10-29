@@ -93,6 +93,13 @@ public class Matrix {
         }
     }
 
+    /**
+     * Constructor.
+     *
+     * @param rowCap       Row capacity.
+     * @param colCap       Col capacity.
+     * @param defaultValue Default value.
+     */
     public Matrix(int rowCap, int colCap, double defaultValue) {
         this.defVal = defaultValue;
         rowsCapacity = rowCap;

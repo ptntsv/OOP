@@ -12,11 +12,11 @@ public class VerticesMapsPair<T> {
     /**
      * From int to T map.
      */
-    private HashMap<Integer, T> intThashMap = new HashMap<>();
+    private HashMap<Integer, T> intthashmap = new HashMap<>();
     /**
      * From T to int map.
      */
-    private HashMap<T, Integer> tIntHashMap = new HashMap<>();
+    private HashMap<T, Integer> tinthashmap = new HashMap<>();
 
     /**
      * Contructor.
@@ -30,9 +30,9 @@ public class VerticesMapsPair<T> {
      * @param tv Vertex to insert.
      */
     public void insert(T tv, int index) {
-        if (!tIntHashMap.containsKey(tv)) {
-            intThashMap.put(index, tv);
-            tIntHashMap.put(tv, index);
+        if (!tinthashmap.containsKey(tv)) {
+            intthashmap.put(index, tv);
+            tinthashmap.put(tv, index);
         }
     }
 
@@ -42,8 +42,8 @@ public class VerticesMapsPair<T> {
      * @param v Vertex to remove.
      */
     public void remove(T v) {
-        intThashMap.remove(gettinthashmap().get(v), v);
-        tIntHashMap.remove(v);
+        intthashmap.remove(gettinthashmap().get(v), v);
+        tinthashmap.remove(v);
     }
 
     /**
@@ -52,7 +52,7 @@ public class VerticesMapsPair<T> {
      * @return intTHashMap
      */
     public HashMap<Integer, T> getintthashmap() {
-        return intThashMap;
+        return intthashmap;
     }
 
     /**
@@ -61,6 +61,6 @@ public class VerticesMapsPair<T> {
      * @return tIntHashMap
      */
     public HashMap<T, Integer> gettinthashmap() {
-        return tIntHashMap;
+        return tinthashmap;
     }
 }
