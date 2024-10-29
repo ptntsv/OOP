@@ -40,17 +40,19 @@ public class Matrix {
     public void ensureCapacity(int xindex, int yindex) {
         int oldRCap = rowsCapacity;
         int oldCCap = columnsCapacity;
-        int newRows = (int) Math.pow(2, (double) Matrix.log2(xindex) + 1);
-        int newCols = (int) Math.pow(2, (double) Matrix.log2(yindex) + 1);
-        boolean needCopy = xindex >= rowsCapacity || yindex >= columnsCapacity;
-        if (xindex >= rowsCapacity) {
-            rowsCapacity = newRows;
+        int newRCap = xindex + 1;
+        int newCCap = yindex + 1;
+        boolean enoughRows = xindex < rowsCapacity;
+        boolean enoughCols = yindex < columnsCapacity;
+        boolean needCopy = !(enoughRows && enoughCols);
+        if (!enoughRows) {
+            rowsCapacity = newRCap;
         }
-        if (yindex >= columnsCapacity) {
-            columnsCapacity = newCols;
+        if (!enoughCols) {
+            columnsCapacity = newCCap;
         }
-        rows++;
-        columns++;
+        rows = xindex + 1;
+        columns = yindex + 1;
         if (needCopy) {
             var newMatrix = new double[rowsCapacity][columnsCapacity];
             Matrix.fill(newMatrix, rowsCapacity, columnsCapacity, defVal);
@@ -60,36 +62,6 @@ public class Matrix {
             matrix = newMatrix;
         }
 
-    }
-
-    /**
-     * Ensuring that there is enough capacity to add nrow and ncolumns into matrix.
-     *
-     * @param nrows    Rows number.
-     * @param ncolumns Columns number.
-     */
-    public void extend(int nrows, int ncolumns) {
-        int oldRows = rows;
-        int oldColumns = columns;
-        int newRows = rows + nrows;
-        int newCols = columns + ncolumns;
-        boolean needCopy = newRows >= rowsCapacity || newCols >= columnsCapacity;
-        if (newRows >= rowsCapacity) {
-            rowsCapacity = (rows + nrows) * 2;
-        }
-        if (newCols >= columnsCapacity) {
-            columnsCapacity = (columns + ncolumns) * 2;
-        }
-        rows += nrows;
-        columns += ncolumns;
-        if (needCopy) {
-            var newMatrix = new double[rowsCapacity][columnsCapacity];
-            Matrix.fill(newMatrix, rowsCapacity, columnsCapacity, defVal);
-            for (int i = 0; i < oldRows; i++) {
-                System.arraycopy(matrix[i], 0, newMatrix[i], 0, oldColumns);
-            }
-            matrix = newMatrix;
-        }
     }
 
     public double get(int i, int j) {

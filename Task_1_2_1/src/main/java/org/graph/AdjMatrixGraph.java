@@ -133,11 +133,21 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
         }
     }
 
+    /**
+     * Get number of vertices.
+     *
+     * @return Number of vertices.
+     */
     @Override
     public int getVerticesN() {
         return maps.gettIntHashMap().size();
     }
 
+    /**
+     * Get list of vertices.
+     *
+     * @return List of vertices.
+     */
     @Override
     public List<T> getVertices() {
         return maps.gettIntHashMap().keySet().stream().toList();

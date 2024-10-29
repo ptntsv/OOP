@@ -77,7 +77,12 @@ public interface IGraph<T> {
     List<T> getVertices();
 
     /**
-     * Displaying graph.
+     * Graphs with different implementations could be equals.
+     *
+     * @param obj Graph to check
+     * @return Equals or not.
      */
-    void display();
+    boolean equals(Object obj);
+
+    String toString();
 }

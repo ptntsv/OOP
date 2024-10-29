@@ -8,7 +8,7 @@ import java.util.Stack;
 public class Toposort {
 
     /**
-     * Sorting verices in topological order.
+     * Topological sort.
      * @param graph Provided graph.
      * @return List of topological sorted vertices.
      * @param <T> Type, specified by user.

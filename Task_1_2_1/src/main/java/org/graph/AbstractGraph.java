@@ -1,9 +1,6 @@
 package org.graph;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * Abstract class that represents integer graph.
@@ -14,14 +11,17 @@ public abstract class AbstractGraph<T> implements IGraph<T> {
     private int nextMapIndex = 0;
 
     @Override
-    public void display() {
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
         for (var v : getVertices()) {
-            System.out.print(v + " ");
+            sb.append(v).append(" ");
             for (var adj : getAdjacent(v)) {
-                System.out.print(adj + " ");
+                sb.append(adj).append(" ");
             }
             System.out.println();
+            sb.append("\n");
         }
+        return sb.toString();
     }
 
     protected int getNextMapIndex() {
@@ -31,33 +31,16 @@ public abstract class AbstractGraph<T> implements IGraph<T> {
     public AbstractGraph() {
     }
 
-    /**
-     * Checking for equality is avaliable only between AbstractGraph realizations
-     * because all of them should have key mappings, but IGraph could not.
-     *
-     * @param obj Graph to check
-     * @return Equals or not.
-     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof IGraph<?> ag) {
             try {
-                var another = (AbstractGraph<T>) ag;
+                var another = (IGraph<T>) ag;
                 for (var v : another.getVertices()) {
-                    if (!maps.getIntTHashMap().containsKey(maps.gettIntHashMap().get(v))) {
+                    Set<T> a_vs = new HashSet<>(another.getAdjacent(v));
+                    Set<T> this_vs = new HashSet<>(getAdjacent(v));
+                    if (a_vs.size() != this_vs.size() || !this_vs.equals(a_vs)) {
                         return false;
-                    }
-                    List<Integer> a_vs = another.getAdjacent(v).stream().map(t -> another.maps.gettIntHashMap().get(t)).toList();
-                    List<Integer> this_vs = getAdjacent(maps.getIntTHashMap().get(another.maps.gettIntHashMap().get(v)))
-                            .stream()
-                            .map(t -> maps.gettIntHashMap().get(t)).toList();
-                    if (a_vs.size() != this_vs.size()) {
-                        return false;
-                    }
-                    for (int i = 0; i < a_vs.size(); i++) {
-                        if (!Objects.equals(a_vs.get(i), this_vs.get(i))) {
-                            return false;
-                        }
                     }
                 }
                 return true;
@@ -67,35 +50,6 @@ public abstract class AbstractGraph<T> implements IGraph<T> {
         }
         return false;
     }
-//        AbstractGraph another = (AbstractGraph) obj;
-//        Matrix m1 = new Matrix(getVerticesN(), getVerticesN(), 0);
-//        Matrix m2 = new Matrix(another.getVerticesN(), another.getVerticesN(), 0);
-//        if (another.getVerticesN() != getVerticesN()) {
-//            return false;
-//        }
-//        for (var v : another.getVertices()) {
-//            int vKey = (int) another.maps.gettIntHashMap().get(v);
-//            for (var u : another.getAdjacent(v)) {
-//                int uKey = (int) another.maps.gettIntHashMap().get(u);
-//                m2.set(vKey, uKey, 1);
-//            }
-//        }
-//        for (var v : getVertices()) {
-//            int vKey = maps.gettIntHashMap().get(v);
-//            for (var u : getAdjacent(v)) {
-//                int uKey = maps.gettIntHashMap().get(u);
-//                m1.set(vKey, uKey, 1);
-//            }
-//        }
-//        for (int i = 0; i < getVerticesN(); i++) {
-//            for (int j = 0; j < getVerticesN(); j++) {
-//                if (m1.get(i, j) != m2.get(i, j)) {
-//                    return false;
-//                }
-//            }
-//        }
-//        return true;
-//    }
 
     /**
      * Deserialize graph from input string.
