@@ -121,12 +121,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Deserialize graph from input string.</div>
 </dd>
-<dt><a href="org/graph/AbstractGraph.html#display()" class="member-name-link">display()</a> - Method in class org.graph.<a href="org/graph/AbstractGraph.html" title="class in org.graph">AbstractGraph</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/graph/IGraph.html#display()" class="member-name-link">display()</a> - Method in interface org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a></dt>
-<dd>
-<div class="block">Displaying graph.</div>
-</dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
 <dl class="index">
@@ -135,16 +129,13 @@ loadScripts(document, 'script');</script>
 <div class="block">Checks either enough capacity for new value on provided index.</div>
 </dd>
 <dt><a href="org/graph/AbstractGraph.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class org.graph.<a href="org/graph/AbstractGraph.html" title="class in org.graph">AbstractGraph</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/graph/IGraph.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in interface org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a></dt>
 <dd>
-<div class="block">Checking for equality is avaliable only between AbstractGraph realizations
- because all of them should have key mappings, but IGraph could not.</div>
+<div class="block">Graphs with different implementations could be equals.</div>
 </dd>
 <dt><a href="org/graph/Pair.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class org.graph.<a href="org/graph/Pair.html" title="class in org.graph">Pair</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/graph/Matrix.html#extend(int,int)" class="member-name-link">extend(int, int)</a> - Method in class org.graph.<a href="org/graph/Matrix.html" title="class in org.graph">Matrix</a></dt>
-<dd>
-<div class="block">Ensuring that there is enough capacity to add nrow and ncolumns into matrix.</div>
-</dd>
 </dl>
 <h2 class="title" id="I:F">F</h2>
 <dl class="index">
@@ -186,7 +177,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/graph/AdjListGraph.html#getVertices()" class="member-name-link">getVertices()</a> - Method in class org.graph.<a href="org/graph/AdjListGraph.html" title="class in org.graph">AdjListGraph</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/graph/AdjMatrixGraph.html#getVertices()" class="member-name-link">getVertices()</a> - Method in class org.graph.<a href="org/graph/AdjMatrixGraph.html" title="class in org.graph">AdjMatrixGraph</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Get list of vertices.</div>
+</dd>
 <dt><a href="org/graph/IGraph.html#getVertices()" class="member-name-link">getVertices()</a> - Method in interface org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a></dt>
 <dd>
 <div class="block">Get list of vertices.</div>
@@ -196,7 +189,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/graph/AdjListGraph.html#getVerticesN()" class="member-name-link">getVerticesN()</a> - Method in class org.graph.<a href="org/graph/AdjListGraph.html" title="class in org.graph">AdjListGraph</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/graph/AdjMatrixGraph.html#getVerticesN()" class="member-name-link">getVerticesN()</a> - Method in class org.graph.<a href="org/graph/AdjMatrixGraph.html" title="class in org.graph">AdjMatrixGraph</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Get number of vertices.</div>
+</dd>
 <dt><a href="org/graph/IGraph.html#getVerticesN()" class="member-name-link">getVerticesN()</a> - Method in interface org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a></dt>
 <dd>
 <div class="block">Get number of vertices.</div>
@@ -335,11 +330,15 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="org/graph/Toposort.html#toposort(org.graph.IGraph)" class="member-name-link">toposort(IGraph&lt;T&gt;)</a> - Static method in class org.graph.<a href="org/graph/Toposort.html" title="class in org.graph">Toposort</a></dt>
 <dd>
-<div class="block">Sorting verices in topological order.</div>
+<div class="block">Topological sort.</div>
 </dd>
 <dt><a href="org/graph/Toposort.html" class="type-name-link" title="class in org.graph">Toposort</a> - Class in <a href="org/graph/package-summary.html">org.graph</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/graph/Toposort.html#%3Cinit%3E()" class="member-name-link">Toposort()</a> - Constructor for class org.graph.<a href="org/graph/Toposort.html" title="class in org.graph">Toposort</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/graph/AbstractGraph.html#toString()" class="member-name-link">toString()</a> - Method in class org.graph.<a href="org/graph/AbstractGraph.html" title="class in org.graph">AbstractGraph</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/graph/IGraph.html#toString()" class="member-name-link">toString()</a> - Method in interface org.graph.<a href="org/graph/IGraph.html" title="interface in org.graph">IGraph</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:V">V</h2>
