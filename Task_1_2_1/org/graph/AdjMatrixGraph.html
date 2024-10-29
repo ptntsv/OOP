@@ -118,7 +118,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(int,java.util.List)" class="member-name-link">AdjMatrixGraph</a><wbr>(int&nbsp;capacity,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&gt;&gt;&nbsp;edges)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Constructor.</div>
+</div>
 </div>
 </section>
 </li>
@@ -163,7 +165,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isAdjacent(T,T)" class="member-name-link">isAdjacent</a><wbr>(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;src,
  <a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;dst)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Either two vertices are adjacent or not.</div>
+<div class="block">Either vertices adjacent or not.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeEdge(T,T)" class="member-name-link">removeEdge</a><wbr>(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;src,
@@ -222,6 +224,12 @@ loadScripts(document, 'script');</script>
 <h3>AdjMatrixGraph</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AdjMatrixGraph</span><wbr><span class="parameters">(int&nbsp;capacity,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Pair.html" title="class in org.graph">Pair</a>&lt;<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>,<wbr><a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&gt;&gt;&nbsp;edges)</span></div>
+<div class="block">Constructor.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>capacity</code> - Capacity.</dd>
+<dd><code>edges</code> - List of edges.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -302,15 +310,13 @@ loadScripts(document, 'script');</script>
 <h3 id="isAdjacent(java.lang.Object,java.lang.Object)">isAdjacent</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAdjacent</span><wbr><span class="parameters">(<a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;src,
  <a href="AdjMatrixGraph.html" title="type parameter in AdjMatrixGraph">T</a>&nbsp;dst)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#isAdjacent(T,T)">Graph</a></code></span></div>
-<div class="block">Either two vertices are adjacent or not. If graph doesn't contain source or destination
- vertices then NoSuchVertexException is thrown.</div>
+<div class="block">Either vertices adjacent or not.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>src</code> - Source vertex.</dd>
 <dd><code>dst</code> - Destination vertex.</dd>
 <dt>Returns:</dt>
-<dd>Adjacent or not.</dd>
+<dd>Either vertices adjacent or not.</dd>
 </dl>
 </section>
 </li>
