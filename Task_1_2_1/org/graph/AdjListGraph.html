@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code><a href="IGraph.html" title="interface in org.graph">IGraph</a>&lt;T&gt;</code></dd>
+<dd><code><a href="Graph.html" title="interface in org.graph">Graph</a>&lt;T&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AdjListGraph&lt;T&gt;</span>
@@ -233,7 +233,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addVertex(T)">
 <h3 id="addVertex(java.lang.Object)">addVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a></span>&nbsp;<span class="element-name">addVertex</span><wbr><span class="parameters">(<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;v)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#addVertex(T)">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addVertex(T)">Graph</a></code></span></div>
 <div class="block">Adding new vertex. If such vertex already in graph then nothing happens.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -247,7 +247,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="removeVertex(T)">
 <h3 id="removeVertex(java.lang.Object)">removeVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a></span>&nbsp;<span class="element-name">removeVertex</span><wbr><span class="parameters">(<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;v)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#removeVertex(T)">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeVertex(T)">Graph</a></code></span></div>
 <div class="block">Removing a vertex. If no such vertex in graph, NoSuchVertexException is thrown.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -262,7 +262,7 @@ loadScripts(document, 'script');</script>
 <h3 id="addEdge(java.lang.Object,java.lang.Object)">addEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;src,
  <a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;dst)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#addEdge(T,T)">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#addEdge(T,T)">Graph</a></code></span></div>
 <div class="block">Adding a new edge. If graph doesn't contain source or destination vertices then
  NoSuchVertexException is thrown.</div>
 <dl class="notes">
@@ -277,7 +277,7 @@ loadScripts(document, 'script');</script>
 <h3 id="removeEdge(java.lang.Object,java.lang.Object)">removeEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeEdge</span><wbr><span class="parameters">(<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;src,
  <a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;dst)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#removeEdge(T,T)">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#removeEdge(T,T)">Graph</a></code></span></div>
 <div class="block">Removing an edge. If graph doesn't contain source or destination vertices then
  NoSuchVertexException is thrown.</div>
 <dl class="notes">
@@ -291,7 +291,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getAdjacent(T)">
 <h3 id="getAdjacent(java.lang.Object)">getAdjacent</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&gt;</span>&nbsp;<span class="element-name">getAdjacent</span><wbr><span class="parameters">(<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;v)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#getAdjacent(T)">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getAdjacent(T)">Graph</a></code></span></div>
 <div class="block">Getting adjacent vertices. If graph doesn't contain provided vertex then
  NoSuchVertexException is thrown.</div>
 <dl class="notes">
@@ -307,7 +307,7 @@ loadScripts(document, 'script');</script>
 <h3 id="isAdjacent(java.lang.Object,java.lang.Object)">isAdjacent</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAdjacent</span><wbr><span class="parameters">(<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;src,
  <a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&nbsp;dst)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#isAdjacent(T,T)">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#isAdjacent(T,T)">Graph</a></code></span></div>
 <div class="block">Either two vertices are adjacent or not. If graph doesn't contain source or destination
  vertices then NoSuchVertexException is thrown.</div>
 <dl class="notes">
@@ -323,7 +323,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getVerticesN()">
 <h3>getVerticesN</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getVerticesN</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#getVerticesN()">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getVerticesN()">Graph</a></code></span></div>
 <div class="block">Get number of vertices.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -335,7 +335,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getVertices()">
 <h3>getVertices</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="AdjListGraph.html" title="type parameter in AdjListGraph">T</a>&gt;</span>&nbsp;<span class="element-name">getVertices</span>()</div>
-<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="IGraph.html#getVertices()">IGraph</a></code></span></div>
+<div class="block"><span class="descfrm-type-label">Description copied from interface:&nbsp;<code><a href="Graph.html#getVertices()">Graph</a></code></span></div>
 <div class="block">Get list of vertices.</div>
 <dl class="notes">
 <dt>Returns:</dt>
