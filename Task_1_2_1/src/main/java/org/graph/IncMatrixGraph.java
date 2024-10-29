@@ -18,7 +18,6 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
     public T addVertex(T v) {
         int nextMapIndex = getNextMapIndex();
         incMatrix.ensureCapacity(nextMapIndex, 0);
-//        incMatrix.extend(1, 0);
         maps.insert(v, nextMapIndex);
         return v;
     }

@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Tests for graphs equality checks.
+ */
 public class GraphEqualityTest {
 
     @Test

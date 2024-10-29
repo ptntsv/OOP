@@ -7,7 +7,7 @@ import java.util.List;
  *
  * @param <T> User's specified graph vertex type.
  */
-public interface IGraph<T> {
+public interface Graph<T> {
 
     /**
      * Adding new vertex. If such vertex already in graph then nothing happens.

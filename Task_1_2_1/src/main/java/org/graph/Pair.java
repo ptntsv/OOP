@@ -31,8 +31,8 @@ public class Pair<T1, T2> {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Pair another) {
-            return another.first == this.first &&
-                    another.second == this.second;
+            return another.first == this.first
+                    && another.second == this.second;
         }
         return false;
     }

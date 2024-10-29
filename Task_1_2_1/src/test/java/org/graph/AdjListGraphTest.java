@@ -6,6 +6,9 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for AdjListGraph class.
+ */
 public class AdjListGraphTest {
 
     @Test
@@ -34,19 +37,19 @@ public class AdjListGraphTest {
         edges.add(new Pair<>(1, 2));
         edges.add(new Pair<>(2, 99));
         AdjListGraph<Integer> g = new AdjListGraph<>(edges);
-        int v = 1;
-        int expVKey = 1;
-        g.addVertex(v);
+        int node = 1;
+        int nodeKey = 1;
+        g.addVertex(node);
 
         Assertions.assertEquals(5, g.maps.gettIntHashMap().size());
         Assertions.assertEquals(5, g.maps.getIntTHashMap().size());
-        Assertions.assertEquals(expVKey, g.maps.gettIntHashMap().get(v));
+        Assertions.assertEquals(nodeKey, g.maps.gettIntHashMap().get(node));
 
-        v = 2;
-        expVKey = 2;
-        g.addVertex(v);
-        Assertions.assertEquals(expVKey, g.maps.gettIntHashMap().get(v));
-        Assertions.assertEquals(v, g.maps.getIntTHashMap().get(expVKey));
+        node = 2;
+        nodeKey = 2;
+        g.addVertex(node);
+        Assertions.assertEquals(nodeKey, g.maps.gettIntHashMap().get(node));
+        Assertions.assertEquals(node, g.maps.getIntTHashMap().get(nodeKey));
     }
 
     @Test
@@ -59,12 +62,12 @@ public class AdjListGraphTest {
         edges.add(new Pair<>(1, 2));
         edges.add(new Pair<>(2, 99));
         AdjListGraph<Integer> g = new AdjListGraph<>(edges);
-        int v = 3;
-        int vKey = g.maps.gettIntHashMap().get(v);
-        g.removeVertex(v);
-        Assertions.assertFalse(g.adjList.containsKey(vKey));
+        int node = 3;
+        int nodeKey = g.maps.gettIntHashMap().get(node);
+        g.removeVertex(node);
+        Assertions.assertFalse(g.adjList.containsKey(nodeKey));
         for (var k : g.adjList.keySet()) {
-            Assertions.assertFalse(g.adjList.get(k).contains(vKey));
+            Assertions.assertFalse(g.adjList.get(k).contains(nodeKey));
         }
     }
 

@@ -9,11 +9,12 @@ public class Toposort {
 
     /**
      * Topological sort.
+     *
      * @param graph Provided graph.
+     * @param <T>   User's specified type.
      * @return List of topological sorted vertices.
-     * @param <T> Type, specified by user.
      */
-    public static <T> List<T> toposort(IGraph<T> graph) {
+    public static <T> List<T> toposort(Graph<T> graph) {
         HashMap<T, Boolean> visited = new HashMap<>();
         List<T> topoSorted = new ArrayList<>();
         for (var v : graph.getVertices()) {

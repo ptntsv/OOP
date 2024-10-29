@@ -3,9 +3,13 @@ package org.graph;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for IncMatrixGraph class.
+ */
 public class IncMatrixGraphTest {
 
     @Test
@@ -32,19 +36,19 @@ public class IncMatrixGraphTest {
         edges.add(new Pair<>(1, 2));
         edges.add(new Pair<>(2, 99));
         IncMatrixGraph<Integer> g = new IncMatrixGraph<>(5, 6, edges);
-        int v = 80;
-        int expVKey = 5;
-        g.addVertex(v);
+        int node = 80;
+        g.addVertex(node);
 
         Assertions.assertEquals(6, g.maps.gettIntHashMap().size());
         Assertions.assertEquals(6, g.maps.getIntTHashMap().size());
-        Assertions.assertEquals(expVKey, g.maps.gettIntHashMap().get(v));
+        int expectedKey = 5;
+        Assertions.assertEquals(expectedKey, g.maps.gettIntHashMap().get(node));
 
-        v = 4;
-        expVKey = 6;
-        g.addVertex(v);
-        Assertions.assertEquals(expVKey, g.maps.gettIntHashMap().get(v));
-        Assertions.assertEquals(v, g.maps.getIntTHashMap().get(expVKey));
+        node = 4;
+        g.addVertex(node);
+        expectedKey = 6;
+        Assertions.assertEquals(expectedKey, g.maps.gettIntHashMap().get(node));
+        Assertions.assertEquals(node, g.maps.getIntTHashMap().get(expectedKey));
     }
 
     @Test
@@ -57,12 +61,12 @@ public class IncMatrixGraphTest {
         edges.add(new Pair<>(1, 2));
         edges.add(new Pair<>(2, 99));
         IncMatrixGraph<Integer> g = new IncMatrixGraph<>(5, 6, edges);
-        int v = 2;
-        int vKey = g.maps.gettIntHashMap().get(v);
-        g.removeVertex(v);
+        int node = 2;
+        int nodeKey = g.maps.gettIntHashMap().get(node);
+        g.removeVertex(node);
 
         for (int i = 0; i < g.incMatrix.columns; i++) {
-            Assertions.assertEquals(-2, g.incMatrix.get(vKey, i));
+            Assertions.assertEquals(-2, g.incMatrix.get(nodeKey, i));
         }
     }
 

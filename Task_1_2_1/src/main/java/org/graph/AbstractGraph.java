@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Abstract class that represents integer graph.
  */
-public abstract class AbstractGraph<T> implements IGraph<T> {
+public abstract class AbstractGraph<T> implements Graph<T> {
 
     protected VerticesMapsPair<T> maps = new VerticesMapsPair<>();
     private int nextMapIndex = 0;
@@ -33,9 +33,9 @@ public abstract class AbstractGraph<T> implements IGraph<T> {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof IGraph<?> ag) {
+        if (obj instanceof Graph<?> ag) {
             try {
-                var another = (IGraph<T>) ag;
+                var another = (Graph<T>) ag;
                 for (var v : another.getVertices()) {
                     Set<T> a_vs = new HashSet<>(another.getAdjacent(v));
                     Set<T> this_vs = new HashSet<>(getAdjacent(v));

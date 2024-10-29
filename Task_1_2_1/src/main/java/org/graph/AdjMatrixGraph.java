@@ -36,18 +36,18 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public T removeVertex(T v) {
-        int vKey = maps.gettIntHashMap().get(v);
+        int vertexKey = maps.gettIntHashMap().get(v);
         try {
             for (int i = 0; i < adjMatrix.rows; i++) {
                 for (int j = 0; j < adjMatrix.columns; j++) {
-                    if (i == vKey || j == vKey) {
+                    if (i == vertexKey || j == vertexKey) {
                         adjMatrix.set(i, j, Double.NaN);
                     }
                 }
             }
             maps.remove(v);
         } catch (MatrixOutOfBoundsException e) {
-            throw new NoSuchVertexException(vKey);
+            throw new NoSuchVertexException(vertexKey);
         }
         return v;
     }

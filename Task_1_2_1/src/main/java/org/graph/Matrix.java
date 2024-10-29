@@ -1,7 +1,5 @@
 package org.graph;
 
-import java.util.Arrays;
-
 public class Matrix {
 
     protected double[][] matrix;
@@ -10,10 +8,6 @@ public class Matrix {
     protected int rowsCapacity;
     protected int columnsCapacity;
     protected double defVal;
-
-    private static int log2(double x) {
-        return (int) (Math.log(x) / Math.log(2));
-    }
 
     /**
      * Fill matrix with provided value.
@@ -44,7 +38,6 @@ public class Matrix {
         int newCCap = yindex + 1;
         boolean enoughRows = xindex < rowsCapacity;
         boolean enoughCols = yindex < columnsCapacity;
-        boolean needCopy = !(enoughRows && enoughCols);
         if (!enoughRows) {
             rowsCapacity = newRCap;
         }
@@ -53,6 +46,7 @@ public class Matrix {
         }
         rows = xindex + 1;
         columns = yindex + 1;
+        boolean needCopy = !(enoughRows && enoughCols);
         if (needCopy) {
             var newMatrix = new double[rowsCapacity][columnsCapacity];
             Matrix.fill(newMatrix, rowsCapacity, columnsCapacity, defVal);
