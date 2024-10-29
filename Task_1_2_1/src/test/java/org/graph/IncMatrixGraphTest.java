@@ -1,9 +1,7 @@
 package org.graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -22,8 +20,8 @@ public class IncMatrixGraphTest {
         edges.add(new Pair<>(1, 2));
         edges.add(new Pair<>(2, 99));
         IncMatrixGraph<Integer> g = new IncMatrixGraph<>(5, 6, edges);
-        Assertions.assertEquals(5, g.maps.gettIntHashMap().size());
-        Assertions.assertEquals(5, g.maps.getIntTHashMap().size());
+        Assertions.assertEquals(5, g.maps.gettinthashmap().size());
+        Assertions.assertEquals(5, g.maps.getintthashmap().size());
     }
 
     @Test
@@ -39,16 +37,16 @@ public class IncMatrixGraphTest {
         int node = 80;
         g.addVertex(node);
 
-        Assertions.assertEquals(6, g.maps.gettIntHashMap().size());
-        Assertions.assertEquals(6, g.maps.getIntTHashMap().size());
+        Assertions.assertEquals(6, g.maps.gettinthashmap().size());
+        Assertions.assertEquals(6, g.maps.getintthashmap().size());
         int expectedKey = 5;
-        Assertions.assertEquals(expectedKey, g.maps.gettIntHashMap().get(node));
+        Assertions.assertEquals(expectedKey, g.maps.gettinthashmap().get(node));
 
         node = 4;
         g.addVertex(node);
         expectedKey = 6;
-        Assertions.assertEquals(expectedKey, g.maps.gettIntHashMap().get(node));
-        Assertions.assertEquals(node, g.maps.getIntTHashMap().get(expectedKey));
+        Assertions.assertEquals(expectedKey, g.maps.gettinthashmap().get(node));
+        Assertions.assertEquals(node, g.maps.getintthashmap().get(expectedKey));
     }
 
     @Test
@@ -62,7 +60,7 @@ public class IncMatrixGraphTest {
         edges.add(new Pair<>(2, 99));
         IncMatrixGraph<Integer> g = new IncMatrixGraph<>(5, 6, edges);
         int node = 2;
-        int nodeKey = g.maps.gettIntHashMap().get(node);
+        int nodeKey = g.maps.gettinthashmap().get(node);
         g.removeVertex(node);
 
         for (int i = 0; i < g.incMatrix.columns; i++) {

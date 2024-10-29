@@ -19,26 +19,26 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
     public T addVertex(T v) {
         int nextMapIndex = getNextMapIndex();
         maps.insert(v, nextMapIndex);
-        int vKey = maps.gettIntHashMap().get(v);
-        adjList.put(vKey, new ArrayList<>());
+        int vertexKey = maps.gettinthashmap().get(v);
+        adjList.put(vertexKey, new ArrayList<>());
         return v;
     }
 
     @Override
     public T removeVertex(T v) {
-        int vKey = maps.gettIntHashMap().get(v);
+        int vertexKey = maps.gettinthashmap().get(v);
         for (var u : adjList.keySet()) {
-            adjList.get(u).removeIf(i -> Objects.equals(i, vKey));
+            adjList.get(u).removeIf(i -> Objects.equals(i, vertexKey));
         }
-        adjList.remove(vKey);
+        adjList.remove(vertexKey);
         maps.remove(v);
         return v;
     }
 
     @Override
     public void addEdge(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         if (!adjList.containsKey(srcKey) || !adjList.containsKey(dstKey)) {
             throw new NoSuchVertexException(srcKey, dstKey);
         }
@@ -47,8 +47,8 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
 
     @Override
     public void removeEdge(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         if (!adjList.containsKey(srcKey) || !adjList.containsKey(dstKey)) {
             throw new NoSuchVertexException(srcKey, dstKey);
         }
@@ -57,14 +57,14 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
 
     @Override
     public List<T> getAdjacent(T v) {
-        int vKey = maps.gettIntHashMap().get(v);
-        return adjList.get(vKey).stream().map(i -> maps.getIntTHashMap().get(i)).toList();
+        int vertexKey = maps.gettinthashmap().get(v);
+        return adjList.get(vertexKey).stream().map(i -> maps.getintthashmap().get(i)).toList();
     }
 
     @Override
     public boolean isAdjacent(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         if (!adjList.containsKey(srcKey) || !adjList.containsKey(dstKey)) {
             throw new NoSuchVertexException(srcKey, dstKey);
         }
@@ -84,8 +84,8 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
     @Override
     public List<T> getVertices() {
         return adjList.keySet().stream()
-                .map(i -> maps.getIntTHashMap().get(i))
-                .toList();
+            .map(i -> maps.getintthashmap().get(i))
+            .toList();
     }
 
     /**
@@ -95,10 +95,10 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
      */
     public AdjListGraph(List<Pair<T, T>> edges) {
         for (var e : edges) {
-            if (!maps.gettIntHashMap().containsKey(e.first)) {
+            if (!maps.gettinthashmap().containsKey(e.first)) {
                 addVertex(e.first);
             }
-            if (!maps.gettIntHashMap().containsKey(e.second)) {
+            if (!maps.gettinthashmap().containsKey(e.second)) {
                 addVertex(e.second);
             }
         }

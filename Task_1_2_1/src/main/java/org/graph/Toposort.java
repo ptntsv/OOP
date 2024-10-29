@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Stack;
 
+/**
+ * Class that contains topological sort method.
+ */
 public class Toposort {
 
     /**

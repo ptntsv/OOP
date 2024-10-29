@@ -2,7 +2,6 @@ package org.graph;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * Adjacency matrix graph implementation.
@@ -36,7 +35,7 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public T removeVertex(T v) {
-        int vertexKey = maps.gettIntHashMap().get(v);
+        int vertexKey = maps.gettinthashmap().get(v);
         try {
             for (int i = 0; i < adjMatrix.rows; i++) {
                 for (int j = 0; j < adjMatrix.columns; j++) {
@@ -60,8 +59,8 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public void addEdge(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         try {
             adjMatrix.set(srcKey, dstKey, 1);
         } catch (MatrixOutOfBoundsException e) {
@@ -77,8 +76,8 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public void removeEdge(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         try {
             adjMatrix.set(srcKey, dstKey, 0);
         } catch (MatrixOutOfBoundsException e) {
@@ -96,9 +95,9 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
     public List<T> getAdjacent(T v) {
         List<T> vs = new ArrayList<>();
         for (int i = 0; i < adjMatrix.columns; i++) {
-            T iKey = maps.getIntTHashMap().get(i);
-            if (isAdjacent(v, iKey)) {
-                vs.add(iKey);
+            T key = maps.getintthashmap().get(i);
+            if (isAdjacent(v, key)) {
+                vs.add(key);
             }
         }
         return vs;
@@ -108,13 +107,19 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
         adjMatrix = new Matrix(capacity, capacity, 0);
     }
 
+    /**
+     * Constructor.
+     *
+     * @param capacity Capacity.
+     * @param edges    List of edges.
+     */
     public AdjMatrixGraph(int capacity, List<Pair<T, T>> edges) {
         this(capacity);
         for (var e : edges) {
-            if (!maps.gettIntHashMap().containsKey(e.first)) {
+            if (!maps.gettinthashmap().containsKey(e.first)) {
                 addVertex(e.first);
             }
-            if (!maps.gettIntHashMap().containsKey(e.second)) {
+            if (!maps.gettinthashmap().containsKey(e.second)) {
                 addVertex(e.second);
             }
         }
@@ -123,9 +128,16 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
         }
     }
 
+    /**
+     * Either vertices adjacent or not.
+     *
+     * @param src Source vertex.
+     * @param dst Destination vertex.
+     * @return Either vertices adjacent or not.
+     */
     public boolean isAdjacent(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         try {
             return adjMatrix.get(srcKey, dstKey) == 1;
         } catch (MatrixOutOfBoundsException e) {
@@ -140,7 +152,7 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public int getVerticesN() {
-        return maps.gettIntHashMap().size();
+        return maps.gettinthashmap().size();
     }
 
     /**
@@ -150,6 +162,6 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public List<T> getVertices() {
-        return maps.gettIntHashMap().keySet().stream().toList();
+        return maps.gettinthashmap().keySet().stream().toList();
     }
 }

@@ -1,6 +1,10 @@
 package org.graph;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Abstract class that represents integer graph.
@@ -37,9 +41,10 @@ public abstract class AbstractGraph<T> implements Graph<T> {
             try {
                 var another = (Graph<T>) ag;
                 for (var v : another.getVertices()) {
-                    Set<T> a_vs = new HashSet<>(another.getAdjacent(v));
-                    Set<T> this_vs = new HashSet<>(getAdjacent(v));
-                    if (a_vs.size() != this_vs.size() || !this_vs.equals(a_vs)) {
+                    Set<T> anotherVertices = new HashSet<>(another.getAdjacent(v));
+                    Set<T> thisVertices = new HashSet<>(getAdjacent(v));
+                    if (anotherVertices.size() != thisVertices.size() || !thisVertices.equals(
+                        anotherVertices)) {
                         return false;
                     }
                 }
@@ -62,7 +67,8 @@ public abstract class AbstractGraph<T> implements Graph<T> {
         String[] lines = str.split("\n");
         for (var line : lines) {
             var es = line.split("\\|")[0];
-            ArrayList<Integer> vs = new ArrayList<>(Arrays.stream(es.split(" ")).map(Integer::parseInt).toList());
+            ArrayList<Integer> vs = new ArrayList<>(
+                Arrays.stream(es.split(" ")).map(Integer::parseInt).toList());
             for (int i = 1; i < vs.size(); i++) {
                 edges.add(new Pair<>(vs.get(0), vs.get(i)));
             }

@@ -3,8 +3,7 @@ package org.graph;
 import java.util.HashMap;
 
 /**
- * Utility class to keep two-way mapping between Graph wrapper and concrete IntegerGraph
- * implementation
+ * Utility class to keep two-way mapping between Graph wrapper.
  *
  * @param <T> User's specified graph node type.
  */
@@ -13,7 +12,7 @@ public class VerticesMapsPair<T> {
     /**
      * From int to T map.
      */
-    private HashMap<Integer, T> intTHashMap = new HashMap<>();
+    private HashMap<Integer, T> intThashMap = new HashMap<>();
     /**
      * From T to int map.
      */
@@ -32,7 +31,7 @@ public class VerticesMapsPair<T> {
      */
     public void insert(T tv, int index) {
         if (!tIntHashMap.containsKey(tv)) {
-            intTHashMap.put(index, tv);
+            intThashMap.put(index, tv);
             tIntHashMap.put(tv, index);
         }
     }
@@ -43,7 +42,7 @@ public class VerticesMapsPair<T> {
      * @param v Vertex to remove.
      */
     public void remove(T v) {
-        intTHashMap.remove(gettIntHashMap().get(v), v);
+        intThashMap.remove(gettinthashmap().get(v), v);
         tIntHashMap.remove(v);
     }
 
@@ -52,8 +51,8 @@ public class VerticesMapsPair<T> {
      *
      * @return intTHashMap
      */
-    public HashMap<Integer, T> getIntTHashMap() {
-        return intTHashMap;
+    public HashMap<Integer, T> getintthashmap() {
+        return intThashMap;
     }
 
     /**
@@ -61,7 +60,7 @@ public class VerticesMapsPair<T> {
      *
      * @return tIntHashMap
      */
-    public HashMap<T, Integer> gettIntHashMap() {
+    public HashMap<T, Integer> gettinthashmap() {
         return tIntHashMap;
     }
 }

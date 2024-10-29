@@ -15,8 +15,8 @@ public class AdjMatrixGraphTest {
         Assertions.assertEquals(n, g.adjMatrix.rowsCapacity);
         Assertions.assertEquals(n, g.adjMatrix.columnsCapacity);
 
-        Assertions.assertEquals(0, g.maps.gettIntHashMap().size());
-        Assertions.assertEquals(0, g.maps.getIntTHashMap().size());
+        Assertions.assertEquals(0, g.maps.gettinthashmap().size());
+        Assertions.assertEquals(0, g.maps.getintthashmap().size());
     }
 
     @Test
@@ -27,15 +27,15 @@ public class AdjMatrixGraphTest {
         g.addVertex(node1);
         int expectedKey = 0;
 
-        Assertions.assertEquals(1, g.maps.gettIntHashMap().size());
-        Assertions.assertEquals(1, g.maps.getIntTHashMap().size());
-        Assertions.assertEquals(expectedKey, g.maps.gettIntHashMap().get(node1));
+        Assertions.assertEquals(1, g.maps.gettinthashmap().size());
+        Assertions.assertEquals(1, g.maps.getintthashmap().size());
+        Assertions.assertEquals(expectedKey, g.maps.gettinthashmap().get(node1));
 
         node1 = 2;
         g.addVertex(node1);
         expectedKey = 1;
-        Assertions.assertEquals(expectedKey, g.maps.gettIntHashMap().get(node1));
-        Assertions.assertEquals(node1, g.maps.getIntTHashMap().get(expectedKey));
+        Assertions.assertEquals(expectedKey, g.maps.gettinthashmap().get(node1));
+        Assertions.assertEquals(node1, g.maps.getintthashmap().get(expectedKey));
     }
 
     @Test
@@ -46,7 +46,7 @@ public class AdjMatrixGraphTest {
             g.addVertex(i);
         }
         int node = 4;
-        int nodeKey = g.maps.gettIntHashMap().get(node);
+        int nodeKey = g.maps.gettinthashmap().get(node);
         g.removeVertex(node);
         for (int i = 0; i < g.getVerticesN(); i++) {
             Assertions.assertEquals(Double.NaN, g.adjMatrix.get(nodeKey, i));
@@ -90,8 +90,8 @@ public class AdjMatrixGraphTest {
         g.addEdge(0, 1);
         g.addEdge(2, 2);
         g.addEdge(3, 4);
-        g.removeEdge(g.maps.gettIntHashMap().get(0), g.maps.gettIntHashMap().get(1));
+        g.removeEdge(g.maps.gettinthashmap().get(0), g.maps.gettinthashmap().get(1));
         Assertions.assertFalse(
-                g.isAdjacent(g.maps.gettIntHashMap().get(0), g.maps.gettIntHashMap().get(1)));
+                g.isAdjacent(g.maps.gettinthashmap().get(0), g.maps.gettinthashmap().get(1)));
     }
 }

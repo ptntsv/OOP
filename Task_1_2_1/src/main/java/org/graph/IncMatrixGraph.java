@@ -2,7 +2,6 @@ package org.graph;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
 
 /**
  * Incidence matrix graph implementation.
@@ -31,13 +30,13 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
      */
     @Override
     public T removeVertex(T v) {
-        int vKey = maps.gettIntHashMap().get(v);
+        int vertexKey = maps.gettinthashmap().get(v);
         try {
             for (int i = 0; i < incMatrix.columns; i++) {
-                incMatrix.set(vKey, i, -2);
+                incMatrix.set(vertexKey, i, -2);
             }
         } catch (MatrixOutOfBoundsException e) {
-            throw new NoSuchVertexException(vKey);
+            throw new NoSuchVertexException(vertexKey);
         }
         maps.remove(v);
         return v;
@@ -45,8 +44,8 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public void addEdge(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         incMatrix.ensureCapacity(incMatrix.rows, incMatrix.columns + 1);
         try {
             incMatrix.set(srcKey, incMatrix.columns - 1, 1);
@@ -58,8 +57,8 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public void removeEdge(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         try {
             for (int i = 0; i < incMatrix.columns; i++) {
                 if (isAdjacent(src, dst)) {
@@ -76,9 +75,9 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
     public List<T> getAdjacent(T v) {
         List<T> vs = new ArrayList<>();
         for (int i = 0; i < incMatrix.rows; i++) {
-            T iKey = maps.getIntTHashMap().get(i);
-            if (iKey != null && isAdjacent(v, iKey)) {
-                vs.add(iKey);
+            T key = maps.getintthashmap().get(i);
+            if (key != null && isAdjacent(v, key)) {
+                vs.add(key);
             }
         }
         return vs;
@@ -86,8 +85,8 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public boolean isAdjacent(T src, T dst) {
-        int srcKey = maps.gettIntHashMap().get(src);
-        int dstKey = maps.gettIntHashMap().get(dst);
+        int srcKey = maps.gettinthashmap().get(src);
+        int dstKey = maps.gettinthashmap().get(dst);
         try {
             for (int i = 0; i < incMatrix.columns; i++) {
                 if (incMatrix.get(srcKey, i) == 1 && incMatrix.get(dstKey, i) == -1) {
@@ -102,12 +101,12 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
 
     @Override
     public int getVerticesN() {
-        return maps.gettIntHashMap().size();
+        return maps.gettinthashmap().size();
     }
 
     @Override
     public List<T> getVertices() {
-        return maps.gettIntHashMap().keySet().stream().toList();
+        return maps.gettinthashmap().keySet().stream().toList();
     }
 
     public IncMatrixGraph(int nvertices, int nedges) {
@@ -126,10 +125,10 @@ public class IncMatrixGraph<T> extends AbstractGraph<T> {
             List<Pair<T, T>> edges) {
         this(nvertices, nedges);
         for (var e : edges) {
-            if (!maps.gettIntHashMap().containsKey(e.first)) {
+            if (!maps.gettinthashmap().containsKey(e.first)) {
                 addVertex(e.first);
             }
-            if (!maps.gettIntHashMap().containsKey(e.second)) {
+            if (!maps.gettinthashmap().containsKey(e.second)) {
                 addVertex(e.second);
             }
         }

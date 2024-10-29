@@ -1,5 +1,8 @@
 package org.graph;
 
+/**
+ * Matrix class.
+ */
 public class Matrix {
 
     protected double[][] matrix;
@@ -32,17 +35,17 @@ public class Matrix {
      * @param yindex Columns index.
      */
     public void ensureCapacity(int xindex, int yindex) {
-        int oldRCap = rowsCapacity;
-        int oldCCap = columnsCapacity;
-        int newRCap = xindex + 1;
-        int newCCap = yindex + 1;
+        int oldRowCap = rowsCapacity;
+        int oldColCap = columnsCapacity;
+        int newRowCap = xindex + 1;
+        int newColCap = yindex + 1;
         boolean enoughRows = xindex < rowsCapacity;
         boolean enoughCols = yindex < columnsCapacity;
         if (!enoughRows) {
-            rowsCapacity = newRCap;
+            rowsCapacity = newRowCap;
         }
         if (!enoughCols) {
-            columnsCapacity = newCCap;
+            columnsCapacity = newColCap;
         }
         rows = xindex + 1;
         columns = yindex + 1;
@@ -50,29 +53,43 @@ public class Matrix {
         if (needCopy) {
             var newMatrix = new double[rowsCapacity][columnsCapacity];
             Matrix.fill(newMatrix, rowsCapacity, columnsCapacity, defVal);
-            for (int i = 0; i < oldRCap; i++) {
-                System.arraycopy(matrix[i], 0, newMatrix[i], 0, oldCCap);
+            for (int i = 0; i < oldRowCap; i++) {
+                System.arraycopy(matrix[i], 0, newMatrix[i], 0, oldColCap);
             }
             matrix = newMatrix;
         }
 
     }
 
+    /**
+     * Get matrix[i][j].
+     *
+     * @param i Index #1.
+     * @param j Index #2.
+     * @return matrix[i][j]
+     */
     public double get(int i, int j) {
         try {
             return matrix[i][j];
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new MatrixOutOfBoundsException(
-                    "Values " + i + ", " + j + " are out of boundaries");
+                "Values " + i + ", " + j + " are out of boundaries");
         }
     }
 
+    /**
+     * Set matrix[i][j] with provided value.
+     *
+     * @param i   Index #1.
+     * @param j   Index #2.
+     * @param val Value.
+     */
     public void set(int i, int j, double val) {
         try {
             matrix[i][j] = val;
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new MatrixOutOfBoundsException(
-                    "Values " + i + ", " + j + " are out of boundaries");
+                "Values " + i + ", " + j + " are out of boundaries");
         }
     }
 

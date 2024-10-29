@@ -1,7 +1,6 @@
 package org.graph;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -23,8 +22,8 @@ public class AdjListGraphTest {
         AdjListGraph<Integer> g = new AdjListGraph<>(edges);
         Assertions.assertEquals(5, g.getVerticesN());
 
-        Assertions.assertEquals(0, g.maps.gettIntHashMap().get(0));
-        Assertions.assertEquals(4, g.maps.gettIntHashMap().get(99));
+        Assertions.assertEquals(0, g.maps.gettinthashmap().get(0));
+        Assertions.assertEquals(4, g.maps.gettinthashmap().get(99));
     }
 
     @Test
@@ -38,18 +37,18 @@ public class AdjListGraphTest {
         edges.add(new Pair<>(2, 99));
         AdjListGraph<Integer> g = new AdjListGraph<>(edges);
         int node = 1;
-        int nodeKey = 1;
         g.addVertex(node);
 
-        Assertions.assertEquals(5, g.maps.gettIntHashMap().size());
-        Assertions.assertEquals(5, g.maps.getIntTHashMap().size());
-        Assertions.assertEquals(nodeKey, g.maps.gettIntHashMap().get(node));
+        Assertions.assertEquals(5, g.maps.gettinthashmap().size());
+        Assertions.assertEquals(5, g.maps.getintthashmap().size());
+        int nodeKey = 1;
+        Assertions.assertEquals(nodeKey, g.maps.gettinthashmap().get(node));
 
         node = 2;
         nodeKey = 2;
         g.addVertex(node);
-        Assertions.assertEquals(nodeKey, g.maps.gettIntHashMap().get(node));
-        Assertions.assertEquals(node, g.maps.getIntTHashMap().get(nodeKey));
+        Assertions.assertEquals(nodeKey, g.maps.gettinthashmap().get(node));
+        Assertions.assertEquals(node, g.maps.getintthashmap().get(nodeKey));
     }
 
     @Test
@@ -63,7 +62,7 @@ public class AdjListGraphTest {
         edges.add(new Pair<>(2, 99));
         AdjListGraph<Integer> g = new AdjListGraph<>(edges);
         int node = 3;
-        int nodeKey = g.maps.gettIntHashMap().get(node);
+        int nodeKey = g.maps.gettinthashmap().get(node);
         g.removeVertex(node);
         Assertions.assertFalse(g.adjList.containsKey(nodeKey));
         for (var k : g.adjList.keySet()) {
@@ -82,12 +81,12 @@ public class AdjListGraphTest {
         edges.add(new Pair<>(2, 99));
         AdjListGraph<Integer> g = new AdjListGraph<>(edges);
 
-        int srcKey = g.maps.gettIntHashMap().get(0);
-        int dstKey = g.maps.gettIntHashMap().get(2);
+        int srcKey = g.maps.gettinthashmap().get(0);
+        int dstKey = g.maps.gettinthashmap().get(2);
         Assertions.assertTrue(g.getAdjacent(srcKey).contains(dstKey));
-        dstKey = g.maps.gettIntHashMap().get(2);
+        dstKey = g.maps.gettinthashmap().get(2);
         Assertions.assertTrue(g.getAdjacent(srcKey).contains(dstKey));
-        dstKey = g.maps.gettIntHashMap().get(3);
+        dstKey = g.maps.gettinthashmap().get(3);
         Assertions.assertTrue(g.getAdjacent(srcKey).contains(dstKey));
     }
 
@@ -102,8 +101,8 @@ public class AdjListGraphTest {
         edges.add(new Pair<>(2, 99));
         AdjListGraph<Integer> g = new AdjListGraph<>(edges);
 
-        int srcKey = g.maps.gettIntHashMap().get(0);
-        int dstKey = g.maps.gettIntHashMap().get(2);
+        int srcKey = g.maps.gettinthashmap().get(0);
+        int dstKey = g.maps.gettinthashmap().get(2);
         g.removeEdge(srcKey, dstKey);
         Assertions.assertFalse(g.getAdjacent(srcKey).contains(dstKey));
         Assertions.assertTrue(g.adjList.containsKey(dstKey));
