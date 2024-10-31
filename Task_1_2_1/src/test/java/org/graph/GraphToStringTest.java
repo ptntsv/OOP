@@ -5,6 +5,9 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests for Graph's toString method.
+ */
 public class GraphToStringTest {
 
     @Test
