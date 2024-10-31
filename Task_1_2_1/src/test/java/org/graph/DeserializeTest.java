@@ -10,19 +10,36 @@ import org.junit.jupiter.api.Test;
 public class DeserializeTest {
 
     @Test
-    void deserializeTest() {
-        String str = "0 1 2 3\n1 2 99\n99 72 27";
-        ArrayList<Pair<Integer, Integer>> toCmp = new ArrayList<>();
-        toCmp.add(new Pair<>(0, 1));
-        toCmp.add(new Pair<>(0, 2));
-        toCmp.add(new Pair<>(0, 3));
-        toCmp.add(new Pair<>(1, 2));
-        toCmp.add(new Pair<>(1, 99));
-        toCmp.add(new Pair<>(99, 72));
-        toCmp.add(new Pair<>(99, 27));
-        var g = AbstractGraph.deserialize(str);
-        for (int i = 0; i < g.size(); i++) {
-            Assertions.assertEquals(g.get(i), toCmp.get(i));
-        }
+    void deserializeTest0() {
+        ArrayList<Pair<Integer, Integer>> edges = new ArrayList<>();
+        edges.add(new Pair<>(0, 1));
+        edges.add(new Pair<>(0, 2));
+        edges.add(new Pair<>(0, 3));
+        edges.add(new Pair<>(1, 2));
+        edges.add(new Pair<>(1, 99));
+        edges.add(new Pair<>(99, 72));
+        edges.add(new Pair<>(99, 27));
+        var g = new AdjListGraph<>(
+            AbstractGraph.deserializeFromFile("src/test/resources/input1.txt"));
+        var toCmp = new AdjListGraph<>(edges);
+        Assertions.assertEquals(g, toCmp);
+    }
+
+    @Test
+    void deserializeTest1() {
+        ArrayList<Pair<Integer, Integer>> edges = new ArrayList<>();
+        edges.add(new Pair<>(1, 2));
+        edges.add(new Pair<>(2, 3));
+        edges.add(new Pair<>(4, 5));
+        edges.add(new Pair<>(6, 7));
+        edges.add(new Pair<>(8, 9));
+        edges.add(new Pair<>(8, 10));
+        edges.add(new Pair<>(8, 11));
+        edges.add(new Pair<>(11, 1));
+        edges.add(new Pair<>(12, 11));
+        var g = new AdjListGraph<>(
+            AbstractGraph.deserializeFromFile("src/test/resources/input2.txt"));
+        var toCmp = new AdjListGraph<>(edges);
+        Assertions.assertEquals(g, toCmp);
     }
 }

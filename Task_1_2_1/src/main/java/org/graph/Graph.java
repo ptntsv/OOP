@@ -44,8 +44,8 @@ public interface Graph<T> {
     void removeEdge(T dst, T src);
 
     /**
-     * Getting adjacent vertices. If graph doesn't contain provided vertex then
-     * NoSuchVertexException is thrown.
+     * Getting adjacent vertices. If graph doesn't contain provided vertex then empty list will be
+     * returned.
      *
      * @param v Source vertex.
      * @return List of adjacent vertices.
