@@ -125,6 +125,7 @@ public class AdjListGraphTest {
         Assertions.assertTrue(g.isAdjacent(1, 0));
         Assertions.assertTrue(g.isAdjacent(1, 2));
     }
+
     @Test
     void getAdjacentTest() {
         List<Pair<Integer, Integer>> edges = new ArrayList<>();

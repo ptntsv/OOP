@@ -95,6 +95,7 @@ public class IncMatrixGraphTest {
         g.removeEdge(0, 3);
         Assertions.assertFalse(g.isAdjacent(0, 3));
     }
+
     @Test
     void getAdjacentTest() {
         List<Pair<Integer, Integer>> edges = new ArrayList<>();
