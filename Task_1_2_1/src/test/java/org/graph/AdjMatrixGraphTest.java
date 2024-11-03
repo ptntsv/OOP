@@ -92,8 +92,9 @@ public class AdjMatrixGraphTest {
         g.addEdge(3, 4);
         g.removeEdge(g.maps.gettinthashmap().get(0), g.maps.gettinthashmap().get(1));
         Assertions.assertFalse(
-                g.isAdjacent(g.maps.gettinthashmap().get(0), g.maps.gettinthashmap().get(1)));
+            g.isAdjacent(g.maps.gettinthashmap().get(0), g.maps.gettinthashmap().get(1)));
     }
+
     @Test
     void getAdjacentTest() {
         int n = 5;
