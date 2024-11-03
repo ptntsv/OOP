@@ -94,4 +94,16 @@ public class AdjMatrixGraphTest {
         Assertions.assertFalse(
                 g.isAdjacent(g.maps.gettinthashmap().get(0), g.maps.gettinthashmap().get(1)));
     }
+    @Test
+    void getAdjacentTest() {
+        int n = 5;
+        AdjMatrixGraph<Integer> g = new AdjMatrixGraph<>(n);
+        for (int i = 0; i < n; i++) {
+            g.addVertex(i);
+        }
+        g.addEdge(0, 1);
+        g.addEdge(2, 2);
+        g.addEdge(3, 4);
+        Assertions.assertEquals(0, g.getAdjacent(5).size());
+    }
 }

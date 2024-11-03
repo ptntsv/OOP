@@ -95,4 +95,16 @@ public class IncMatrixGraphTest {
         g.removeEdge(0, 3);
         Assertions.assertFalse(g.isAdjacent(0, 3));
     }
+    @Test
+    void getAdjacentTest() {
+        List<Pair<Integer, Integer>> edges = new ArrayList<>();
+        edges.add(new Pair<>(0, 1));
+        edges.add(new Pair<>(0, 2));
+        edges.add(new Pair<>(0, 3));
+        edges.add(new Pair<>(1, 0));
+        edges.add(new Pair<>(1, 2));
+        edges.add(new Pair<>(2, 99));
+        IncMatrixGraph<Integer> g = new IncMatrixGraph<>(5, 6, edges);
+        Assertions.assertEquals(0, g.getAdjacent(5).size());
+    }
 }

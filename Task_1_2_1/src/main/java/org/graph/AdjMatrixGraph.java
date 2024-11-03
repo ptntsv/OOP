@@ -94,6 +94,9 @@ public class AdjMatrixGraph<T> extends AbstractGraph<T> {
     @Override
     public List<T> getAdjacent(T v) {
         List<T> vs = new ArrayList<>();
+        if (!getVertices().contains(v)) {
+            return vs;
+        }
         for (int i = 0; i < adjMatrix.columns; i++) {
             T key = maps.getintthashmap().get(i);
             if (isAdjacent(v, key)) {

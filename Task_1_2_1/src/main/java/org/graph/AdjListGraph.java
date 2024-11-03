@@ -57,6 +57,9 @@ public class AdjListGraph<T> extends AbstractGraph<T> {
 
     @Override
     public List<T> getAdjacent(T v) {
+        if (!getVertices().contains(v)) {
+            return new ArrayList<>();
+        }
         int vertexKey = maps.gettinthashmap().get(v);
         return adjList.get(vertexKey).stream().map(i -> maps.getintthashmap().get(i)).toList();
     }
