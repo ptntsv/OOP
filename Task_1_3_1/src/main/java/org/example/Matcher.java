@@ -26,13 +26,14 @@ public class Matcher {
      * @return Match the pattern or not.
      */
     public boolean match(char ch) {
-        while (lastPrefix > 0 && pattern.charAt(lastPrefix) != ch) {
+        while (lastPrefix >= pattern.length()
+            || lastPrefix > 0 && pattern.charAt(lastPrefix) != ch) {
             lastPrefix = prefixes[lastPrefix - 1];
         }
         if (pattern.charAt(lastPrefix) == ch) {
             lastPrefix++;
         }
-        return lastPrefix == pattern.length() - 1;
+        return lastPrefix == pattern.length();
     }
 
     /**
@@ -49,7 +50,7 @@ public class Matcher {
      */
     public Matcher(String pattern) {
         this.pattern = pattern;
-        this.prefixes = new int[pattern.length()];
+        this.prefixes = new int[pattern.length() + 1];
         for (int i = 1; i < pattern.length(); i++) {
             match(pattern.charAt(i));
             prefixes[i] = this.lastPrefix;

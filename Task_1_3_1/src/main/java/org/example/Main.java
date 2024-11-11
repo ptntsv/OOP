@@ -13,15 +13,15 @@ import java.util.List;
 public class Main {
 
     /**
-     * Function for finding all incoming of substring into string that read from file.
+     * Function for finding all incoming of substring into string that read from file. If file
+     * couldn't open then IOException will be thrown.
      *
-     * @param filePath  Path of file that contains text.
-     * @param subStr    Given substring.
-     * @param delimiter Separator that appears neither in text nor in substring
+     * @param filePath Path of file that contains text.
+     * @param subStr   Given substring.
      * @return List of positions (indices) of all occurrences of the substring in text.
      */
-    public static List<Integer> find(String filePath, String subStr, char delimiter) {
-        Matcher kmpMatcher = new Matcher(subStr + delimiter);
+    public static List<Integer> find(String filePath, String subStr) throws IOException {
+        Matcher kmpMatcher = new Matcher(subStr);
         var ans = new ArrayList<Integer>();
         try (var ir = new InputStreamReader(
             new FileInputStream(filePath), StandardCharsets.UTF_8)) {
@@ -35,7 +35,7 @@ public class Main {
             }
         } catch (IOException e) {
             System.err.println(e.getMessage());
-            return null;
+            throw e;
         }
         return ans;
     }
