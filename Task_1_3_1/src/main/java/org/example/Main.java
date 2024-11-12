@@ -34,7 +34,6 @@ public class Main {
                 totalIndex++;
             }
         } catch (IOException e) {
-            System.err.println(e.getMessage());
             throw e;
         }
         return ans;
