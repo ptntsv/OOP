@@ -56,7 +56,7 @@ public class List extends Element {
             if (el instanceof List) {
                 sb.append(el.toString(indent + 4));
             } else {
-                sb.append(format(el.toString(indent), i++, indent));
+                sb.append(format(el.toString(), i++, indent));
             }
         }
         return sb.toString();

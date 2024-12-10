@@ -7,7 +7,7 @@ public class Text extends Element {
 
         private final Text text = new Text();
 
-        private void format(TextModifiers modifier) {
+        private void decorate(TextModifiers modifier) {
             text.modifiers += switch (modifier) {
                 case BOLD -> "**";
                 case ITALIC -> "_";
@@ -17,22 +17,22 @@ public class Text extends Element {
         }
 
         public Builder bold() {
-            format(TextModifiers.BOLD);
+            decorate(TextModifiers.BOLD);
             return this;
         }
 
         public Builder italic() {
-            format(TextModifiers.ITALIC);
+            decorate(TextModifiers.ITALIC);
             return this;
         }
 
         public Builder monospaced() {
-            format(TextModifiers.MONOSPACED);
+            decorate(TextModifiers.MONOSPACED);
             return this;
         }
 
         public Builder strikeThrough() {
-            format(TextModifiers.STRIKETHROUGH);
+            decorate(TextModifiers.STRIKETHROUGH);
             return this;
         }
 
