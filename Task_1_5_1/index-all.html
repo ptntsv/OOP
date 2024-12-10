@@ -59,6 +59,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/List.Builder.html#addItem(org.example.Element)" class="member-name-link">addItem(Element)</a> - Method in class org.example.<a href="org/example/List.Builder.html" title="class in org.example">List.Builder</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="org/example/List.Builder.html#asIndented()" class="member-name-link">asIndented()</a> - Method in class org.example.<a href="org/example/List.Builder.html" title="class in org.example">List.Builder</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:B">B</h2>
 <dl class="index">
@@ -81,7 +83,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/example/Blockquote.Builder.html#build()" class="member-name-link">build()</a> - Method in class org.example.<a href="org/example/Blockquote.Builder.html" title="class in org.example">Blockquote.Builder</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Heading.Builder.html#build()" class="member-name-link">build()</a> - Method in class org.example.<a href="org/example/Heading.Builder.html" title="class in org.example">Heading.Builder</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Get Heading instance.</div>
+</dd>
 <dt><a href="org/example/Link.Builder.html#build()" class="member-name-link">build()</a> - Method in class org.example.<a href="org/example/Link.Builder.html" title="class in org.example">Link.Builder</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/List.Builder.html#build()" class="member-name-link">build()</a> - Method in class org.example.<a href="org/example/List.Builder.html" title="class in org.example">List.Builder</a></dt>
@@ -137,14 +141,24 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:H">H</h2>
 <dl class="index">
 <dt><a href="org/example/Heading.html" class="type-name-link" title="class in org.example">Heading</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Class for headings representation.</div>
+</dd>
 <dt><a href="org/example/Heading.html#%3Cinit%3E()" class="member-name-link">Heading()</a> - Constructor for class org.example.<a href="org/example/Heading.html" title="class in org.example">Heading</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Heading.Builder.html" class="type-name-link" title="class in org.example">Heading.Builder</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Heading builder.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:I">I</h2>
 <dl class="index">
+<dt><a href="org/example/Element.html#indent(java.lang.String)" class="member-name-link">indent(String)</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/example/Element.html#indentationLvl" class="member-name-link">indentationLvl</a> - Variable in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/example/Element.html#indentationWidth" class="member-name-link">indentationWidth</a> - Variable in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="org/example/Text.Italic.html#%3Cinit%3E(java.lang.String)" class="member-name-link">Italic(String)</a> - Constructor for class org.example.<a href="org/example/Text.Italic.html" title="class in org.example">Text.Italic</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Text.Italic.html#%3Cinit%3E(org.example.Text)" class="member-name-link">Italic(Text)</a> - Constructor for class org.example.<a href="org/example/Text.Italic.html" title="class in org.example">Text.Italic</a></dt>
@@ -241,18 +255,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Text.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Text.html" title="class in org.example">Text</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/Blockquote.html#toString(int)" class="member-name-link">toString(int)</a> - Method in class org.example.<a href="org/example/Blockquote.html" title="class in org.example">Blockquote</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Element.html#toString(int)" class="member-name-link">toString(int)</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Heading.html#toString(int)" class="member-name-link">toString(int)</a> - Method in class org.example.<a href="org/example/Heading.html" title="class in org.example">Heading</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Link.html#toString(int)" class="member-name-link">toString(int)</a> - Method in class org.example.<a href="org/example/Link.html" title="class in org.example">Link</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/List.html#toString(int)" class="member-name-link">toString(int)</a> - Method in class org.example.<a href="org/example/List.html" title="class in org.example">List</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Text.html#toString(int)" class="member-name-link">toString(int)</a> - Method in class org.example.<a href="org/example/Text.html" title="class in org.example">Text</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">
@@ -296,11 +298,17 @@ the order they are declared.</div>
 <dt><a href="org/example/Blockquote.Builder.html#withContent(org.example.Element)" class="member-name-link">withContent(Element)</a> - Method in class org.example.<a href="org/example/Blockquote.Builder.html" title="class in org.example">Blockquote.Builder</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Heading.Builder.html#withContent(org.example.Text)" class="member-name-link">withContent(Text)</a> - Method in class org.example.<a href="org/example/Heading.Builder.html" title="class in org.example">Heading.Builder</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Setting up blockquote content.</div>
+</dd>
 <dt><a href="org/example/Blockquote.Builder.html#withIndent(int)" class="member-name-link">withIndent(int)</a> - Method in class org.example.<a href="org/example/Blockquote.Builder.html" title="class in org.example">Blockquote.Builder</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/Heading.Builder.html#withLevel(int)" class="member-name-link">withLevel(int)</a> - Method in class org.example.<a href="org/example/Heading.Builder.html" title="class in org.example">Heading.Builder</a></dt>
+<dt><a href="org/example/Element.html#withIndentationLvl(int)" class="member-name-link">withIndentationLvl(int)</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="org/example/Heading.Builder.html#withLevel(int)" class="member-name-link">withLevel(int)</a> - Method in class org.example.<a href="org/example/Heading.Builder.html" title="class in org.example">Heading.Builder</a></dt>
+<dd>
+<div class="block">Setting up blockquote level.</div>
+</dd>
 <dt><a href="org/example/List.Builder.html#withOrder(org.example.ListTypes)" class="member-name-link">withOrder(ListTypes)</a> - Method in class org.example.<a href="org/example/List.Builder.html" title="class in org.example">List.Builder</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/List.Builder.html#withSign(org.example.UnorderedListSigns)" class="member-name-link">withSign(UnorderedListSigns)</a> - Method in class org.example.<a href="org/example/List.Builder.html" title="class in org.example">List.Builder</a></dt>

@@ -80,6 +80,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public static class </span><span class="element-name type-name-label">Heading.Builder</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Heading builder.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -109,13 +110,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Heading.html" title="class in org.example">Heading</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#build()" class="member-name-link">build</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get Heading instance.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Heading.Builder.html" title="class in org.example">Heading.Builder</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withContent(org.example.Text)" class="member-name-link">withContent</a><wbr>(<a href="Text.html" title="class in org.example">Text</a>&nbsp;content)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Setting up blockquote content.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Heading.Builder.html" title="class in org.example">Heading.Builder</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withLevel(int)" class="member-name-link">withLevel</a><wbr>(int&nbsp;lvl)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Setting up blockquote level.</div>
+</div>
 </div>
 </div>
 </div>
@@ -152,9 +159,14 @@ loadScripts(document, 'script');</script>
 <h3>withLevel</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Heading.Builder.html" title="class in org.example">Heading.Builder</a></span>&nbsp;<span class="element-name">withLevel</span><wbr><span class="parameters">(int&nbsp;lvl)</span>
                           throws <span class="exceptions"><a href="BadHeadingLevelException.html" title="class in org.example">BadHeadingLevelException</a></span></div>
+<div class="block">Setting up blockquote level.</div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>lvl</code> - Level.</dd>
+<dt>Returns:</dt>
+<dd>New builder instance.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="BadHeadingLevelException.html" title="class in org.example">BadHeadingLevelException</a></code></dd>
+<dd><code><a href="BadHeadingLevelException.html" title="class in org.example">BadHeadingLevelException</a></code> - if quote level is greater than 6.</dd>
 </dl>
 </section>
 </li>
@@ -162,12 +174,24 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="withContent(org.example.Text)">
 <h3>withContent</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Heading.Builder.html" title="class in org.example">Heading.Builder</a></span>&nbsp;<span class="element-name">withContent</span><wbr><span class="parameters">(<a href="Text.html" title="class in org.example">Text</a>&nbsp;content)</span></div>
+<div class="block">Setting up blockquote content.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>content</code> - Content.</dd>
+<dt>Returns:</dt>
+<dd>New builder instance.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="build()">
 <h3>build</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Heading.html" title="class in org.example">Heading</a></span>&nbsp;<span class="element-name">build</span>()</div>
+<div class="block">Get Heading instance.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>New Heading instance</dd>
+</dl>
 </section>
 </li>
 </ul>
