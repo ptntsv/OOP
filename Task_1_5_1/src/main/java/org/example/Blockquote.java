@@ -12,7 +12,7 @@ public class Blockquote extends Element {
         }
 
         public Builder withIndent(int indentLvl) {
-            blockquote.indentLevel = indentLvl;
+            blockquote.quoteLevel = indentLvl;
             return this;
         }
 
@@ -22,22 +22,17 @@ public class Blockquote extends Element {
     }
 
     private Element content;
-    private int indentLevel = 1;
-
-    @Override
-    public String toString(int indentLvl) {
-        return toString();
-    }
+    private int quoteLevel = 1;
 
     @Override
     public String toString() {
-        return ">".repeat(indentLevel) + ((content != null) ? " " + content.toString() : "");
+        return ">".repeat(quoteLevel) + ((content != null) ? " " + content.toString() : "");
     }
 
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Blockquote another) {
-            return content == another.content && indentLevel == another.indentLevel;
+            return content == another.content && quoteLevel == another.quoteLevel;
         }
         return false;
     }

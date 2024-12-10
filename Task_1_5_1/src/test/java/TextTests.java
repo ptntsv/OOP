@@ -13,6 +13,7 @@ public class TextTests {
     @Test
     public void boldTest() {
         Text bold = new Text.Bold("hello").getText();
+        System.out.println(bold.toString());
         Assertions.assertEquals("**hello**", bold.toString());
     }
 

@@ -1,21 +1,45 @@
 package org.example;
 
+/**
+ * Class for headings representation.
+ */
 public class Heading extends Element {
 
+    /**
+     * Heading builder.
+     */
     public static class Builder {
 
         private final Heading heading = new Heading();
 
+        /**
+         * Setting up blockquote level.
+         *
+         * @param lvl Level.
+         * @return New builder instance.
+         * @throws BadHeadingLevelException if quote level is greater than 6.
+         */
         public Builder withLevel(int lvl) throws BadHeadingLevelException {
             heading.setLevel(lvl);
             return this;
         }
 
+        /**
+         * Setting up blockquote content.
+         *
+         * @param content Content.
+         * @return New builder instance.
+         */
         public Builder withContent(Text content) {
             heading.content = content;
             return this;
         }
 
+        /**
+         * Get Heading instance.
+         *
+         * @return New Heading instance
+         */
         public Heading build() {
             return this.heading;
         }
@@ -32,13 +56,8 @@ public class Heading extends Element {
     }
 
     @Override
-    public String toString(int indentLvl) {
-        return "#".repeat(level) + " " + content.toString();
-    }
-
-    @Override
     public String toString() {
-        return toString(0);
+        return "#".repeat(level) + " " + content.toString();
     }
 
     @Override

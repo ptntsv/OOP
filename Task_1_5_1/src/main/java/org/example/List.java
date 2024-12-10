@@ -10,6 +10,9 @@ public class List extends Element {
         private final List list = new List();
 
         public void addItem(Element toAdd) {
+            if (toAdd instanceof List list) {
+                list.indentationLvl += 1;
+            }
             list.lists.add(toAdd);
         }
 
@@ -23,6 +26,11 @@ public class List extends Element {
             return this;
         }
 
+        public Builder asIndented() {
+            list.asIndented = true;
+            return this;
+        }
+
         public List build() {
             return this.list;
         }
@@ -31,6 +39,7 @@ public class List extends Element {
     private final java.util.List<Element> lists = new ArrayList<>();
     private ListTypes listType;
     private char defaultChar;
+    private boolean asIndented = false;
 
     private String buildPrefix(int i) {
         return switch (listType) {
@@ -39,25 +48,24 @@ public class List extends Element {
         } + " ";
     }
 
-    private String format(String str, int i, int indent) {
-        return (buildPrefix(i) + str).indent(indent);
+    private String format(String str, int i) {
+        return indent(buildPrefix(i) + str);
     }
 
     @Override
     public String toString() {
-        return toString(0);
-    }
-
-    @Override
-    public String toString(int indent) {
         StringBuilder sb = new StringBuilder();
         int i = 1;
         for (var el : lists) {
-            if (el instanceof List) {
-                sb.append(el.toString(indent + 4));
-            } else {
-                sb.append(format(el.toString(), i++, indent));
+            String str = el.toString().stripTrailing();
+            if (el instanceof List list) {
+                if (list.asIndented) {
+                    sb.append(str).append("\n");
+                    continue;
+                }
+                str = str.substring(buildPrefix(i).length());
             }
+            sb.append(format(str, i++)).append("\n");
         }
         return sb.toString();
     }

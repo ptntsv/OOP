@@ -12,4 +12,11 @@ public class LinkTests {
             .withUrl("https://google.com");
         Assertions.assertEquals("[Test](https://google.com)", lb.build().toString());
     }
+
+    @Test
+    public void boldTextTest() {
+        Link.Builder lb = new Builder().withText(new Text.Bold("Test").getText())
+            .withUrl("https://google.com");
+        Assertions.assertEquals("[**Test**](https://google.com)", lb.build().toString());
+    }
 }

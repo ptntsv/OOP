@@ -25,12 +25,7 @@ public class Link extends Element {
     private String url;
 
     @Override
-    public String toString(int indentLvl) {
-        return "";
-    }
-
-    @Override
     public String toString() {
-        return "[" + text + "]" + "(" + url + ")";
+        return indent("[" + text + "]" + "(" + url + ")");
     }
 }

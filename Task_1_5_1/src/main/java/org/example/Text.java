@@ -96,13 +96,8 @@ public class Text extends Element {
     }
 
     @Override
-    public String toString(int indent) {
-        return toString();
-    }
-
-    @Override
     public String toString() {
-        return format() + this.content + format().reverse();
+        return indent(format() + this.content + format().reverse());
     }
 
     @Override
