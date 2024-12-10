@@ -1,5 +1,4 @@
 import org.example.Text;
-import org.example.Text.Builder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -7,35 +6,44 @@ public class TextTests {
 
     @Test
     public void nothingTest() {
-        Text nothing = new Text.Builder().withContent("nothing").build();
+        Text nothing = new Text("nothing");
         Assertions.assertEquals("nothing", nothing.toString());
     }
 
     @Test
     public void boldTest() {
-        Builder boldBuilder = new Text.Builder().withContent("hello").bold();
-        Assertions.assertEquals("**hello**", boldBuilder.build().toString());
+        Text bold = new Text.Bold("hello").getText();
+        Assertions.assertEquals("**hello**", bold.toString());
+    }
+
+    @Test
+    public void nestedBoldTest() {
+        Text boldItalic = new Text.Italic(new Text.Bold("hello").getText()).getText();
+        Assertions.assertEquals("**_hello_**", boldItalic.toString());
     }
 
     @Test
     public void italicTest() {
-        Builder italicBuilder = new Text.Builder().withContent("hello").italic();
-        Assertions.assertEquals("_hello_", italicBuilder.build().toString());
+        Text italic = new Text.Italic("hello").getText();
+        Assertions.assertEquals("_hello_", italic.toString());
     }
 
     @Test
     public void monospacedTest() {
-        Builder monospacedBuilder = new Text.Builder().withContent("hello")
-            .monospaced();
-        Assertions.assertEquals("`hello`", monospacedBuilder.build().toString());
+        Text italic = new Text.Monospaced("hello").getText();
+        Assertions.assertEquals("`hello`", italic.toString());
     }
 
     @Test
-    public void strikethroughTest() {
-        Builder strikethroughBuild = new Text.Builder().withContent("hello")
-            .strikeThrough();
-        Assertions.assertEquals("~~hello~~", strikethroughBuild.build().toString());
+    public void strikedTest() {
+        Text italic = new Text.Strikethrough("hello").getText();
+        Assertions.assertEquals("~~hello~~", italic.toString());
     }
 
-    // TODO: make mixed tests
+    @Test
+    public void fullModifiedTest() {
+        Text full = new Text.Bold(new Text.Italic(new Text.Monospaced(
+            new Text.Strikethrough("hello").getText()).getText()).getText()).getText();
+        Assertions.assertEquals("**_`~~hello~~`_**", full.toString());
+    }
 }

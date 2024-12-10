@@ -61,4 +61,12 @@ public class List extends Element {
         }
         return sb.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof List another) {
+            return lists.equals(another.lists);
+        }
+        return false;
+    }
 }

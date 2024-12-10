@@ -11,7 +11,7 @@ public class Heading extends Element {
             return this;
         }
 
-        public Builder withContent(String content) {
+        public Builder withContent(Text content) {
             heading.content = content;
             return this;
         }
@@ -21,7 +21,7 @@ public class Heading extends Element {
         }
     }
 
-    private String content = "";
+    private Text content;
     private int level = 1;
 
     public void setLevel(int lvl) throws BadHeadingLevelException {
@@ -33,11 +33,19 @@ public class Heading extends Element {
 
     @Override
     public String toString(int indentLvl) {
-        return "#".repeat(level) + " " + content;
+        return "#".repeat(level) + " " + content.toString();
     }
 
     @Override
     public String toString() {
         return toString(0);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Heading another) {
+            return another.content.equals(content) && another.level == level;
+        }
+        return false;
     }
 }
