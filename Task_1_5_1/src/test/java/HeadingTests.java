@@ -27,4 +27,27 @@ public class HeadingTests {
                 .withContent(new Text("Heading 7"))
                 .withLevel(7).build());
     }
+
+    @Test
+    public void headingEqTest() throws BadHeadingLevelException {
+        var h1 = new Heading.Builder()
+            .withContent(new Text("Heading 1"))
+            .withLevel(1).build();
+
+        var h1SameContent = new Heading.Builder()
+            .withContent(new Text("Heading 1"))
+            .withLevel(2).build();
+
+        var h1SameIndent = new Heading.Builder()
+            .withContent(new Text("Heading 1 copy"))
+            .withLevel(1).build();
+
+        var h1Same = new Heading.Builder()
+            .withContent(new Text("Heading 1"))
+            .withLevel(1).build();
+
+        Assertions.assertNotEquals(h1, h1SameContent);
+        Assertions.assertNotEquals(h1, h1SameIndent);
+        Assertions.assertEquals(h1, h1Same);
+    }
 }

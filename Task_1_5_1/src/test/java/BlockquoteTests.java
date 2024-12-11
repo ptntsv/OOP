@@ -61,4 +61,34 @@ public class BlockquoteTests {
             """;
         Assertions.assertEquals(expected, sb.toString());
     }
+
+    @Test
+    public void quotesEqTest() {
+        Blockquote.Builder bq1 = new Builder().withIndent(1)
+            .withContent(new Text("Blockquote 1"));
+        Assertions.assertEquals("> Blockquote 1", bq1.build().toString());
+
+        Blockquote.Builder bq2 = new Builder().withIndent(1)
+            .withContent(new Text.Bold(new Text.Italic("Blockquote 2").getText()).getText());
+        Assertions.assertEquals("> **_Blockquote 2_**", bq2.build().toString());
+
+        Assertions.assertEquals("> **_Blockquote 2_**", bq2.build().toString());
+
+        Blockquote.Builder bq3 = new Builder().withIndent(1)
+            .withContent(new Text.Bold(new Text.Italic("Blockquote 2").getText()).getText());
+        Assertions.assertNotEquals(bq1.build(), bq2.build());
+        Assertions.assertEquals(bq2.build(), bq3.build());
+    }
+
+    @Test
+    public void differentIndentsEqTest() {
+        Blockquote.Builder bq1 = new Builder().withIndent(1)
+            .withContent(new Text("Blockquote 1"));
+        Assertions.assertEquals("> Blockquote 1", bq1.build().toString());
+
+        Blockquote.Builder bq2 = new Builder().withIndent(2)
+            .withContent(new Text("Blockquote 1"));
+
+        Assertions.assertNotEquals(bq1.build(), bq2.build());
+    }
 }

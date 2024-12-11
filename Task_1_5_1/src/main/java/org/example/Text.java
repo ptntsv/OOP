@@ -2,6 +2,9 @@ package org.example;
 
 import java.util.EnumSet;
 
+/**
+ * Represents Markdown's text element.
+ */
 public class Text extends Element {
 
     public static class Bold extends AbstractTextModifier {
@@ -68,9 +71,20 @@ public class Text extends Element {
         }
     }
 
+    /**
+     * Text content.
+     */
     String content = "";
+    /**
+     * Current modifiers.
+     */
     private final EnumSet<TextModifiers> modifiers = EnumSet.of(TextModifiers.PLAIN);
 
+    /**
+     * Formats text content based upon current modifiers.
+     *
+     * @return Formatted string.
+     */
     private StringBuilder format() {
         StringBuilder mods = new StringBuilder();
         if (modifiers.contains(TextModifiers.BOLD)) {
@@ -88,9 +102,15 @@ public class Text extends Element {
         return mods;
     }
 
+    /**
+     * Constructor.
+     */
     public Text() {
     }
 
+    /**
+     * Constructor with string.
+     */
     public Text(String content) {
         this.content = content;
     }

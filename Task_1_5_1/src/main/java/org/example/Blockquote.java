@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * Represents Markdown's blockquote element.
+ */
 public class Blockquote extends Element {
 
     public static class Builder {
@@ -21,7 +24,13 @@ public class Blockquote extends Element {
         }
     }
 
+    /**
+     * Blockquote content.
+     */
     private Element content;
+    /**
+     * Blockquote level.
+     */
     private int quoteLevel = 1;
 
     @Override
@@ -32,7 +41,7 @@ public class Blockquote extends Element {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Blockquote another) {
-            return content == another.content && quoteLevel == another.quoteLevel;
+            return content.equals(another.content) && quoteLevel == another.quoteLevel;
         }
         return false;
     }

@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * Unordered list mark signs.
+ */
 public enum UnorderedListSigns {
     DASH('-'), PLUS('+'), STAR('*');
 

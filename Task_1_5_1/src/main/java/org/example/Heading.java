@@ -38,7 +38,7 @@ public class Heading extends Element {
         /**
          * Get Heading instance.
          *
-         * @return New Heading instance
+         * @return New Heading instance.
          */
         public Heading build() {
             return this.heading;

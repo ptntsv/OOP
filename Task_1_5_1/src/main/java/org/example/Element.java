@@ -1,24 +1,27 @@
 package org.example;
 
+/**
+ * Base Markdown element.
+ */
 public abstract class Element {
 
+    /**
+     * Default indentation width.
+     */
     public int indentationWidth = 4;
+
+    /**
+     * Indentation level.
+     */
     public int indentationLvl = 0;
 
-    public Element withIndentationLvl(int lvl) {
-        indentationLvl = lvl;
-        return this;
-    }
-
+    /**
+     * Indents element as indentation level * indentation width.
+     *
+     * @param str String to indent.
+     * @return Indented string.
+     */
     public String indent(String str) {
         return " ".repeat(indentationLvl * indentationWidth) + str;
     }
-//
-//    /**
-//     * Serializing to string with provided indent.
-//     *
-//     * @param indentWidth Indent.
-//     * @return Serialized string.
-//     */
-//    public abstract String toString(int indentWidth);
 }

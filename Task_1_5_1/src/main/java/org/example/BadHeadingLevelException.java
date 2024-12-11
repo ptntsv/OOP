@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * Thrown when bad heading level is provided.
+ */
 public class BadHeadingLevelException extends Throwable {
 
     private final String message;

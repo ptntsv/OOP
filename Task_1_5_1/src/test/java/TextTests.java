@@ -13,7 +13,6 @@ public class TextTests {
     @Test
     public void boldTest() {
         Text bold = new Text.Bold("hello").getText();
-        System.out.println(bold.toString());
         Assertions.assertEquals("**hello**", bold.toString());
     }
 
@@ -31,14 +30,14 @@ public class TextTests {
 
     @Test
     public void monospacedTest() {
-        Text italic = new Text.Monospaced("hello").getText();
-        Assertions.assertEquals("`hello`", italic.toString());
+        Text monospaced = new Text.Monospaced("hello").getText();
+        Assertions.assertEquals("`hello`", monospaced.toString());
     }
 
     @Test
     public void strikedTest() {
-        Text italic = new Text.Strikethrough("hello").getText();
-        Assertions.assertEquals("~~hello~~", italic.toString());
+        Text striked = new Text.Strikethrough("hello").getText();
+        Assertions.assertEquals("~~hello~~", striked.toString());
     }
 
     @Test
@@ -46,5 +45,19 @@ public class TextTests {
         Text full = new Text.Bold(new Text.Italic(new Text.Monospaced(
             new Text.Strikethrough("hello").getText()).getText()).getText()).getText();
         Assertions.assertEquals("**_`~~hello~~`_**", full.toString());
+    }
+
+    @Test
+    public void eqTest1() {
+        Text italic = new Text.Strikethrough("hello").getText();
+        Text monospaced = new Text.Monospaced("hello").getText();
+        Assertions.assertNotEquals(italic, monospaced);
+    }
+
+    @Test
+    public void eqTest2() {
+        Text t1 = new Text.Strikethrough(new Text.Bold("hello").getText()).getText();
+        Text t2 = new Text.Bold(new Text.Strikethrough("hello").getText()).getText();
+        Assertions.assertEquals(t1, t2);
     }
 }
