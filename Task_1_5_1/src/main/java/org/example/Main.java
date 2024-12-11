@@ -6,7 +6,7 @@ package org.example;
 public class Main {
 
     /**
-     * Main function
+     * Main function.
      *
      * @param args Args.
      */
