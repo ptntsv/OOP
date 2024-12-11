@@ -75,11 +75,12 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="Blockquote.html" title="class in org.example">Blockquote</a></code>, <code><a href="Heading.html" title="class in org.example">Heading</a></code>, <code><a href="Link.html" title="class in org.example">Link</a></code>, <code><a href="List.html" title="class in org.example">List</a></code>, <code><a href="Text.html" title="class in org.example">Text</a></code></dd>
+<dd><code><a href="Blockquote.html" title="class in org.example">Blockquote</a></code>, <code><a href="Heading.html" title="class in org.example">Heading</a></code>, <code><a href="Image.html" title="class in org.example">Image</a></code>, <code><a href="Link.html" title="class in org.example">Link</a></code>, <code><a href="List.html" title="class in org.example">List</a></code>, <code><a href="Text.html" title="class in org.example">Text</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">Element</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Base Markdown element.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -94,10 +95,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>int</code></div>
 <div class="col-second even-row-color"><code><a href="#indentationLvl" class="member-name-link">indentationLvl</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Indentation level.</div>
+</div>
 <div class="col-first odd-row-color"><code>int</code></div>
 <div class="col-second odd-row-color"><code><a href="#indentationWidth" class="member-name-link">indentationWidth</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Default indentation width.</div>
+</div>
 </div>
 </section>
 </li>
@@ -127,10 +132,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#indent(java.lang.String)" class="member-name-link">indent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Element.html" title="class in org.example">Element</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withIndentationLvl(int)" class="member-name-link">withIndentationLvl</a><wbr>(int&nbsp;lvl)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Indents element as indentation level * indentation width.</div>
+</div>
 </div>
 </div>
 </div>
@@ -152,12 +156,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="indentationWidth">
 <h3>indentationWidth</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">indentationWidth</span></div>
+<div class="block">Default indentation width.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="indentationLvl">
 <h3>indentationLvl</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">indentationLvl</span></div>
+<div class="block">Indentation level.</div>
 </section>
 </li>
 </ul>
@@ -183,15 +189,16 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="withIndentationLvl(int)">
-<h3>withIndentationLvl</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Element.html" title="class in org.example">Element</a></span>&nbsp;<span class="element-name">withIndentationLvl</span><wbr><span class="parameters">(int&nbsp;lvl)</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="indent(java.lang.String)">
 <h3>indent</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">indent</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;str)</span></div>
+<div class="block">Indents element as indentation level * indentation width.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>str</code> - String to indent.</dd>
+<dt>Returns:</dt>
+<dd>Indented string.</dd>
+</dl>
 </section>
 </li>
 </ul>

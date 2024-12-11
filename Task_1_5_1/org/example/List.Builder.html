@@ -109,19 +109,29 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addItem(org.example.Element)" class="member-name-link">addItem</a><wbr>(<a href="Element.html" title="class in org.example">Element</a>&nbsp;toAdd)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adding element in list.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="List.Builder.html" title="class in org.example">List.Builder</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#asIndented()" class="member-name-link">asIndented</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Specifies that list should be considered as indented (rather than nested).</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="List.html" title="class in org.example">List</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#build()" class="member-name-link">build</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets list instance.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="List.Builder.html" title="class in org.example">List.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withOrder(org.example.ListTypes)" class="member-name-link">withOrder</a><wbr>(<a href="ListTypes.html" title="enum class in org.example">ListTypes</a>&nbsp;listType)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSign(org.example.UnorderedListSigns)" class="member-name-link">withSign</a><wbr>(<a href="UnorderedListSigns.html" title="enum class in org.example">UnorderedListSigns</a>&nbsp;sign)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Specifies unordered list mark (if list is ordered then property is ignoring).</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="List.Builder.html" title="class in org.example">List.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSign(org.example.UnorderedListSigns)" class="member-name-link">withSign</a><wbr>(<a href="UnorderedListSigns.html" title="enum class in org.example">UnorderedListSigns</a>&nbsp;sign)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withType(org.example.ListTypes)" class="member-name-link">withType</a><wbr>(<a href="ListTypes.html" title="enum class in org.example">ListTypes</a>&nbsp;listType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Specifies type of list (ordered or unordered).</div>
+</div>
 </div>
 </div>
 </div>
@@ -157,30 +167,59 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="addItem(org.example.Element)">
 <h3>addItem</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addItem</span><wbr><span class="parameters">(<a href="Element.html" title="class in org.example">Element</a>&nbsp;toAdd)</span></div>
+<div class="block">Adding element in list.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>toAdd</code> - Element to add.</dd>
+</dl>
 </section>
 </li>
 <li>
-<section class="detail" id="withOrder(org.example.ListTypes)">
-<h3>withOrder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="List.Builder.html" title="class in org.example">List.Builder</a></span>&nbsp;<span class="element-name">withOrder</span><wbr><span class="parameters">(<a href="ListTypes.html" title="enum class in org.example">ListTypes</a>&nbsp;listType)</span></div>
+<section class="detail" id="withType(org.example.ListTypes)">
+<h3>withType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="List.Builder.html" title="class in org.example">List.Builder</a></span>&nbsp;<span class="element-name">withType</span><wbr><span class="parameters">(<a href="ListTypes.html" title="enum class in org.example">ListTypes</a>&nbsp;listType)</span></div>
+<div class="block">Specifies type of list (ordered or unordered).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>listType</code> - Provided list type.</dd>
+<dt>Returns:</dt>
+<dd>New list builder instance.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="withSign(org.example.UnorderedListSigns)">
 <h3>withSign</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="List.Builder.html" title="class in org.example">List.Builder</a></span>&nbsp;<span class="element-name">withSign</span><wbr><span class="parameters">(<a href="UnorderedListSigns.html" title="enum class in org.example">UnorderedListSigns</a>&nbsp;sign)</span></div>
+<div class="block">Specifies unordered list mark (if list is ordered then property is ignoring).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sign</code> - List mark sign.</dd>
+<dt>Returns:</dt>
+<dd>New list builder instance.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="asIndented()">
 <h3>asIndented</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="List.Builder.html" title="class in org.example">List.Builder</a></span>&nbsp;<span class="element-name">asIndented</span>()</div>
+<div class="block">Specifies that list should be considered as indented (rather than nested).</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>New list builder instance.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="build()">
 <h3>build</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="List.html" title="class in org.example">List</a></span>&nbsp;<span class="element-name">build</span>()</div>
+<div class="block">Gets list instance.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>New List instance.</dd>
+</dl>
 </section>
 </li>
 </ul>
