@@ -2,9 +2,16 @@ package org.example;
 
 import java.util.ArrayList;
 
+/**
+ * Represents Markdown's list element.
+ */
+
 public class List extends Element {
 
 
+    /**
+     * List builder.
+     */
     public static class Builder {
 
         private final List list = new List();

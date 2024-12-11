@@ -4,6 +4,10 @@ import org.example.Text;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Image test class.
+ */
+
 public class ImageTests {
 
     @Test

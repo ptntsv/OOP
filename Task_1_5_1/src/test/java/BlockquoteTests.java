@@ -4,6 +4,9 @@ import org.example.Text;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Blockquote test class.
+ */
 public class BlockquoteTests {
 
     @Test
@@ -34,7 +37,8 @@ public class BlockquoteTests {
 
     @Test
     public void multiLineTest() {
-        String text = "Hello!\nI'm a multiline blockquote\nThat should be\nConverted\n(42)\nTo markdown";
+        String text =
+            "Hello!\nI'm a multiline blockquote\nThat should be\nConverted\n(42)\nTo markdown";
         StringBuilder sb = new StringBuilder();
         var strings = text.split("\n");
         for (int i = 0; i < strings.length; i++) {

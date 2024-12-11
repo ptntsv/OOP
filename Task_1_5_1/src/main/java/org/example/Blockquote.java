@@ -5,6 +5,9 @@ package org.example;
  */
 public class Blockquote extends Element {
 
+    /**
+     * Quote builder.
+     */
     public static class Builder {
 
         private final Blockquote blockquote = new Blockquote();

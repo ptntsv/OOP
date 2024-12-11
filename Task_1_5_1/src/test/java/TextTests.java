@@ -2,6 +2,9 @@ import org.example.Text;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Text test class.
+ */
 public class TextTests {
 
     @Test

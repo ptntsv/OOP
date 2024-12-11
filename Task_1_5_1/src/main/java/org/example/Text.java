@@ -7,6 +7,9 @@ import java.util.EnumSet;
  */
 public class Text extends Element {
 
+    /**
+     * Bold builder.
+     */
     public static class Bold extends AbstractTextModifier {
 
         public Bold(String content) {
@@ -23,6 +26,9 @@ public class Text extends Element {
         }
     }
 
+    /**
+     * Italic builder.
+     */
     public static class Italic extends AbstractTextModifier {
 
         public Italic(String content) {
@@ -39,6 +45,9 @@ public class Text extends Element {
         }
     }
 
+    /**
+     * Monospaced builder.
+     */
     public static class Monospaced extends AbstractTextModifier {
 
         public Monospaced(String content) {
@@ -55,6 +64,9 @@ public class Text extends Element {
         }
     }
 
+    /**
+     * Strikethrough builder.
+     */
     public static class Strikethrough extends AbstractTextModifier {
 
         public Strikethrough(String content) {

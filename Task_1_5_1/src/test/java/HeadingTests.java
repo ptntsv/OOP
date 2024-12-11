@@ -4,6 +4,9 @@ import org.example.Text;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Heading test class.
+ */
 public class HeadingTests {
 
     @Test

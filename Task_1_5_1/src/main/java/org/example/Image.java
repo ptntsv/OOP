@@ -5,6 +5,9 @@ package org.example;
  */
 public class Image extends Element {
 
+    /**
+     * Image builder.
+     */
     public static class Builder {
 
         private final Image image = new Image();

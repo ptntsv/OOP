@@ -5,6 +5,9 @@ import org.example.Text;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Link test class.
+ */
 public class LinkTests {
 
     @Test
