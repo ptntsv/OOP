@@ -80,6 +80,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">AbstractTextModifier</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Represents base text modifier.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -94,7 +95,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected <a href="Text.html" title="class in org.example">Text</a></code></div>
 <div class="col-second even-row-color"><code><a href="#text" class="member-name-link">text</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Text field.</div>
+</div>
 </div>
 </section>
 </li>
@@ -107,9 +110,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">AbstractTextModifier</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;content)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Constructor with string.</div>
+</div>
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.example.Text)" class="member-name-link">AbstractTextModifier</a><wbr>(<a href="Text.html" title="class in org.example">Text</a>&nbsp;text)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Constructor with text element.</div>
+</div>
 </div>
 </section>
 </li>
@@ -126,10 +133,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#decorate()" class="member-name-link">decorate</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Applies modifiers to text.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Text.html" title="class in org.example">Text</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getText()" class="member-name-link">getText</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Text getter.</div>
+</div>
 </div>
 </div>
 </div>
@@ -151,6 +162,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="text">
 <h3>text</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Text.html" title="class in org.example">Text</a></span>&nbsp;<span class="element-name">text</span></div>
+<div class="block">Text field.</div>
 </section>
 </li>
 </ul>
@@ -165,12 +177,22 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.lang.String)">
 <h3>AbstractTextModifier</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AbstractTextModifier</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;content)</span></div>
+<div class="block">Constructor with string.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>content</code> - Provided string.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(org.example.Text)">
 <h3>AbstractTextModifier</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AbstractTextModifier</span><wbr><span class="parameters">(<a href="Text.html" title="class in org.example">Text</a>&nbsp;text)</span></div>
+<div class="block">Constructor with text element.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>text</code> - Text element.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -185,12 +207,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="decorate()">
 <h3>decorate</h3>
 <div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">decorate</span>()</div>
+<div class="block">Applies modifiers to text.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getText()">
 <h3>getText</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Text.html" title="class in org.example">Text</a></span>&nbsp;<span class="element-name">getText</span>()</div>
+<div class="block">Text getter.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>Text instance.</dd>
+</dl>
 </section>
 </li>
 </ul>
