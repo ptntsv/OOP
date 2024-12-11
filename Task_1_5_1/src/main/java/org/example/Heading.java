@@ -48,6 +48,12 @@ public class Heading extends Element {
     private Text content;
     private int level = 1;
 
+    /**
+     * Setting heading level.
+     *
+     * @param lvl Level.
+     * @throws BadHeadingLevelException if quote level is greater than 6.
+     */
     public void setLevel(int lvl) throws BadHeadingLevelException {
         if (lvl > 6) {
             throw new BadHeadingLevelException(lvl);

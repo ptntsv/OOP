@@ -5,6 +5,11 @@ package org.example;
  */
 public class Main {
 
+    /**
+     * Main function
+     *
+     * @param args Args.
+     */
     public static void main(String[] args) {
         String coolString = "Cool String";
         Text coolBoldString = new Text.Bold(coolString).getText(); // becomes like **Cool String**
