@@ -5,12 +5,18 @@ package org.example;
  */
 public class Image extends Element {
 
+    public Image() {
+    }
+
     /**
      * Image builder.
      */
     public static class Builder {
 
         private final Image image = new Image();
+
+        public Builder() {
+        }
 
         public Image.Builder withLink(Link link) {
             image.link = link;

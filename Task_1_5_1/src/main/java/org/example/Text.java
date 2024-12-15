@@ -1,11 +1,33 @@
 package org.example;
 
-import java.util.EnumSet;
-
 /**
  * Represents Markdown's text element.
  */
 public class Text extends Element {
+
+    /**
+     * Represents base text modifier.
+     */
+    public abstract static class AbstractTextModifier extends Text {
+
+        /**
+         * Constructor with string.
+         *
+         * @param content Provided string.
+         */
+        public AbstractTextModifier(String content) {
+            this.content = content;
+        }
+
+        /**
+         * Constructor with text element.
+         *
+         * @param text Text element.
+         */
+        public AbstractTextModifier(Text text) {
+            this.content = text.toString();
+        }
+    }
 
     /**
      * Bold builder.
@@ -21,8 +43,8 @@ public class Text extends Element {
         }
 
         @Override
-        public void decorate() {
-            this.text.modifiers.add(TextModifiers.BOLD);
+        public String toString() {
+            return "**" + content + "**";
         }
     }
 
@@ -40,8 +62,8 @@ public class Text extends Element {
         }
 
         @Override
-        public void decorate() {
-            this.text.modifiers.add(TextModifiers.ITALIC);
+        public String toString() {
+            return '_' + content + '_';
         }
     }
 
@@ -59,8 +81,8 @@ public class Text extends Element {
         }
 
         @Override
-        public void decorate() {
-            this.text.modifiers.add(TextModifiers.MONOSPACED);
+        public String toString() {
+            return '`' + content + '`';
         }
     }
 
@@ -78,8 +100,8 @@ public class Text extends Element {
         }
 
         @Override
-        public void decorate() {
-            this.text.modifiers.add(TextModifiers.STRIKETHROUGH);
+        public String toString() {
+            return "~~" + content + "~~";
         }
     }
 
@@ -87,32 +109,7 @@ public class Text extends Element {
      * Text content.
      */
     String content = "";
-    /**
-     * Current modifiers.
-     */
-    private final EnumSet<TextModifiers> modifiers = EnumSet.of(TextModifiers.PLAIN);
 
-    /**
-     * Formats text content based upon current modifiers.
-     *
-     * @return Formatted string.
-     */
-    private StringBuilder format() {
-        StringBuilder mods = new StringBuilder();
-        if (modifiers.contains(TextModifiers.BOLD)) {
-            mods.append("**");
-        }
-        if (modifiers.contains(TextModifiers.ITALIC)) {
-            mods.append("_");
-        }
-        if (modifiers.contains(TextModifiers.MONOSPACED)) {
-            mods.append("`");
-        }
-        if (modifiers.contains(TextModifiers.STRIKETHROUGH)) {
-            mods.append("~~");
-        }
-        return mods;
-    }
 
     /**
      * Constructor.
@@ -129,7 +126,7 @@ public class Text extends Element {
 
     @Override
     public String toString() {
-        return indent(format() + this.content + format().reverse());
+        return indent(content);
     }
 
     @Override

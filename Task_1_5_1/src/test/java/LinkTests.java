@@ -18,7 +18,7 @@ public class LinkTests {
 
     @Test
     public void boldTextTest() {
-        Link.Builder lb = new Builder().withContent(new Text.Bold("Test").getText())
+        Link.Builder lb = new Builder().withContent(new Text.Bold("Test"))
             .withUrl("https://google.com");
         Assertions.assertEquals("[**Test**](https://google.com)", lb.build().toString());
     }

@@ -13,7 +13,7 @@ public class Heading extends Element {
         private final Heading heading = new Heading();
 
         /**
-         * Setting up blockquote level.
+         * Setting up heading level.
          *
          * @param lvl Level.
          * @return New builder instance.
@@ -25,7 +25,7 @@ public class Heading extends Element {
         }
 
         /**
-         * Setting up blockquote content.
+         * Setting up heading content.
          *
          * @param content Content.
          * @return New builder instance.

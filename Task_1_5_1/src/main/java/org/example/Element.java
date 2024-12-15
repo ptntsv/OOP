@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Arrays;
+
 /**
  * Base Markdown element.
  */
@@ -8,12 +10,44 @@ public abstract class Element {
     /**
      * Default indentation width.
      */
-    public int indentationWidth = 4;
+    private int indentationWidth = 4;
+
+    /**
+     * Indentation width getter.
+     *
+     * @return Indentation width.
+     */
+    protected int getIndentationWidth() {
+        return indentationWidth;
+    }
+
+    /**
+     * Indentation width setter.
+     */
+    protected void setIndentationWidth(int width) {
+        indentationWidth = width;
+    }
 
     /**
      * Indentation level.
      */
-    public int indentationLvl = 0;
+    private int indentationLvl = 0;
+
+    /**
+     * Indentation level getter.
+     *
+     * @return Indentation level.
+     */
+    protected int getIndentationLvl() {
+        return indentationLvl;
+    }
+
+    /**
+     * Indentation level setter.
+     */
+    protected void setIndentationLvl(int lvl) {
+        indentationLvl = lvl;
+    }
 
     /**
      * Indents element as indentation level * indentation width.
@@ -22,6 +56,15 @@ public abstract class Element {
      * @return Indented string.
      */
     public String indent(String str) {
-        return " ".repeat(indentationLvl * indentationWidth) + str;
+        return Arrays.stream(str.split("\n"))
+            .reduce("",
+                (String prev, String line) -> prev + " ".repeat(indentationLvl * indentationWidth) + line + '\n').stripTrailing();
     }
+
+    /**
+     * toString method.
+     *
+     * @return String representation.
+     */
+    public abstract String toString();
 }

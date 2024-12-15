@@ -5,12 +5,18 @@ package org.example;
  */
 public class Link extends Element {
 
+    public Link() {
+    }
+
     /**
      * Link builder.
      */
     public static class Builder {
 
         private final Link link = new Link();
+
+        public Builder() {
+        }
 
         /**
          * Specifies link content (part inside brackets).

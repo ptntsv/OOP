@@ -22,9 +22,7 @@ public class List extends Element {
          * @param toAdd Element to add.
          */
         public void addItem(Element toAdd) {
-            if (toAdd instanceof List list) {
-                list.indentationLvl += 1;
-            }
+            toAdd.setIndentationLvl(toAdd.getIndentationLvl() + 1);
             list.lists.add(toAdd);
         }
 
@@ -97,33 +95,26 @@ public class List extends Element {
         } + " ";
     }
 
-    /**
-     * Formats incoming string by adding a prefix and indentation.
-     *
-     * @param str Incoming string.
-     * @param i   Current number.
-     * @return Formatted string.
-     */
-    private String format(String str, int i) {
-        return indent(buildPrefix(i) + str);
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         int i = 1;
         for (var el : lists) {
-            String str = el.toString().stripTrailing();
-            if (el instanceof List list) {
-                if (list.asIndented) {
-                    sb.append(str).append("\n");
+            String elStr = el.toString();
+            if (el instanceof List listEl) {
+                if (listEl.asIndented) {
+                    sb.append(indent(elStr)).append("\n");
                     continue;
                 }
-                str = str.substring(buildPrefix(i).length());
+                sb.append(buildPrefix(i++))
+                    .append(elStr.substring(buildPrefix(i).length()));
+            } else {
+                sb.append(buildPrefix(i++))
+                    .append(elStr.stripLeading());
             }
-            sb.append(format(str, i++)).append("\n");
+            sb.append("\n");
         }
-        return sb.toString();
+        return indent(sb.toString());
     }
 
     @Override

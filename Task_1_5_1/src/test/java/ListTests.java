@@ -13,6 +13,24 @@ import org.junit.jupiter.api.Test;
 public class ListTests {
 
     @Test
+    public void multiLinedTextListTest() {
+        Builder innerBuilder = new Builder().withType(ListTypes.ORDERED);
+        innerBuilder.addItem(new Text("first\nfirst\nfirst"));
+        innerBuilder.addItem(new Text("second"));
+        innerBuilder.addItem(new Text("third"));
+        innerBuilder.addItem(new Text("fourth\nfourth"));
+        String expected = """
+            1. first
+                first
+                first
+            2. second
+            3. third
+            4. fourth
+                fourth""";
+        Assertions.assertEquals(expected, innerBuilder.build().toString());
+    }
+
+    @Test
     public void orderedTest() {
         Builder innerBuilder = new Builder().withType(ListTypes.ORDERED);
         innerBuilder.addItem(new Text("first"));
@@ -24,8 +42,7 @@ public class ListTests {
             1. first
             2. second
             3. third
-            4. fourth
-            """;
+            4. fourth""";
         Assertions.assertEquals(expected, innerBuilder.build().toString());
     }
 
@@ -42,8 +59,7 @@ public class ListTests {
             * first
             * second
             * third
-            * fourth
-            """;
+            * fourth""";
         Assertions.assertEquals(expected, innerBuilder.build().toString());
 
     }
@@ -70,8 +86,7 @@ public class ListTests {
                 3. third indented
             2. second
             3. third
-            4. fourth
-            """;
+            4. fourth""";
         Assertions.assertEquals(expected, innerBuilder.build().toString());
     }
 
@@ -99,8 +114,7 @@ public class ListTests {
                 - third indented
             * second
             * third
-            * fourth
-            """;
+            * fourth""";
         Assertions.assertEquals(expected, innerBuilder.build().toString());
     }
 
@@ -124,8 +138,7 @@ public class ListTests {
                 2. first second
                 3. first third
             3. second
-            4. third
-            """;
+            4. third""";
         Assertions.assertEquals(expected, innerBuilder.build().toString());
     }
 
@@ -150,8 +163,7 @@ public class ListTests {
                 2. first second
                 3. first third
             + second
-            + third
-            """;
+            + third""";
         Assertions.assertEquals(expected, innerBuilder.build().toString());
     }
 
