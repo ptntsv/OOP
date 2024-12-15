@@ -1,8 +1,5 @@
 package org.example;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Represents Markdown's blockquote element.
  */
@@ -15,13 +12,9 @@ public class Blockquote extends Element {
 
         private final Blockquote blockquote = new Blockquote();
 
-        public Builder asMultiline() {
-            blockquote.asMultiline = true;
+        public Builder withContent(Element content) {
+            blockquote.content = content;
             return this;
-        }
-
-        public void addItem(Element element) {
-            blockquote.elements.add(element);
         }
 
         public Builder withIndent(int indentLvl) {
@@ -37,27 +30,20 @@ public class Blockquote extends Element {
     /**
      * Blockquote content.
      */
-    private final List<Element> elements = new ArrayList<>();
+    private Element content = new Text("");
     /**
      * Blockquote level.
      */
     private int quoteLevel = 1;
 
-    /**
-     * Either blockquote is multilined or not.
-     */
-    private boolean asMultiline = false;
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        if (elements.isEmpty()) {
-            sb.append(">");
-            return sb.toString();
-        }
-        for (int i = 0; i < elements.size(); i++) {
-            sb.append(">".repeat(quoteLevel)).append(" ").append(elements.get(i)).append("\n");
-            if (i < elements.size() - 1 && asMultiline) {
+        var paragraphs = content.toString().split("\n");
+        for (int i = 0; i < paragraphs.length; i++) {
+            sb.append(">".repeat(quoteLevel)).append(" ").append(paragraphs[i]).append("\n");
+            if (i < paragraphs.length - 1) {
                 sb.append(">\n");
             }
         }
@@ -67,7 +53,7 @@ public class Blockquote extends Element {
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Blockquote another) {
-            return elements.equals(another.elements) && quoteLevel == another.quoteLevel;
+            return content.equals(another.content) && quoteLevel == another.quoteLevel;
         }
         return false;
     }
