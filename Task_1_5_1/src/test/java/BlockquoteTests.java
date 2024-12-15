@@ -36,7 +36,26 @@ public class BlockquoteTests {
     }
 
     @Test
-    public void multiLineTest() {
+    public void multiLineTest1() {
+        String text =
+            "Hello!\nI'm a multiline blockquote\nThat should be\nConverted\n(42)\nTo markdown";
+        Blockquote.Builder bb = new Builder().withIndent(1);
+        var strings = text.split("\n");
+        for (String string : strings) {
+            bb.addItem(new Text(string));
+        }
+        String expected = """
+            > Hello!
+            > I'm a multiline blockquote
+            > That should be
+            > Converted
+            > (42)
+            > To markdown""";
+        Assertions.assertEquals(expected, bb.build().toString());
+    }
+
+    @Test
+    public void multiLineTest2() {
         String text =
             "Hello!\nI'm a multiline blockquote\nThat should be\nConverted\n(42)\nTo markdown";
         Blockquote.Builder bb = new Builder().asMultiline().withIndent(1);

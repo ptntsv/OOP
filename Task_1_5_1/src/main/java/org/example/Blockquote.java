@@ -56,12 +56,12 @@ public class Blockquote extends Element {
             return sb.toString();
         }
         for (int i = 0; i < elements.size(); i++) {
-            sb.append(">".repeat(quoteLevel)).append(" ").append(elements.get(i));
+            sb.append(">".repeat(quoteLevel)).append(" ").append(elements.get(i)).append("\n");
             if (i < elements.size() - 1 && asMultiline) {
-                sb.append("\n>\n");
+                sb.append(">\n");
             }
         }
-        return sb.toString();
+        return sb.toString().stripTrailing();
     }
 
     @Override
