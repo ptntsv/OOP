@@ -37,7 +37,8 @@ public class BlockquoteTests {
 
     @Test
     public void multiLineTest() {
-        String text = "Hello!\nI'm a multiline blockquote\nThat should be\nConverted\n(42)\nTo markdown";
+        String text =
+            "Hello!\nI'm a multiline blockquote\nThat should be\nConverted\n(42)\nTo markdown";
         Blockquote.Builder bb = new Builder().asMultiline().withIndent(1);
         var strings = text.split("\n");
         for (String string : strings) {

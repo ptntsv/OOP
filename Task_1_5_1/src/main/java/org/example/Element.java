@@ -56,9 +56,9 @@ public abstract class Element {
      * @return Indented string.
      */
     public String indent(String str) {
-        return Arrays.stream(str.split("\n"))
-            .reduce("",
-                (String prev, String line) -> prev + " ".repeat(indentationLvl * indentationWidth) + line + '\n').stripTrailing();
+        return Arrays.stream(str.split("\n")).reduce("",
+            (String prev, String line) -> prev + " ".repeat(indentationLvl * indentationWidth)
+                + line + '\n').stripTrailing();
     }
 
     /**
