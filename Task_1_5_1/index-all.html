@@ -51,18 +51,16 @@ loadScripts(document, 'script');</script>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="serialized-form.html">Serialized&nbsp;Form</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
-<dt><a href="org/example/AbstractTextModifier.html" class="type-name-link" title="class in org.example">AbstractTextModifier</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>
-<div class="block">Represents base text modifier.</div>
-</dd>
-<dt><a href="org/example/AbstractTextModifier.html#%3Cinit%3E(java.lang.String)" class="member-name-link">AbstractTextModifier(String)</a> - Constructor for class org.example.<a href="org/example/AbstractTextModifier.html" title="class in org.example">AbstractTextModifier</a></dt>
+<dt><a href="org/example/Text.AbstractTextModifier.html#%3Cinit%3E(java.lang.String)" class="member-name-link">AbstractTextModifier(String)</a> - Constructor for class org.example.<a href="org/example/Text.AbstractTextModifier.html" title="class in org.example">Text.AbstractTextModifier</a></dt>
 <dd>
 <div class="block">Constructor with string.</div>
 </dd>
-<dt><a href="org/example/AbstractTextModifier.html#%3Cinit%3E(org.example.Text)" class="member-name-link">AbstractTextModifier(Text)</a> - Constructor for class org.example.<a href="org/example/AbstractTextModifier.html" title="class in org.example">AbstractTextModifier</a></dt>
+<dt><a href="org/example/Text.AbstractTextModifier.html#%3Cinit%3E(org.example.Text)" class="member-name-link">AbstractTextModifier(Text)</a> - Constructor for class org.example.<a href="org/example/Text.AbstractTextModifier.html" title="class in org.example">Text.AbstractTextModifier</a></dt>
 <dd>
 <div class="block">Constructor with text element.</div>
 </dd>
+<dt><a href="org/example/Blockquote.Builder.html#addItem(org.example.Element)" class="member-name-link">addItem(Element)</a> - Method in class org.example.<a href="org/example/Blockquote.Builder.html" title="class in org.example">Blockquote.Builder</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="org/example/List.Builder.html#addItem(org.example.Element)" class="member-name-link">addItem(Element)</a> - Method in class org.example.<a href="org/example/List.Builder.html" title="class in org.example">List.Builder</a></dt>
 <dd>
 <div class="block">Adding element in list.</div>
@@ -71,6 +69,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Specifies that list should be considered as indented (rather than nested).</div>
 </dd>
+<dt><a href="org/example/Blockquote.Builder.html#asMultiline()" class="member-name-link">asMultiline()</a> - Method in class org.example.<a href="org/example/Blockquote.Builder.html" title="class in org.example">Blockquote.Builder</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:B">B</h2>
 <dl class="index">
@@ -125,18 +125,6 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="org/example/UnorderedListSigns.html#DASH" class="member-name-link">DASH</a> - Enum constant in enum class org.example.<a href="org/example/UnorderedListSigns.html" title="enum class in org.example">UnorderedListSigns</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/AbstractTextModifier.html#decorate()" class="member-name-link">decorate()</a> - Method in class org.example.<a href="org/example/AbstractTextModifier.html" title="class in org.example">AbstractTextModifier</a></dt>
-<dd>
-<div class="block">Applies modifiers to text.</div>
-</dd>
-<dt><a href="org/example/Text.Bold.html#decorate()" class="member-name-link">decorate()</a> - Method in class org.example.<a href="org/example/Text.Bold.html" title="class in org.example">Text.Bold</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Text.Italic.html#decorate()" class="member-name-link">decorate()</a> - Method in class org.example.<a href="org/example/Text.Italic.html" title="class in org.example">Text.Italic</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Text.Monospaced.html#decorate()" class="member-name-link">decorate()</a> - Method in class org.example.<a href="org/example/Text.Monospaced.html" title="class in org.example">Text.Monospaced</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Text.Strikethrough.html#decorate()" class="member-name-link">decorate()</a> - Method in class org.example.<a href="org/example/Text.Strikethrough.html" title="class in org.example">Text.Strikethrough</a></dt>
-<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
 <dl class="index">
@@ -163,12 +151,16 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="org/example/UnorderedListSigns.html#getChar()" class="member-name-link">getChar()</a> - Method in enum class org.example.<a href="org/example/UnorderedListSigns.html" title="enum class in org.example">UnorderedListSigns</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="org/example/Element.html#getIndentationLvl()" class="member-name-link">getIndentationLvl()</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>
+<div class="block">Indentation level getter.</div>
+</dd>
+<dt><a href="org/example/Element.html#getIndentationWidth()" class="member-name-link">getIndentationWidth()</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>
+<div class="block">Indentation width getter.</div>
+</dd>
 <dt><a href="org/example/BadHeadingLevelException.html#getMsg()" class="member-name-link">getMsg()</a> - Method in class org.example.<a href="org/example/BadHeadingLevelException.html" title="class in org.example">BadHeadingLevelException</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/AbstractTextModifier.html#getText()" class="member-name-link">getText()</a> - Method in class org.example.<a href="org/example/AbstractTextModifier.html" title="class in org.example">AbstractTextModifier</a></dt>
-<dd>
-<div class="block">Text getter.</div>
-</dd>
 </dl>
 <h2 class="title" id="I:H">H</h2>
 <dl class="index">
@@ -198,14 +190,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/example/Element.html#indent(java.lang.String)" class="member-name-link">indent(String)</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
 <dd>
 <div class="block">Indents element as indentation level * indentation width.</div>
-</dd>
-<dt><a href="org/example/Element.html#indentationLvl" class="member-name-link">indentationLvl</a> - Variable in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
-<dd>
-<div class="block">Indentation level.</div>
-</dd>
-<dt><a href="org/example/Element.html#indentationWidth" class="member-name-link">indentationWidth</a> - Variable in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
-<dd>
-<div class="block">Default indentation width.</div>
 </dd>
 <dt><a href="org/example/Text.Italic.html#%3Cinit%3E(java.lang.String)" class="member-name-link">Italic(String)</a> - Constructor for class org.example.<a href="org/example/Text.Italic.html" title="class in org.example">Text.Italic</a></dt>
 <dd>&nbsp;</dd>
@@ -276,6 +260,14 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:S">S</h2>
 <dl class="index">
+<dt><a href="org/example/Element.html#setIndentationLvl(int)" class="member-name-link">setIndentationLvl(int)</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>
+<div class="block">Indentation level setter.</div>
+</dd>
+<dt><a href="org/example/Element.html#setIndentationWidth(int)" class="member-name-link">setIndentationWidth(int)</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>
+<div class="block">Indentation width setter.</div>
+</dd>
 <dt><a href="org/example/Heading.html#setLevel(int)" class="member-name-link">setLevel(int)</a> - Method in class org.example.<a href="org/example/Heading.html" title="class in org.example">Heading</a></dt>
 <dd>
 <div class="block">Setting heading level.</div>
@@ -291,10 +283,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:T">T</h2>
 <dl class="index">
-<dt><a href="org/example/AbstractTextModifier.html#text" class="member-name-link">text</a> - Variable in class org.example.<a href="org/example/AbstractTextModifier.html" title="class in org.example">AbstractTextModifier</a></dt>
-<dd>
-<div class="block">Text field.</div>
-</dd>
 <dt><a href="org/example/Text.html" class="type-name-link" title="class in org.example">Text</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
 <dd>
 <div class="block">Represents Markdown's text element.</div>
@@ -306,6 +294,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/example/Text.html#%3Cinit%3E(java.lang.String)" class="member-name-link">Text(String)</a> - Constructor for class org.example.<a href="org/example/Text.html" title="class in org.example">Text</a></dt>
 <dd>
 <div class="block">Constructor with string.</div>
+</dd>
+<dt><a href="org/example/Text.AbstractTextModifier.html" class="type-name-link" title="class in org.example">Text.AbstractTextModifier</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
+<dd>
+<div class="block">Represents base text modifier.</div>
 </dd>
 <dt><a href="org/example/Text.Bold.html" class="type-name-link" title="class in org.example">Text.Bold</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
 <dd>
@@ -329,6 +321,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/example/Blockquote.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Blockquote.html" title="class in org.example">Blockquote</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="org/example/Element.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Element.html" title="class in org.example">Element</a></dt>
+<dd>
+<div class="block">toString method.</div>
+</dd>
 <dt><a href="org/example/Heading.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Heading.html" title="class in org.example">Heading</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Image.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Image.html" title="class in org.example">Image</a></dt>
@@ -336,6 +332,14 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/example/Link.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Link.html" title="class in org.example">Link</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/List.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/List.html" title="class in org.example">List</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/example/Text.Bold.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Text.Bold.html" title="class in org.example">Text.Bold</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/example/Text.Italic.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Text.Italic.html" title="class in org.example">Text.Italic</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/example/Text.Monospaced.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Text.Monospaced.html" title="class in org.example">Text.Monospaced</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/example/Text.Strikethrough.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Text.Strikethrough.html" title="class in org.example">Text.Strikethrough</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Text.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Text.html" title="class in org.example">Text</a></dt>
 <dd>&nbsp;</dd>
@@ -381,21 +385,19 @@ the order they are declared.</div>
 </dl>
 <h2 class="title" id="I:W">W</h2>
 <dl class="index">
-<dt><a href="org/example/Blockquote.Builder.html#withContent(org.example.Element)" class="member-name-link">withContent(Element)</a> - Method in class org.example.<a href="org/example/Blockquote.Builder.html" title="class in org.example">Blockquote.Builder</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="org/example/Link.Builder.html#withContent(org.example.Element)" class="member-name-link">withContent(Element)</a> - Method in class org.example.<a href="org/example/Link.Builder.html" title="class in org.example">Link.Builder</a></dt>
 <dd>
 <div class="block">Specifies link content (part inside brackets).</div>
 </dd>
 <dt><a href="org/example/Heading.Builder.html#withContent(org.example.Text)" class="member-name-link">withContent(Text)</a> - Method in class org.example.<a href="org/example/Heading.Builder.html" title="class in org.example">Heading.Builder</a></dt>
 <dd>
-<div class="block">Setting up blockquote content.</div>
+<div class="block">Setting up heading content.</div>
 </dd>
 <dt><a href="org/example/Blockquote.Builder.html#withIndent(int)" class="member-name-link">withIndent(int)</a> - Method in class org.example.<a href="org/example/Blockquote.Builder.html" title="class in org.example">Blockquote.Builder</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Heading.Builder.html#withLevel(int)" class="member-name-link">withLevel(int)</a> - Method in class org.example.<a href="org/example/Heading.Builder.html" title="class in org.example">Heading.Builder</a></dt>
 <dd>
-<div class="block">Setting up blockquote level.</div>
+<div class="block">Setting up heading level.</div>
 </dd>
 <dt><a href="org/example/Image.Builder.html#withLink(org.example.Link)" class="member-name-link">withLink(Link)</a> - Method in class org.example.<a href="org/example/Image.Builder.html" title="class in org.example">Image.Builder</a></dt>
 <dd>&nbsp;</dd>
